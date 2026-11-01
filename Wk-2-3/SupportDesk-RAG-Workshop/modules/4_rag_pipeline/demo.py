@@ -201,23 +201,66 @@ print("="*80)
 # 2. Define what to do when information is missing
 # 3. Request citations for transparency and verification
 # 4. Set the role/persona for appropriate tone
-prompt_template = """You are SupportDesk AI, a technical support assistant that helps engineers troubleshoot issues using historical support ticket data.
 
-CRITICAL RULES:
-1. Answer using ONLY information from the provided context.
-2. If the question is broad or underspecified, provide the best matching known issue(s) from context and state any assumptions.
-3. If context is partially relevant, still provide the most likely troubleshooting guidance from relevant tickets.
-4. If the answer is truly not present in context, say "I don't have enough information in the ticket history to answer that question."
-5. DO NOT make up information or use external knowledge.
-6. Always cite ticket IDs for every issue/resolution you mention.
-7. If multiple tickets are relevant, summarize each briefly.
+###IB - Original
+# prompt_template = """You are SupportDesk AI, a technical support assistant that helps engineers troubleshoot issues using historical support ticket data.
 
-Context from support tickets:
+# CRITICAL RULES:
+# 1. Answer using ONLY information from the provided context.
+# 2. If the question is broad or underspecified, provide the best matching known issue(s) from context and state any assumptions.
+# 3. If context is partially relevant, still provide the most likely troubleshooting guidance from relevant tickets.
+# 4. If the answer is truly not present in context, say "I don't have enough information in the ticket history to answer that question."
+# 5. DO NOT make up information or use external knowledge.
+# 6. Always cite ticket IDs for every issue/resolution you mention.
+# 7. If multiple tickets are relevant, summarize each briefly.
+
+# Context from support tickets:
+# {context}
+
+# Question: {question}
+
+# Helpful Answer (with ticket citations):"""
+## IB - Exercise 1
+# prompt_template = """Answer the question using only the ticket context below. Cite ticket IDs.
+
+# Context: {context}
+
+# Question: {question}
+
+# Answer:"""
+
+# prompt_template = """You are a support assistant. Answer using ONLY the context below.
+
+# Context: {context}
+
+# Question: {question}
+
+# Think step by step:
+# 1. What tickets are relevant?
+# 2. What information do they contain?
+# 3. How does this answer the question?
+
+# Answer:"""
+
+# prompt_template = """Answer using only the context. Format as bullet points with ticket citations.
+
+# Context: {context}
+
+# Question: {question}
+
+# Answer (bullet points with sources):"""
+
+prompt_template = """Answer the question using the context. Include inline citations [TICK-XXX] after each fact.
+
+Example format:
+"Database connection timeouts occur when the pool is undersized [TICK-002]. Increase max_connections [TICK-002]."
+
+Context:
 {context}
 
 Question: {question}
 
-Helpful Answer (with ticket citations):"""
+Answer with inline citations:"""
 
 # Convert string template to ChatPromptTemplate
 # This creates a reusable template with variable placeholders
@@ -420,6 +463,39 @@ rag_with_validation(
     llm,
     min_similarity_score=0.5
 )
+
+def smart_rag(query, vector_store, llm, min_score_threshold=0.6):
+    """RAG with intelligent fallbacks"""
+    # Get docs with scores (lower distance = better match)
+    docs_with_scores = vector_store.similarity_search_with_score(query, k=3)
+    
+    if not docs_with_scores:
+        return "No relevant tickets found."
+    
+    best_distance = docs_with_scores[0][1]
+    
+    if best_distance < 0.5:  # Very relevant
+        return qa_chain.invoke(query)
+    
+    elif best_distance < 1.0:  # Somewhat relevant
+        ticket_id = docs_with_scores[0][0].metadata['ticket_id']
+        return f"Found possibly relevant ticket ({ticket_id}), but confidence is moderate."
+    
+    else:  # Not relevant
+        return "I don't have relevant ticket history for this question."
+
+# Test with different queries
+test_queries = [
+    ("authentication problems", "high confidence expected"),
+    ("system performance", "medium confidence expected"),
+    ("how to bake cookies", "low confidence expected")
+]
+
+for query, note in test_queries:
+    print(f"\nQuery: '{query}' ({note})")
+    answer, confidence = smart_rag(query, vector_store, llm)
+    print(f"  Confidence: {confidence}")
+    print(f"  Answer: {answer[:150]}...")
 
 # ============================================================================
 # PART 8: Conversation with History (Multi-Turn RAG)
