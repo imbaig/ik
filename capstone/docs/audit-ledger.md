@@ -220,3 +220,16 @@ publishable scope excludes secrets/runtime/course-originals and unrelated Wk-6/.
 User chose GitHub account imbaig; connector initially used ibaig99-design/read-only,
 while Git SSH confirmed imbaig. Cloud environment and unattended listener not configured
 at this entry. Checkpoint publication is not final course release/submission approval.
+
+## A023 — GitHub checkpoint and first remote CI verified
+
+Published scoped working baseline5c5a018e2fb818cb5b7b335f10902a0270f0cd6d on imbaig/ik/main
+through existing SSH as imbaig. GitHub-hosted offline CI run42460570713 completed success.
+Created issue2 as imbaig using the new capstone form: explicit identity-switch refusal CX,
+with deterministic regression, exact-revision local live validation and separate reviewer
+requirements. Issue remains unassigned pending hosted access. No app credential uploaded.
+
+GitHub connector still showed ibaig99-design/read-only at last check; user selected
+reconnecting as imbaig. Native GitHub Cloud settings reported no Copilot cloud-agent
+license. No account/plan/security settings changed. Prepared a scoped Codex Cloud setup
+script and task brief; published environment/continuous listener not yet established.
