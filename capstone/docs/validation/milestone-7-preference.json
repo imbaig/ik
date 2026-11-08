@@ -1,0 +1,434 @@
+{
+  "mode": "live_extractor",
+  "live_model_quality_validated": true,
+  "prompt_version": "memory-v1",
+  "case_count": 46,
+  "true_positive": 15,
+  "false_positive": 8,
+  "false_negative": 14,
+  "precision": 0.6521739130434783,
+  "recall": 0.5172413793103449,
+  "extraction_failures": 0,
+  "target_met": false,
+  "cases": [
+    {
+      "id": "heldout-pref-001",
+      "expected": [
+        "bebop"
+      ],
+      "actual": [
+        "bebop"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-002",
+      "expected": [
+        "bluegrass"
+      ],
+      "actual": [
+        "bluegrass"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-003",
+      "expected": [
+        "Nina Simone"
+      ],
+      "actual": [
+        "nina simone"
+      ],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-004",
+      "expected": [
+        "Massive Attack"
+      ],
+      "actual": [
+        "massive attack"
+      ],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-005",
+      "expected": [
+        "bossa nova"
+      ],
+      "actual": [
+        "bossa nova"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-006",
+      "expected": [
+        "Bj\u00f6rk",
+        "Portishead"
+      ],
+      "actual": [
+        "bj\u00f6rk",
+        "portishead"
+      ],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-007",
+      "expected": [
+        "gospel",
+        "soul"
+      ],
+      "actual": [
+        "gospel",
+        "soul"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-008",
+      "expected": [
+        "ambient",
+        "shoegaze"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-009",
+      "expected": [
+        "Mot\u00f6rhead",
+        "trip hop"
+      ],
+      "actual": [
+        "mot\u00f6rhead",
+        "trip hop"
+      ],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-010",
+      "expected": [
+        "Fela Kuti"
+      ],
+      "actual": [
+        "fela kuti"
+      ],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-011",
+      "expected": [
+        "disco",
+        "funk"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-012",
+      "expected": [
+        "R.E.M."
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-013",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-014",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-015",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-016",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-017",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-018",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-019",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-020",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-021",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-022",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-023",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-024",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-025",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-026",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-027",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-028",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-029",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-030",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-031",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-032",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-033",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-034",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-035",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-036",
+      "expected": [
+        "Massive Attack"
+      ],
+      "actual": [
+        "massive attack"
+      ],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-037",
+      "expected": [
+        "funk"
+      ],
+      "actual": [
+        "funk"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-038",
+      "expected": [
+        "soul"
+      ],
+      "actual": [
+        "soul"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-039",
+      "expected": [
+        "bebop"
+      ],
+      "actual": [
+        "bebop"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-040",
+      "expected": [
+        "bebop"
+      ],
+      "actual": [
+        "bebop"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-041",
+      "expected": [
+        "Bj\u00f6rk"
+      ],
+      "actual": [
+        "bj\u00f6rk"
+      ],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-042",
+      "expected": [
+        "funk"
+      ],
+      "actual": [
+        "funk"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-043",
+      "expected": [
+        "ambient"
+      ],
+      "actual": [
+        "ambient"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-044",
+      "expected": [
+        "bebop"
+      ],
+      "actual": [
+        "bebop"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-045",
+      "expected": [
+        "bossa nova",
+        "soul"
+      ],
+      "actual": [
+        "bossa nova",
+        "soul"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "heldout-pref-046",
+      "expected": [
+        "Portishead"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    }
+  ],
+  "model": "gpt-4o-mini",
+  "temperature": 0.0,
+  "cases_sha256": "e921c56dd9126e731720a15fcd47fb37f791c9c0ef9851e5344a046ba875f1f5"
+}

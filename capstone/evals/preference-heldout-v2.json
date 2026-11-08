@@ -1,0 +1,282 @@
+[
+  {
+    "id": "p01",
+    "text": "I love shoegaze. Please remember that.",
+    "expected": [
+      "shoegaze"
+    ]
+  },
+  {
+    "id": "p02",
+    "text": "My favorite artist is Fela Kuti.",
+    "expected": [
+      "Fela Kuti"
+    ]
+  },
+  {
+    "id": "p03",
+    "text": "I enjoy acid jazz and Afrobeat.",
+    "expected": [
+      "acid jazz",
+      "Afrobeat"
+    ]
+  },
+  {
+    "id": "p04",
+    "text": "I like Siouxsie and the Banshees.",
+    "expected": [
+      "Siouxsie and the Banshees"
+    ]
+  },
+  {
+    "id": "p05",
+    "text": "I love Godspeed You! Black Emperor and Einstürzende Neubauten.",
+    "expected": [
+      "Godspeed You! Black Emperor",
+      "Einstürzende Neubauten"
+    ]
+  },
+  {
+    "id": "p06",
+    "text": "My favorite genres are bossa nova, dub techno, and post-punk.",
+    "expected": [
+      "bossa nova",
+      "dub techno",
+      "post-punk"
+    ]
+  },
+  {
+    "id": "p07",
+    "text": "I enjoy the music of Youssou N’Dour.",
+    "expected": [
+      "Youssou N’Dour"
+    ]
+  },
+  {
+    "id": "p08",
+    "text": "I like drum and bass.",
+    "expected": [
+      "drum and bass"
+    ]
+  },
+  {
+    "id": "p09",
+    "text": "I adore A Tribe Called Quest and De La Soul.",
+    "expected": [
+      "A Tribe Called Quest",
+      "De La Soul"
+    ]
+  },
+  {
+    "id": "p10",
+    "text": "I prefer qawwali and Hindustani classical.",
+    "expected": [
+      "qawwali",
+      "Hindustani classical"
+    ]
+  },
+  {
+    "id": "p11",
+    "text": "My musical tastes include 좋아서하는밴드 and Sigur Rós.",
+    "expected": [
+      "좋아서하는밴드",
+      "Sigur Rós"
+    ]
+  },
+  {
+    "id": "p12",
+    "text": "I love electronic body music; I also love Italo disco.",
+    "expected": [
+      "electronic body music",
+      "Italo disco"
+    ]
+  },
+  {
+    "id": "m01",
+    "text": "I dislike arena rock, but I love math rock.",
+    "expected": [
+      "math rock"
+    ]
+  },
+  {
+    "id": "m02",
+    "text": "I do not enjoy Drake. I do enjoy Little Simz.",
+    "expected": [
+      "Little Simz"
+    ]
+  },
+  {
+    "id": "m03",
+    "text": "My sister loves reggaeton. I love highlife.",
+    "expected": [
+      "highlife"
+    ]
+  },
+  {
+    "id": "m04",
+    "text": "My husband is a fan of Tool and Primus; I am a fan of Portishead.",
+    "expected": [
+      "Portishead"
+    ]
+  },
+  {
+    "id": "m05",
+    "text": "Do you carry Opeth? My favorite artist is Oumou Sangaré.",
+    "expected": [
+      "Oumou Sangaré"
+    ]
+  },
+  {
+    "id": "m06",
+    "text": "I love krautrock and kosmische Musik, but I dislike country pop.",
+    "expected": [
+      "krautrock",
+      "kosmische Musik"
+    ]
+  },
+  {
+    "id": "m07",
+    "text": "The review says \"I love ambient.\" Personally, I love breakcore.",
+    "expected": [
+      "breakcore"
+    ]
+  },
+  {
+    "id": "m08",
+    "text": "If I liked power metal I would ask for it. I actually like funeral doom.",
+    "expected": [
+      "funeral doom"
+    ]
+  },
+  {
+    "id": "m09",
+    "text": "My friend dislikes salsa. I enjoy salsa and merengue.",
+    "expected": [
+      "salsa",
+      "merengue"
+    ]
+  },
+  {
+    "id": "m10",
+    "text": "I love The The. Does the store have Talk Talk?",
+    "expected": [
+      "The The"
+    ]
+  },
+  {
+    "id": "q01",
+    "text": "Do you carry nu jazz?",
+    "expected": []
+  },
+  {
+    "id": "q02",
+    "text": "What albums by King Gizzard & the Lizard Wizard are available?",
+    "expected": []
+  },
+  {
+    "id": "q03",
+    "text": "Can you find a few psychedelic soul tracks?",
+    "expected": []
+  },
+  {
+    "id": "q04",
+    "text": "What genres have I told you I like?",
+    "expected": []
+  },
+  {
+    "id": "n01",
+    "text": "I do not like vaporwave.",
+    "expected": []
+  },
+  {
+    "id": "n02",
+    "text": "I hate bro-country and electro swing.",
+    "expected": []
+  },
+  {
+    "id": "n03",
+    "text": "Please do not assume I like Meshuggah just because I asked about them.",
+    "expected": []
+  },
+  {
+    "id": "n04",
+    "text": "My favorite artist is not Björk.",
+    "expected": []
+  },
+  {
+    "id": "r01",
+    "text": "My daughter loves K-pop and J-pop.",
+    "expected": []
+  },
+  {
+    "id": "r02",
+    "text": "Our drummer prefers sludge metal; our singer likes neofolk.",
+    "expected": []
+  },
+  {
+    "id": "r03",
+    "text": "My friend texted me: \"I love Stereolab and Broadcast.\"",
+    "expected": []
+  },
+  {
+    "id": "r04",
+    "text": "Translate this sentence into French: \"I enjoy bluegrass.\"",
+    "expected": []
+  },
+  {
+    "id": "r05",
+    "text": "The sample customer statement is \"My favorite genre is grime.\"",
+    "expected": []
+  },
+  {
+    "id": "h01",
+    "text": "If I liked dungeon synth, could you suggest an album?",
+    "expected": []
+  },
+  {
+    "id": "h02",
+    "text": "Imagine that I am a fan of Motörhead for this role-play.",
+    "expected": []
+  },
+  {
+    "id": "h03",
+    "text": "I might like minimal wave, but I have not decided.",
+    "expected": []
+  },
+  {
+    "id": "h04",
+    "text": "I am curious about Zeuhl.",
+    "expected": []
+  },
+  {
+    "id": "h05",
+    "text": "I bought an album by Nils Frahm as a gift.",
+    "expected": []
+  },
+  {
+    "id": "h06",
+    "text": "People say I would probably enjoy progressive house.",
+    "expected": []
+  },
+  {
+    "id": "h07",
+    "text": "I listened to two tracks by Ryuichi Sakamoto yesterday.",
+    "expected": []
+  },
+  {
+    "id": "m11",
+    "text": "I like Lianne La Havas and neo-soul. My brother likes deathcore, which I dislike.",
+    "expected": [
+      "Lianne La Havas",
+      "neo-soul"
+    ]
+  },
+  {
+    "id": "m12",
+    "text": "My colleague wrote \"I prefer jazz fusion.\" I prefer cumbia and son cubano.",
+    "expected": [
+      "cumbia",
+      "son cubano"
+    ]
+  }
+]

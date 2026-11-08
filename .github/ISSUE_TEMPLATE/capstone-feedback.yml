@@ -1,0 +1,28 @@
+name: Capstone feedback
+description: Report a reproducible Music Store behavior or propose an improvement.
+title: '[Capstone] '
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps and exact sample conversation
+      description: Include sample customer ID, reset/new-chat steps and app revision. Never include API keys or real customer data.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior and acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or other evidence
+      description: Use public Chinook sample records only; redact secrets.

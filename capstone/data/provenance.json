@@ -1,0 +1,12 @@
+{
+  "dataset": "Chinook Database",
+  "version": "1.4.5",
+  "author": "Luis Rocha",
+  "repository": "https://github.com/lerocha/chinook-database",
+  "revision": "c14389e4466cb2dac9fe97782b8dfc6113ed3ae2",
+  "path": "ChinookDatabase/DataSources/Chinook_Sqlite.sql",
+  "sha256": "caf31d698a4a79c628215b552dfe6575e71be052ae02b8f18e763498f55f5d44",
+  "license": "CHINOOK-LICENSE.txt",
+  "retrieved": "2026-11-07",
+  "distribution": "SQL is downloaded on first bootstrap and ignored by Git; no SQL bundled"
+}

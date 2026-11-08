@@ -1,0 +1,21 @@
+{
+  "milestone": "M7 live validation",
+  "automated_tests_passed": 304,
+  "live_conversation_cases_passed": 16,
+  "live_conversation_cases_total": 16,
+  "sql_records_independently_checked": 29,
+  "preference_precision": 1.0,
+  "preference_recall": 0.9743589743589743,
+  "preference_cases": 46,
+  "independent_reviewer": "/root/milestone7_eval_cases",
+  "independent_semantic_review_complete": true,
+  "ready_for_human_review": true,
+  "human_acceptance": "pending",
+  "limits": [
+    "Conversation set exposed during corrective iterations; final successful run is regression evidence",
+    "Single configured gpt-4o-mini run does not establish general reliability",
+    "Conservative Everything But the Girl preference miss",
+    "Mixed-query overfetch and identity-refusal wording are nonblocking review observations"
+  ],
+  "next": "T09 clean setup, Docker and demo; release review before GitHub commit/push"
+}

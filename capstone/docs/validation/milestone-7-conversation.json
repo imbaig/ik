@@ -1,0 +1,1048 @@
+{
+  "timestamp": "2026-11-08T06:53:35.786240+00:00",
+  "mode": "live_conversation",
+  "model": "gpt-4o-mini",
+  "temperature": 0.0,
+  "max_attempts": 2,
+  "timeout_seconds": 30.0,
+  "max_graph_steps": 12,
+  "dataset_revision": "c14389e4466cb2dac9fe97782b8dfc6113ed3ae2",
+  "cases_sha256": "90248467f88a0e18a00ec970ae611f3a167e8761655193900b44655296859380",
+  "python": "3.12.14",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "concurrency": 1,
+  "case_count": 16,
+  "passed_cases": 2,
+  "all_mechanical_checks_passed": false,
+  "manual_semantic_review_required": true,
+  "milestone_acceptance": false,
+  "latency_samples": 47,
+  "latency_p50_ms": 925.7817500038072,
+  "latency_p95_ms": 15043.922082986683,
+  "cases": [
+    {
+      "id": "conv-01",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": true,
+            "nonempty_results": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "error",
+          "branch": "catalog",
+          "elapsed_ms": 11989.459208096378,
+          "tools": [
+            "get_albums_by_artist"
+          ],
+          "response_sha256": "b8bda5fa509e725fbe737b4050a0258552de94457be9056c93effff8ebdfe1eb"
+        },
+        {
+          "step": 2,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "nonempty_results": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "complete",
+          "branch": "catalog",
+          "elapsed_ms": 12518.576250062324,
+          "tools": [
+            "get_tracks_by_artist"
+          ],
+          "response_sha256": "783f21db2bff8c2b694a7497f166b12fec16bbeb66923df75bdd8a764e0757ee"
+        }
+      ]
+    },
+    {
+      "id": "conv-02",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": true,
+            "nonempty_results": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "error",
+          "branch": "catalog",
+          "elapsed_ms": 15558.301749988459,
+          "tools": [
+            "get_songs_by_genre"
+          ],
+          "response_sha256": "1ef13a4472c41350aa3dcf1ebe21fd0424a18d25721fa54750000c6e3478a4e4"
+        },
+        {
+          "step": 2,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": true,
+            "nonempty_results": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "error",
+          "branch": "catalog",
+          "elapsed_ms": 14557.25437507499,
+          "tools": [
+            "get_songs_by_genre"
+          ],
+          "response_sha256": "1ef13a4472c41350aa3dcf1ebe21fd0424a18d25721fa54750000c6e3478a4e4"
+        }
+      ]
+    },
+    {
+      "id": "conv-03",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": true,
+            "nonempty_results": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "error",
+          "branch": "catalog",
+          "elapsed_ms": 15043.922082986683,
+          "tools": [
+            "search_songs_by_title"
+          ],
+          "response_sha256": "01581635c31431adfcf21e82d6d271d7fa7b3e1899ff3f7dcdd8dcd539783dc4"
+        },
+        {
+          "step": 2,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": false,
+            "required_tools": false,
+            "nonempty_results": false,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "mixed",
+          "elapsed_ms": 925.7817500038072,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        }
+      ]
+    },
+    {
+      "id": "conv-04",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": true,
+            "no_data": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "error",
+          "branch": "catalog",
+          "elapsed_ms": 9059.02279203292,
+          "tools": [
+            "search_songs_by_title",
+            "search_songs_by_title",
+            "search_songs_by_title"
+          ],
+          "response_sha256": "fbc4efc11c0b3082a8690bd6c871444b488ab891c10cf87557847c0ed5959afc"
+        }
+      ]
+    },
+    {
+      "id": "conv-05",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 963.0732090445235,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": false,
+            "nonempty_results": false,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 811.072958051227,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        }
+      ]
+    },
+    {
+      "id": "conv-06",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 732.4863329995424,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 673.3762910589576,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        },
+        {
+          "step": 3,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": false,
+            "nonempty_results": false,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 618.6382500454783,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        }
+      ]
+    },
+    {
+      "id": "conv-07",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "mixed",
+          "elapsed_ms": 885.3694170247763,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": false,
+            "nonempty_results": false,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "mixed",
+          "elapsed_ms": 813.9661669265479,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        }
+      ]
+    },
+    {
+      "id": "conv-08",
+      "passed": true,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "mixed",
+          "elapsed_ms": 816.0662919981405,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "mixed",
+          "elapsed_ms": 809.0158749837428,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        },
+        {
+          "step": 3,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "nonempty_results": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "complete",
+          "branch": "catalog",
+          "elapsed_ms": 32166.93720803596,
+          "tools": [
+            "get_albums_by_artist",
+            "get_tracks_by_artist"
+          ],
+          "response_sha256": "64977c418f2d92bc00946621b1c32b9a9d8d73d46d41dcbe8a6542292eddacd2"
+        },
+        {
+          "step": 4,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 976.0350419674069,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        }
+      ]
+    },
+    {
+      "id": "conv-09",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 630.5372079368681,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 688.0649999948218,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        },
+        {
+          "step": 3,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": false,
+            "no_data": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 1002.2349579958245,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        }
+      ]
+    },
+    {
+      "id": "conv-10",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 674.3250839645043,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": false,
+            "nonempty_results": false,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 684.3807919649407,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        }
+      ]
+    },
+    {
+      "id": "conv-11",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 853.7299999734387,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": false,
+            "nonempty_results": false,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 913.4638339746743,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        }
+      ]
+    },
+    {
+      "id": "conv-12",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 998.5937910387293,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "complete",
+          "branch": "invoice",
+          "elapsed_ms": 10694.905125070363,
+          "tools": [
+            "get_invoices_by_customer_sorted_by_date"
+          ],
+          "response_sha256": "cc95383605c3014389a277371b41e07f48dfb52a773e5a4d174c55475ee5525d"
+        },
+        {
+          "step": 3,
+          "passed": false,
+          "checks": {
+            "status": true,
+            "branch": false,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "complete",
+          "branch": "memory_recall",
+          "elapsed_ms": 1490.2494580019265,
+          "tools": [],
+          "response_sha256": "11c07639afcd3ec82f08b4e8dca3c3d77f2524e8458b691453918be270ad2b9d"
+        },
+        {
+          "step": 4,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "complete",
+          "branch": "preference",
+          "elapsed_ms": 1519.6072910912335,
+          "tools": [],
+          "response_sha256": "aaeaf2d71d6b2af499c58165535040f140830b9a1ab64c481b59ce907285c24f"
+        },
+        {
+          "step": 5,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "error",
+          "branch": "catalog",
+          "elapsed_ms": 11580.17833402846,
+          "tools": [
+            "get_songs_by_genre"
+          ],
+          "response_sha256": "0d0a004880dabaef28072fa511885186606a6e01c8db8ee5eb2247edebdb1375"
+        },
+        {
+          "step": 6,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "complete",
+          "branch": "memory_recall",
+          "elapsed_ms": 2050.9006670909002,
+          "tools": [],
+          "response_sha256": "3f1627fee6b85133947008aaedf4baf3e2e382930484371aee01e865bb43ceaf"
+        }
+      ]
+    },
+    {
+      "id": "conv-13",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 749.6419580420479,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 744.3679580464959,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        },
+        {
+          "step": 3,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 1015.1411250699311,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        },
+        {
+          "step": 4,
+          "passed": true,
+          "checks": {
+            "reset": true
+          }
+        },
+        {
+          "step": 5,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 844.2114170175046,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 6,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "complete",
+          "branch": "invoice",
+          "elapsed_ms": 10929.008833016269,
+          "tools": [
+            "get_invoices_by_customer_sorted_by_date"
+          ],
+          "response_sha256": "970de41fc89864a4a69f4ba3102625ba2f4bba087487ed53de6e3e2ad46d3633"
+        },
+        {
+          "step": 7,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "complete",
+          "branch": "memory_recall",
+          "elapsed_ms": 1638.8663749676198,
+          "tools": [],
+          "response_sha256": "cec4325ad2eccb203d3f07010595ad0fff24426e7727bf3e6fc09b8dabf2409d"
+        }
+      ]
+    },
+    {
+      "id": "conv-14",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 839.7000000113621,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 693.4611670440063,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        },
+        {
+          "step": 3,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": false,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 678.2184590119869,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        },
+        {
+          "step": 4,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 793.3247500332072,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        },
+        {
+          "step": 5,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 625.2963750157505,
+          "tools": [],
+          "response_sha256": "82ca9d6f2c84af95255bbf3f4ec0916a61f8fb1d42cd0ea69c4c1c7581de2cf9"
+        },
+        {
+          "step": 6,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": false,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "retry_limit",
+          "branch": "invoice",
+          "elapsed_ms": 1124.5096659986302,
+          "tools": [],
+          "response_sha256": "05cc59259b4cf6a47ffac0ca5bfc69d3e83c5ab73ea814c831a0597128682497"
+        }
+      ]
+    },
+    {
+      "id": "conv-15",
+      "passed": true,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "off_topic",
+          "branch": "off_topic",
+          "elapsed_ms": 1012.4697079882026,
+          "tools": [],
+          "response_sha256": "345e91b0cd023e46badd05cdf93e4b5f2e4f745c6ff9e918a7a9670a6aad69dc"
+        }
+      ]
+    },
+    {
+      "id": "conv-16",
+      "passed": false,
+      "steps": [
+        {
+          "step": 1,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "no_records": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true
+          },
+          "status": "waiting",
+          "branch": "invoice",
+          "elapsed_ms": 836.707790964283,
+          "tools": [],
+          "response_sha256": "ab3941a4eaeaf5359c8aae04a7e8525258429ff434e983d88f30d58432198500"
+        },
+        {
+          "step": 2,
+          "passed": true,
+          "checks": {
+            "status": true,
+            "branch": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "complete",
+          "branch": "invoice",
+          "elapsed_ms": 11448.769834009,
+          "tools": [
+            "get_invoices_by_customer_sorted_by_date"
+          ],
+          "response_sha256": "cc95383605c3014389a277371b41e07f48dfb52a773e5a4d174c55475ee5525d"
+        },
+        {
+          "step": 3,
+          "passed": false,
+          "checks": {
+            "status": false,
+            "branch": true,
+            "required_tools": true,
+            "required_text": true,
+            "forbidden_text": true,
+            "sql_facts_and_ownership": true,
+            "envelope_consistency": true,
+            "tool_render_present": true
+          },
+          "status": "error",
+          "branch": "invoice",
+          "elapsed_ms": 12311.766083003022,
+          "tools": [
+            "get_invoices_by_customer_sorted_by_date",
+            "get_invoices_by_customer_sorted_by_date"
+          ],
+          "response_sha256": "4ccc0da19c980f38d4414846079e936e71858c9dd1b18efd26caf99829bc3266"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "SQL membership checks validate facts, not full search completeness",
+    "Response grounding check does not prove absence of all unsupported prose",
+    "Manual transcript review is required for intent and semantic grounding",
+    "Sequential local calls; not a production load benchmark"
+  ],
+  "status": "completed",
+  "transcript_path": ".cache/evals/2026-11-08T06-53-35.786240+00-00.json",
+  "live_model_quality_validated": true
+}

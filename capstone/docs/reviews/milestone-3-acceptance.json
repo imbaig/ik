@@ -1,0 +1,27 @@
+{
+  "milestone": "M3 identity/HITL",
+  "approver": "Imran Baig",
+  "date": "2026-11-07",
+  "evidence": "LGTM, move to next milestone",
+  "accepted_handoff_artifacts_sha256": {
+    "pyproject.toml": "e4eb357f77f3bff33483f1a0ba254500bbc1539d9c95a6f7f6a09641f9455e45",
+    "requirements-dev.txt": "53585796d0f9862118f0ab9f79f60026c824e414472cf733b223a5aee22f65fe",
+    "requirements.lock": "2cb04e176ae5115a3d074be9fc9cc06f4d4d74666da464b315c1bba503a044f8",
+    "requirements.txt": "005b50a1a247dadeca265e204de592db5cb246d87a0f49aea8047b3a7a06f17b",
+    "src/music_store/__init__.py": "3a474d1298dc60bc46565014dc082f18142b8cb5057641447d959262e42427c5",
+    "src/music_store/config.py": "0050afb91f7e7024e09916957aa6de7f4f174a4d2a00f8748446fc865b7d5cde",
+    "src/music_store/db.py": "bd9041ab61c62c22ff4c3a0bd46b0d0ce8e31f8eb9298fb051ebba37918494c1",
+    "src/music_store/identity.py": "cc416acaf229865db13d3827740bccd949d1f9cdaf7d0e07ec3b492a82f6be6c",
+    "src/music_store/model.py": "2b74fb640db0e3946c8b0996a8e3b82a38b75e1e3fac9a6b96013b2391b4c891",
+    "src/music_store/tools/__init__.py": "473b6b948648510158fe7289baa417956bfcfed409f5da2d4b95a884d8bfb9d4",
+    "src/music_store/tools/domain.py": "c8ef3e7d777280c6a35f5c96b7b56a3f7ae2ee6161ce35ec39f3eaeb1eaf259e",
+    "src/music_store/verification.py": "b360fef7057461ea4b3b0848a2f757e8bdd0b7b5436c24408033bf7dc3e91520",
+    "tests/conftest.py": "95c4fe70d83c8ff6e6b703bd6c48976404456905a8cf67c773cf97be9b38fece",
+    "tests/test_config.py": "91bea635b1f296193be7c6a867271f9fdfbb778df476599536bc287beadb8262",
+    "tests/test_db.py": "de77ea299f0ae30695f46e143d0d36938a7b362c1ca4e17aac89a4e1878337ed",
+    "tests/test_tools.py": "c3107894ad5e63abecb585dcdb644159f3ae27d5f15c8307917398a539fc4b8e",
+    "tests/test_verification.py": "0517bdf2d0057e18ca04dfffb8bc333544c849da26e2c58a630a1817bb343aa8",
+    "uv.lock": "c339ad0d9378e92ecf00935a515e8c8f9b876dd73618751ff8e72d505eed24d2"
+  },
+  "scope": "Accept M3; authorize M4 supervisor/specialists, not release"
+}

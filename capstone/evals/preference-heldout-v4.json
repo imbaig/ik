@@ -1,0 +1,297 @@
+[
+  {
+    "id": "p01",
+    "text": "I love desert blues.",
+    "expected": [
+      "desert blues"
+    ]
+  },
+  {
+    "id": "p02",
+    "text": "My favorite musician is Fatoumata Diawara.",
+    "expected": [
+      "Fatoumata Diawara"
+    ]
+  },
+  {
+    "id": "p03",
+    "text": "I enjoy MPB and forró.",
+    "expected": [
+      "MPB",
+      "forró"
+    ]
+  },
+  {
+    "id": "p04",
+    "text": "I like Everything But the Girl.",
+    "expected": [
+      "Everything But the Girl"
+    ]
+  },
+  {
+    "id": "p05",
+    "text": "I love The Jesus and Mary Chain and My Bloody Valentine.",
+    "expected": [
+      "The Jesus and Mary Chain",
+      "My Bloody Valentine"
+    ]
+  },
+  {
+    "id": "p06",
+    "text": "My favorite genres are hard bop, cool jazz, and modal jazz.",
+    "expected": [
+      "hard bop",
+      "cool jazz",
+      "modal jazz"
+    ]
+  },
+  {
+    "id": "p07",
+    "text": "I enjoy the music of Ali Farka Touré.",
+    "expected": [
+      "Ali Farka Touré"
+    ]
+  },
+  {
+    "id": "p08",
+    "text": "I like rock and roll.",
+    "expected": [
+      "rock and roll"
+    ]
+  },
+  {
+    "id": "p09",
+    "text": "I adore Nick Cave & the Bad Seeds and Antony and the Johnsons.",
+    "expected": [
+      "Nick Cave & the Bad Seeds",
+      "Antony and the Johnsons"
+    ]
+  },
+  {
+    "id": "p10",
+    "text": "I prefer calypso and soca.",
+    "expected": [
+      "calypso",
+      "soca"
+    ]
+  },
+  {
+    "id": "p11",
+    "text": "My musical tastes include Róisín Murphy and Zoë Keating.",
+    "expected": [
+      "Róisín Murphy",
+      "Zoë Keating"
+    ]
+  },
+  {
+    "id": "p12",
+    "text": "I love Detroit techno; I also love New Orleans brass band music.",
+    "expected": [
+      "Detroit techno",
+      "New Orleans brass band music"
+    ]
+  },
+  {
+    "id": "p13",
+    "text": "Please remember that I enjoy Mdou Moctar.",
+    "expected": [
+      "Mdou Moctar"
+    ]
+  },
+  {
+    "id": "p14",
+    "text": "I am a fan of art rock and glam rock.",
+    "expected": [
+      "art rock",
+      "glam rock"
+    ]
+  },
+  {
+    "id": "m01",
+    "text": "I dislike contemporary country, but I love western swing.",
+    "expected": [
+      "western swing"
+    ]
+  },
+  {
+    "id": "m02",
+    "text": "I do not enjoy Limp Bizkit. I do enjoy St. Vincent.",
+    "expected": [
+      "St. Vincent"
+    ]
+  },
+  {
+    "id": "m03",
+    "text": "My aunt loves disco polo. I love kizomba.",
+    "expected": [
+      "kizomba"
+    ]
+  },
+  {
+    "id": "m04",
+    "text": "My partner is a fan of Oasis and Blur; I am a fan of Tricky.",
+    "expected": [
+      "Tricky"
+    ]
+  },
+  {
+    "id": "m05",
+    "text": "Do you carry Baroness? My favorite artist is Cesária Évora.",
+    "expected": [
+      "Cesária Évora"
+    ]
+  },
+  {
+    "id": "m06",
+    "text": "I love ska and rocksteady, but I dislike reggae fusion.",
+    "expected": [
+      "ska",
+      "rocksteady"
+    ]
+  },
+  {
+    "id": "m07",
+    "text": "The magazine says \"I love Celtic metal.\" Personally, I love musique concrète.",
+    "expected": [
+      "musique concrète"
+    ]
+  },
+  {
+    "id": "m08",
+    "text": "If I liked melodic death metal I would request it. I actually like drone metal.",
+    "expected": [
+      "drone metal"
+    ]
+  },
+  {
+    "id": "m09",
+    "text": "My friend dislikes tango. I enjoy tango and milonga.",
+    "expected": [
+      "tango",
+      "milonga"
+    ]
+  },
+  {
+    "id": "m10",
+    "text": "I love Sunn O))). Does the store have Boris?",
+    "expected": [
+      "Sunn O)))"
+    ]
+  },
+  {
+    "id": "m11",
+    "text": "I like Esperanza Spalding and jazz-funk. My sister likes crunk, which I dislike.",
+    "expected": [
+      "Esperanza Spalding",
+      "jazz-funk"
+    ]
+  },
+  {
+    "id": "m12",
+    "text": "My colleague wrote \"I prefer swing.\" I prefer rai and chaabi.",
+    "expected": [
+      "rai",
+      "chaabi"
+    ]
+  },
+  {
+    "id": "q01",
+    "text": "Do you carry speed garage?",
+    "expected": []
+  },
+  {
+    "id": "q02",
+    "text": "What albums by And You Will Know Us by the Trail of Dead are available?",
+    "expected": []
+  },
+  {
+    "id": "q03",
+    "text": "Can you find a few honky-tonk tracks?",
+    "expected": []
+  },
+  {
+    "id": "q04",
+    "text": "Which musical styles have I previously said I love?",
+    "expected": []
+  },
+  {
+    "id": "n01",
+    "text": "I do not like jumpstyle.",
+    "expected": []
+  },
+  {
+    "id": "n02",
+    "text": "I hate easy listening and novelty music.",
+    "expected": []
+  },
+  {
+    "id": "n03",
+    "text": "Please do not assume I like Sepultura because I asked for their track list.",
+    "expected": []
+  },
+  {
+    "id": "n04",
+    "text": "My favorite artist is not SOPHIE.",
+    "expected": []
+  },
+  {
+    "id": "r01",
+    "text": "My niece loves shibuya-kei and denpa.",
+    "expected": []
+  },
+  {
+    "id": "r02",
+    "text": "Our pianist prefers stride piano; our vocalist likes trip-hop.",
+    "expected": []
+  },
+  {
+    "id": "r03",
+    "text": "My friend sent this: \"I love Low and Red House Painters.\"",
+    "expected": []
+  },
+  {
+    "id": "r04",
+    "text": "Translate this sentence into Spanish: \"I enjoy zydeco.\"",
+    "expected": []
+  },
+  {
+    "id": "r05",
+    "text": "The example customer says \"My favorite genre is gqom.\"",
+    "expected": []
+  },
+  {
+    "id": "h01",
+    "text": "If I liked wonky, could you find some tracks?",
+    "expected": []
+  },
+  {
+    "id": "h02",
+    "text": "Imagine that I am a fan of Hüsker Dü in this made-up scene.",
+    "expected": []
+  },
+  {
+    "id": "h03",
+    "text": "I might like deconstructed club, but I have not made up my mind.",
+    "expected": []
+  },
+  {
+    "id": "h04",
+    "text": "I am curious about Andalusian classical music.",
+    "expected": []
+  },
+  {
+    "id": "h05",
+    "text": "I purchased an album by Meredith Monk as a present for my neighbor.",
+    "expected": []
+  },
+  {
+    "id": "h06",
+    "text": "People tell me I would probably enjoy liquid funk.",
+    "expected": []
+  },
+  {
+    "id": "h07",
+    "text": "I listened to four tracks by Anouar Brahem this morning.",
+    "expected": []
+  }
+]

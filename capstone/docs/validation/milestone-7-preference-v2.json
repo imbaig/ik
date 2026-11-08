@@ -1,0 +1,429 @@
+{
+  "mode": "live_extractor",
+  "live_model_quality_validated": false,
+  "live_calls_executed": true,
+  "evaluation_completed": true,
+  "prompt_version": "memory-v1",
+  "case_count": 44,
+  "true_positive": 24,
+  "false_positive": 0,
+  "false_negative": 12,
+  "precision": 1.0,
+  "recall": 0.6666666666666666,
+  "extraction_failures": 0,
+  "target_met": false,
+  "cases": [
+    {
+      "id": "p01",
+      "expected": [
+        "shoegaze"
+      ],
+      "actual": [
+        "shoegaze"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p02",
+      "expected": [
+        "fela kuti"
+      ],
+      "actual": [
+        "fela kuti"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p03",
+      "expected": [
+        "acid jazz",
+        "afrobeat"
+      ],
+      "actual": [
+        "acid jazz",
+        "afrobeat"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p04",
+      "expected": [
+        "siouxsie and the banshees"
+      ],
+      "actual": [
+        "siouxsie and the banshees"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p05",
+      "expected": [
+        "einst\u00fcrzende neubauten",
+        "godspeed you! black emperor"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "p06",
+      "expected": [
+        "bossa nova",
+        "dub techno",
+        "post-punk"
+      ],
+      "actual": [
+        "bossa nova",
+        "dub techno",
+        "post-punk"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p07",
+      "expected": [
+        "youssou n\u2019dour"
+      ],
+      "actual": [
+        "youssou n\u2019dour"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p08",
+      "expected": [
+        "drum and bass"
+      ],
+      "actual": [
+        "drum and bass"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p09",
+      "expected": [
+        "a tribe called quest",
+        "de la soul"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "p10",
+      "expected": [
+        "hindustani classical",
+        "qawwali"
+      ],
+      "actual": [
+        "hindustani classical",
+        "qawwali"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p11",
+      "expected": [
+        "sigur r\u00f3s",
+        "\uc88b\uc544\uc11c\ud558\ub294\ubc34\ub4dc"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "p12",
+      "expected": [
+        "electronic body music",
+        "italo disco"
+      ],
+      "actual": [
+        "electronic body music"
+      ],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "m01",
+      "expected": [
+        "math rock"
+      ],
+      "actual": [
+        "math rock"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m02",
+      "expected": [
+        "little simz"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "m03",
+      "expected": [
+        "highlife"
+      ],
+      "actual": [
+        "highlife"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m04",
+      "expected": [
+        "portishead"
+      ],
+      "actual": [
+        "portishead"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m05",
+      "expected": [
+        "oumou sangar\u00e9"
+      ],
+      "actual": [
+        "oumou sangar\u00e9"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m06",
+      "expected": [
+        "kosmische musik",
+        "krautrock"
+      ],
+      "actual": [
+        "kosmische musik",
+        "krautrock"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m07",
+      "expected": [
+        "breakcore"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "m08",
+      "expected": [
+        "funeral doom"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "m09",
+      "expected": [
+        "merengue",
+        "salsa"
+      ],
+      "actual": [
+        "merengue",
+        "salsa"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m10",
+      "expected": [
+        "the the"
+      ],
+      "actual": [
+        "the the"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r05",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h05",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h06",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h07",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m11",
+      "expected": [
+        "lianne la havas",
+        "neo-soul"
+      ],
+      "actual": [
+        "lianne la havas",
+        "neo-soul"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m12",
+      "expected": [
+        "cumbia",
+        "son cubano"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    }
+  ],
+  "model": "gpt-4o-mini",
+  "temperature": 0.0,
+  "cases_sha256": "397e0d3994e96574f9d604fd46bac283aa3f8cb069d92dec3e6dd546401cc8a6"
+}

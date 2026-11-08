@@ -1,0 +1,281 @@
+[
+  {
+    "id": "SPEC-001",
+    "source": "agent",
+    "reviewer": "/root/spec_review",
+    "status": "independently_verified_pending_baseline_approval",
+    "author_disposition": "accept",
+    "human_adopted": null,
+    "mandatory_by_human": null,
+    "human_closure": null,
+    "resolution_artifacts": [
+      "specs/001-music-store/spec.md",
+      "specs/001-music-store/plan.md",
+      "specs/001-music-store/contracts.md",
+      "specs/001-music-store/traceability.md",
+      "specs/001-music-store/tasks.md"
+    ],
+    "verification_report": "docs/reviews/baseline-review-002.md"
+  },
+  {
+    "id": "SPEC-002",
+    "source": "agent",
+    "reviewer": "/root/spec_review",
+    "status": "independently_verified_pending_baseline_approval",
+    "author_disposition": "accept",
+    "human_adopted": null,
+    "mandatory_by_human": null,
+    "human_closure": null,
+    "resolution_artifacts": [
+      "specs/001-music-store/spec.md",
+      "specs/001-music-store/plan.md",
+      "specs/001-music-store/contracts.md",
+      "specs/001-music-store/traceability.md",
+      "specs/001-music-store/tasks.md"
+    ],
+    "verification_report": "docs/reviews/baseline-review-002.md"
+  },
+  {
+    "id": "SPEC-003",
+    "source": "agent",
+    "reviewer": "/root/spec_review",
+    "status": "independently_verified_pending_baseline_approval",
+    "author_disposition": "accept_issue_solution_pending",
+    "human_adopted": null,
+    "mandatory_by_human": null,
+    "human_closure": null,
+    "resolution_artifacts": [
+      "specs/001-music-store/spec.md",
+      "specs/001-music-store/plan.md",
+      "specs/001-music-store/contracts.md",
+      "specs/001-music-store/traceability.md",
+      "specs/001-music-store/tasks.md"
+    ],
+    "verification_report": "docs/reviews/baseline-review-002.md"
+  },
+  {
+    "id": "SPEC-004",
+    "source": "agent",
+    "reviewer": "/root/spec_review",
+    "status": "independently_verified_pending_baseline_approval",
+    "author_disposition": "accept",
+    "human_adopted": null,
+    "mandatory_by_human": null,
+    "human_closure": null,
+    "resolution_artifacts": [
+      "specs/001-music-store/spec.md",
+      "specs/001-music-store/plan.md",
+      "specs/001-music-store/contracts.md",
+      "specs/001-music-store/traceability.md",
+      "specs/001-music-store/tasks.md"
+    ],
+    "verification_report": "docs/reviews/baseline-review-002.md"
+  },
+  {
+    "id": "SPEC-005",
+    "source": "agent",
+    "reviewer": "/root/spec_review",
+    "status": "independently_verified_pending_baseline_approval",
+    "author_disposition": "accept",
+    "human_adopted": null,
+    "mandatory_by_human": null,
+    "human_closure": null,
+    "resolution_artifacts": [
+      "specs/001-music-store/spec.md",
+      "specs/001-music-store/plan.md",
+      "specs/001-music-store/contracts.md",
+      "specs/001-music-store/traceability.md",
+      "specs/001-music-store/tasks.md"
+    ],
+    "verification_report": "docs/reviews/baseline-review-002.md"
+  },
+  {
+    "id": "SPEC-006",
+    "source": "agent",
+    "reviewer": "/root/spec_review",
+    "status": "independently_verified_pending_baseline_approval",
+    "author_disposition": "accept",
+    "human_adopted": null,
+    "mandatory_by_human": null,
+    "human_closure": null,
+    "resolution_artifacts": [
+      "specs/001-music-store/spec.md",
+      "specs/001-music-store/plan.md",
+      "specs/001-music-store/contracts.md",
+      "specs/001-music-store/traceability.md",
+      "specs/001-music-store/tasks.md"
+    ],
+    "verification_report": "docs/reviews/baseline-review-002.md"
+  },
+  {
+    "id": "SPEC-007",
+    "source": "agent",
+    "reviewer": "/root/spec_review",
+    "status": "independently_verified_pending_baseline_approval",
+    "author_disposition": "accept",
+    "human_adopted": null,
+    "mandatory_by_human": null,
+    "human_closure": null,
+    "resolution_artifacts": [
+      "specs/001-music-store/spec.md",
+      "specs/001-music-store/plan.md",
+      "specs/001-music-store/contracts.md",
+      "specs/001-music-store/traceability.md",
+      "specs/001-music-store/tasks.md"
+    ],
+    "verification_report": "docs/reviews/baseline-review-002.md"
+  },
+  {
+    "id": "SPEC-008",
+    "source": "agent",
+    "reviewer": "/root/spec_review",
+    "status": "independently_verified_pending_baseline_approval",
+    "author_disposition": "accept",
+    "human_adopted": null,
+    "mandatory_by_human": null,
+    "human_closure": null,
+    "resolution_artifacts": [
+      "specs/001-music-store/spec.md",
+      "specs/001-music-store/plan.md",
+      "specs/001-music-store/contracts.md",
+      "specs/001-music-store/traceability.md",
+      "specs/001-music-store/tasks.md"
+    ],
+    "verification_report": "docs/reviews/baseline-review-002.md"
+  },
+  {
+    "id": "HUM-001",
+    "title": "UI framework rationale and assignment compliance",
+    "source": "human",
+    "reporter": "Imran Baig",
+    "mandatory_by_human": true,
+    "status": "human_accepted_resolution",
+    "resolution_artifacts": [
+      "specs/design.md",
+      "specs/non-functional-requirements.md",
+      "specs/measurement.md",
+      "docs/development-review-workflow.md"
+    ],
+    "human_closure": "Imran: Good to go; perfect, move to next steps (Nov 7). Applies to nine proposed resolutions, not final technical baseline."
+  },
+  {
+    "id": "HUM-002",
+    "title": "specs/docs distinction",
+    "source": "human",
+    "reporter": "Imran Baig",
+    "mandatory_by_human": true,
+    "status": "human_accepted_resolution",
+    "resolution_artifacts": [
+      "specs/design.md",
+      "specs/non-functional-requirements.md",
+      "specs/measurement.md",
+      "docs/development-review-workflow.md"
+    ],
+    "human_closure": "Imran: Good to go; perfect, move to next steps (Nov 7). Applies to nine proposed resolutions, not final technical baseline."
+  },
+  {
+    "id": "HUM-003",
+    "title": "Explicit non-functional requirements",
+    "source": "human",
+    "reporter": "Imran Baig",
+    "mandatory_by_human": true,
+    "status": "human_accepted_resolution",
+    "resolution_artifacts": [
+      "specs/design.md",
+      "specs/non-functional-requirements.md",
+      "specs/measurement.md",
+      "docs/development-review-workflow.md"
+    ],
+    "human_closure": "Imran: Good to go; perfect, move to next steps (Nov 7). Applies to nine proposed resolutions, not final technical baseline."
+  },
+  {
+    "id": "HUM-004",
+    "title": "Multiple users within one chat",
+    "source": "human",
+    "reporter": "Imran Baig",
+    "mandatory_by_human": true,
+    "status": "human_accepted_resolution",
+    "resolution_artifacts": [
+      "specs/design.md",
+      "specs/non-functional-requirements.md",
+      "specs/measurement.md",
+      "docs/development-review-workflow.md"
+    ],
+    "human_closure": "Imran: Good to go; perfect, move to next steps (Nov 7). Applies to nine proposed resolutions, not final technical baseline."
+  },
+  {
+    "id": "HUM-005",
+    "title": "Unknown-customer CX in mixed flow",
+    "source": "human",
+    "reporter": "Imran Baig",
+    "mandatory_by_human": true,
+    "status": "human_accepted_resolution",
+    "resolution_artifacts": [
+      "specs/design.md",
+      "specs/non-functional-requirements.md",
+      "specs/measurement.md",
+      "docs/development-review-workflow.md"
+    ],
+    "human_closure": "Imran: Good to go; perfect, move to next steps (Nov 7). Applies to nine proposed resolutions, not final technical baseline."
+  },
+  {
+    "id": "HUM-006",
+    "title": "Modular memory improvement and evaluation",
+    "source": "human",
+    "reporter": "Imran Baig",
+    "mandatory_by_human": true,
+    "status": "human_accepted_resolution",
+    "resolution_artifacts": [
+      "specs/design.md",
+      "specs/non-functional-requirements.md",
+      "specs/measurement.md",
+      "docs/development-review-workflow.md"
+    ],
+    "human_closure": "Imran: Good to go; perfect, move to next steps (Nov 7). Applies to nine proposed resolutions, not final technical baseline."
+  },
+  {
+    "id": "HUM-007",
+    "title": "Business metrics and periodic reporting",
+    "source": "human",
+    "reporter": "Imran Baig",
+    "mandatory_by_human": true,
+    "status": "human_accepted_resolution",
+    "resolution_artifacts": [
+      "specs/design.md",
+      "specs/non-functional-requirements.md",
+      "specs/measurement.md",
+      "docs/development-review-workflow.md"
+    ],
+    "human_closure": "Imran: Good to go; perfect, move to next steps (Nov 7). Applies to nine proposed resolutions, not final technical baseline."
+  },
+  {
+    "id": "HUM-008",
+    "title": "Chinook version/update behavior",
+    "source": "human",
+    "reporter": "Imran Baig",
+    "mandatory_by_human": true,
+    "status": "human_accepted_resolution",
+    "resolution_artifacts": [
+      "specs/design.md",
+      "specs/non-functional-requirements.md",
+      "specs/measurement.md",
+      "docs/development-review-workflow.md"
+    ],
+    "human_closure": "Imran: Good to go; perfect, move to next steps (Nov 7). Applies to nine proposed resolutions, not final technical baseline."
+  },
+  {
+    "id": "HUM-009",
+    "title": "Human and agent reviewer categories and skills",
+    "source": "human",
+    "reporter": "Imran Baig",
+    "mandatory_by_human": true,
+    "status": "human_accepted_resolution",
+    "resolution_artifacts": [
+      "specs/design.md",
+      "specs/non-functional-requirements.md",
+      "specs/measurement.md",
+      "docs/development-review-workflow.md"
+    ],
+    "human_closure": "Imran: Good to go; perfect, move to next steps (Nov 7). Applies to nine proposed resolutions, not final technical baseline."
+  }
+]

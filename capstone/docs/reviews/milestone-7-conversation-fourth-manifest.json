@@ -1,0 +1,22 @@
+{
+  "evals/conversation-cases.json": "eab69f49176d3d3928697de757c2f2469ee00a0f85f97ad57ecc1eb90a388281",
+  "evals/preference-heldout-v4.json": "28fb442bf39eb625b1d41788028902637cf71a45d5c3550dcd966a1af5e34ae1",
+  "requirements.lock": "0fcbff28f017940ff59b757b0f5357cd9389622b4ebbd21b570c445a75f2c4bb",
+  "src/music_store/__init__.py": "3a474d1298dc60bc46565014dc082f18142b8cb5057641447d959262e42427c5",
+  "src/music_store/agents/__init__.py": "7c99b448524f2fcc213f4a6d834905b805d61f37f9fa97c04c3207af8c4c1f2d",
+  "src/music_store/agents/prompts.py": "4e38c96827d0709111a9a4ef09c2fd3603035c1b90e985ae4d940b9fcdab0c2b",
+  "src/music_store/agents/runtime.py": "235055b227d1387f061f4fa6f6add41f6742f0797ef9a274ebdc353cd197906d",
+  "src/music_store/config.py": "0050afb91f7e7024e09916957aa6de7f4f174a4d2a00f8748446fc865b7d5cde",
+  "src/music_store/conversation.py": "59b938aeb5ccf9d39bec1803736c74b24abae1aa32c293ddedd9af17c78aa419",
+  "src/music_store/conversation_eval.py": "553e5547427a95addfbf9c30b5d0bda2591cb289fb2de0bbde9003584da0ad0d",
+  "src/music_store/db.py": "bd9041ab61c62c22ff4c3a0bd46b0d0ce8e31f8eb9298fb051ebba37918494c1",
+  "src/music_store/identity.py": "cc416acaf229865db13d3827740bccd949d1f9cdaf7d0e07ec3b492a82f6be6c",
+  "src/music_store/memory.py": "701fb10f48c0f6e0db4c79e8e1be28d5ddfcbedc5ff707d8f4feb58781d42755",
+  "src/music_store/model.py": "bf1b602fe777ba936cb6d906c5b8348e51fd794ab17dcb5b085ad04b86d9621b",
+  "src/music_store/preference_eval.py": "1d0c34093f83d74c8e1434d4e5a5fb14082b468b7bb815aed4c0b9b5053e1bc3",
+  "src/music_store/telemetry.py": "a45a1ef835c71d76035c17bf93cb70a654c23e92f72feab05912614e71b861fc",
+  "src/music_store/tools/__init__.py": "473b6b948648510158fe7289baa417956bfcfed409f5da2d4b95a884d8bfb9d4",
+  "src/music_store/tools/domain.py": "c8ef3e7d777280c6a35f5c96b7b56a3f7ae2ee6161ce35ec39f3eaeb1eaf259e",
+  "src/music_store/ui.py": "e7fc895e75988e8b34c1848275511da2bedeedca83838a9ec04084f5fff145a8",
+  "src/music_store/verification.py": "1a105ee773a1db2cbdfc9839cc7d970dfcdcc2a7c1e9a828b2287e2d85595406"
+}

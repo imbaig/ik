@@ -1,0 +1,472 @@
+{
+  "mode": "live_extractor",
+  "live_model_quality_validated": false,
+  "live_calls_executed": true,
+  "evaluation_completed": true,
+  "prompt_version": "memory-v2",
+  "case_count": 46,
+  "true_positive": 38,
+  "false_positive": 1,
+  "false_negative": 1,
+  "precision": 0.9743589743589743,
+  "recall": 0.9743589743589743,
+  "extraction_failures": 0,
+  "target_met": true,
+  "cases": [
+    {
+      "id": "p01",
+      "expected": [
+        "ethiopian jazz"
+      ],
+      "actual": [
+        "ethiopian jazz"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p02",
+      "expected": [
+        "mulatu astatke"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "p03",
+      "expected": [
+        "samba",
+        "tropicalia"
+      ],
+      "actual": [
+        "samba",
+        "tropicalia"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p04",
+      "expected": [
+        "boards of canada"
+      ],
+      "actual": [
+        "boards of canada"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p05",
+      "expected": [
+        "aphex twin",
+        "autechre"
+      ],
+      "actual": [
+        "aphex twin",
+        "autechre"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p06",
+      "expected": [
+        "garage rock",
+        "rockabilly",
+        "surf rock"
+      ],
+      "actual": [
+        "garage rock",
+        "rockabilly",
+        "surf rock"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p07",
+      "expected": [
+        "nusrat fateh ali khan"
+      ],
+      "actual": [
+        "nusrat fateh ali khan"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p08",
+      "expected": [
+        "rhythm and blues"
+      ],
+      "actual": [
+        "rhythm and blues"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p09",
+      "expected": [
+        "belle and sebastian",
+        "camera obscura"
+      ],
+      "actual": [
+        "belle and sebastian",
+        "camera obscura"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p10",
+      "expected": [
+        "makossa",
+        "soukous"
+      ],
+      "actual": [
+        "makossa",
+        "soukous"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p11",
+      "expected": [
+        "jos\u00e9 gonz\u00e1lez",
+        "\u5742\u672c\u614e\u592a\u90ce"
+      ],
+      "actual": [
+        "jos\u00e9 gonz\u00e1lez",
+        "\u5742\u672c\u614e\u592a\u90ce"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p12",
+      "expected": [
+        "chicago house",
+        "northern soul"
+      ],
+      "actual": [
+        "chicago house",
+        "northern soul"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p13",
+      "expected": [
+        "tinariwen"
+      ],
+      "actual": [
+        "tinariwen"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p14",
+      "expected": [
+        "baroque pop",
+        "chamber pop"
+      ],
+      "actual": [
+        "baroque pop",
+        "chamber pop"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m01",
+      "expected": [
+        "spiritual jazz"
+      ],
+      "actual": [
+        "spiritual jazz"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m02",
+      "expected": [
+        "pj harvey"
+      ],
+      "actual": [
+        "pj harvey"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m03",
+      "expected": [
+        "mbalax"
+      ],
+      "actual": [
+        "mbalax"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m04",
+      "expected": [
+        "massive attack"
+      ],
+      "actual": [
+        "massive attack"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m05",
+      "expected": [
+        "ang\u00e9lique kidjo"
+      ],
+      "actual": [
+        "ang\u00e9lique kidjo"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m06",
+      "expected": [
+        "dub",
+        "roots reggae"
+      ],
+      "actual": [
+        "dub",
+        "roots reggae"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m07",
+      "expected": [
+        "electroacoustic music"
+      ],
+      "actual": [
+        "electroacoustic music"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m08",
+      "expected": [
+        "stoner rock"
+      ],
+      "actual": [
+        "stoner rock"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m09",
+      "expected": [
+        "bachata",
+        "vallenato"
+      ],
+      "actual": [
+        "bachata",
+        "vallenato"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m10",
+      "expected": [
+        "!!!"
+      ],
+      "actual": [
+        "!!!"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m11",
+      "expected": [
+        "broken beat",
+        "hiatus kaiyote"
+      ],
+      "actual": [
+        "broken beat",
+        "hiatus kaiyote"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m12",
+      "expected": [
+        "fado",
+        "morna"
+      ],
+      "actual": [
+        "fado",
+        "morna"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r05",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h02",
+      "expected": [],
+      "actual": [
+        "queensr\u00ffche"
+      ],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "h03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h05",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h06",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h07",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    }
+  ],
+  "model": "gpt-4o-mini",
+  "temperature": 0.0,
+  "cases_sha256": "84dfd2e15a6f4ff4c9db42188f5eb0daf8d74b8ef8122ceaca2f1f449f0abfd1"
+}

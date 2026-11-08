@@ -1,0 +1,470 @@
+{
+  "mode": "live_extractor",
+  "live_model_quality_validated": false,
+  "live_calls_executed": true,
+  "evaluation_completed": true,
+  "prompt_version": "memory-v2",
+  "case_count": 46,
+  "true_positive": 38,
+  "false_positive": 0,
+  "false_negative": 1,
+  "precision": 1.0,
+  "recall": 0.9743589743589743,
+  "extraction_failures": 0,
+  "target_met": true,
+  "cases": [
+    {
+      "id": "p01",
+      "expected": [
+        "desert blues"
+      ],
+      "actual": [
+        "desert blues"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p02",
+      "expected": [
+        "fatoumata diawara"
+      ],
+      "actual": [
+        "fatoumata diawara"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p03",
+      "expected": [
+        "forr\u00f3",
+        "mpb"
+      ],
+      "actual": [
+        "forr\u00f3",
+        "mpb"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p04",
+      "expected": [
+        "everything but the girl"
+      ],
+      "actual": [],
+      "exact_match": false,
+      "extraction_error": false
+    },
+    {
+      "id": "p05",
+      "expected": [
+        "my bloody valentine",
+        "the jesus and mary chain"
+      ],
+      "actual": [
+        "my bloody valentine",
+        "the jesus and mary chain"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p06",
+      "expected": [
+        "cool jazz",
+        "hard bop",
+        "modal jazz"
+      ],
+      "actual": [
+        "cool jazz",
+        "hard bop",
+        "modal jazz"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p07",
+      "expected": [
+        "ali farka tour\u00e9"
+      ],
+      "actual": [
+        "ali farka tour\u00e9"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p08",
+      "expected": [
+        "rock and roll"
+      ],
+      "actual": [
+        "rock and roll"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p09",
+      "expected": [
+        "antony and the johnsons",
+        "nick cave & the bad seeds"
+      ],
+      "actual": [
+        "antony and the johnsons",
+        "nick cave & the bad seeds"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p10",
+      "expected": [
+        "calypso",
+        "soca"
+      ],
+      "actual": [
+        "calypso",
+        "soca"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p11",
+      "expected": [
+        "r\u00f3is\u00edn murphy",
+        "zo\u00eb keating"
+      ],
+      "actual": [
+        "r\u00f3is\u00edn murphy",
+        "zo\u00eb keating"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p12",
+      "expected": [
+        "detroit techno",
+        "new orleans brass band music"
+      ],
+      "actual": [
+        "detroit techno",
+        "new orleans brass band music"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p13",
+      "expected": [
+        "mdou moctar"
+      ],
+      "actual": [
+        "mdou moctar"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "p14",
+      "expected": [
+        "art rock",
+        "glam rock"
+      ],
+      "actual": [
+        "art rock",
+        "glam rock"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m01",
+      "expected": [
+        "western swing"
+      ],
+      "actual": [
+        "western swing"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m02",
+      "expected": [
+        "st. vincent"
+      ],
+      "actual": [
+        "st. vincent"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m03",
+      "expected": [
+        "kizomba"
+      ],
+      "actual": [
+        "kizomba"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m04",
+      "expected": [
+        "tricky"
+      ],
+      "actual": [
+        "tricky"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m05",
+      "expected": [
+        "ces\u00e1ria \u00e9vora"
+      ],
+      "actual": [
+        "ces\u00e1ria \u00e9vora"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m06",
+      "expected": [
+        "rocksteady",
+        "ska"
+      ],
+      "actual": [
+        "rocksteady",
+        "ska"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m07",
+      "expected": [
+        "musique concr\u00e8te"
+      ],
+      "actual": [
+        "musique concr\u00e8te"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m08",
+      "expected": [
+        "drone metal"
+      ],
+      "actual": [
+        "drone metal"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m09",
+      "expected": [
+        "milonga",
+        "tango"
+      ],
+      "actual": [
+        "milonga",
+        "tango"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m10",
+      "expected": [
+        "sunn o)))"
+      ],
+      "actual": [
+        "sunn o)))"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m11",
+      "expected": [
+        "esperanza spalding",
+        "jazz-funk"
+      ],
+      "actual": [
+        "esperanza spalding",
+        "jazz-funk"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "m12",
+      "expected": [
+        "chaabi",
+        "rai"
+      ],
+      "actual": [
+        "chaabi",
+        "rai"
+      ],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "q04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "n04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "r05",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h01",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h02",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h03",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h04",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h05",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h06",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    },
+    {
+      "id": "h07",
+      "expected": [],
+      "actual": [],
+      "exact_match": true,
+      "extraction_error": false
+    }
+  ],
+  "model": "gpt-4o-mini",
+  "temperature": 0.0,
+  "cases_sha256": "28fb442bf39eb625b1d41788028902637cf71a45d5c3550dcd966a1af5e34ae1"
+}

@@ -1,0 +1,6 @@
+{
+  "src/music_store/memory.py": "f9c10744153f3e482c04cdbc38cf2681386315dfe99796b6335ca1ef6a42d46a",
+  "src/music_store/model.py": "bf1b602fe777ba936cb6d906c5b8348e51fd794ab17dcb5b085ad04b86d9621b",
+  "evals/preference-heldout-v3.json": "84dfd2e15a6f4ff4c9db42188f5eb0daf8d74b8ef8122ceaca2f1f449f0abfd1",
+  "src/music_store/preference_eval.py": "1d0c34093f83d74c8e1434d4e5a5fb14082b468b7bb815aed4c0b9b5053e1bc3"
+}

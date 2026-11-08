@@ -1,0 +1,297 @@
+[
+  {
+    "id": "p01",
+    "text": "I love Ethiopian jazz.",
+    "expected": [
+      "Ethiopian jazz"
+    ]
+  },
+  {
+    "id": "p02",
+    "text": "My favorite musician is Mulatu Astatke.",
+    "expected": [
+      "Mulatu Astatke"
+    ]
+  },
+  {
+    "id": "p03",
+    "text": "I enjoy tropicalia and samba.",
+    "expected": [
+      "tropicalia",
+      "samba"
+    ]
+  },
+  {
+    "id": "p04",
+    "text": "I like Boards of Canada.",
+    "expected": [
+      "Boards of Canada"
+    ]
+  },
+  {
+    "id": "p05",
+    "text": "I love Autechre and Aphex Twin.",
+    "expected": [
+      "Autechre",
+      "Aphex Twin"
+    ]
+  },
+  {
+    "id": "p06",
+    "text": "My favorite genres are garage rock, surf rock, and rockabilly.",
+    "expected": [
+      "garage rock",
+      "surf rock",
+      "rockabilly"
+    ]
+  },
+  {
+    "id": "p07",
+    "text": "I enjoy the music of Nusrat Fateh Ali Khan.",
+    "expected": [
+      "Nusrat Fateh Ali Khan"
+    ]
+  },
+  {
+    "id": "p08",
+    "text": "I like rhythm and blues.",
+    "expected": [
+      "rhythm and blues"
+    ]
+  },
+  {
+    "id": "p09",
+    "text": "I adore Belle and Sebastian and Camera Obscura.",
+    "expected": [
+      "Belle and Sebastian",
+      "Camera Obscura"
+    ]
+  },
+  {
+    "id": "p10",
+    "text": "I prefer soukous and makossa.",
+    "expected": [
+      "soukous",
+      "makossa"
+    ]
+  },
+  {
+    "id": "p11",
+    "text": "My musical tastes include 坂本慎太郎 and José González.",
+    "expected": [
+      "坂本慎太郎",
+      "José González"
+    ]
+  },
+  {
+    "id": "p12",
+    "text": "I love northern soul; I also love Chicago house.",
+    "expected": [
+      "northern soul",
+      "Chicago house"
+    ]
+  },
+  {
+    "id": "p13",
+    "text": "Please remember that I enjoy Tinariwen.",
+    "expected": [
+      "Tinariwen"
+    ]
+  },
+  {
+    "id": "p14",
+    "text": "I am a fan of chamber pop and baroque pop.",
+    "expected": [
+      "chamber pop",
+      "baroque pop"
+    ]
+  },
+  {
+    "id": "m01",
+    "text": "I dislike smooth jazz, but I love spiritual jazz.",
+    "expected": [
+      "spiritual jazz"
+    ]
+  },
+  {
+    "id": "m02",
+    "text": "I do not enjoy Nickelback. I do enjoy PJ Harvey.",
+    "expected": [
+      "PJ Harvey"
+    ]
+  },
+  {
+    "id": "m03",
+    "text": "My cousin loves trap. I love mbalax.",
+    "expected": [
+      "mbalax"
+    ]
+  },
+  {
+    "id": "m04",
+    "text": "My wife is a fan of Muse and Coldplay; I am a fan of Massive Attack.",
+    "expected": [
+      "Massive Attack"
+    ]
+  },
+  {
+    "id": "m05",
+    "text": "Do you carry Mastodon? My favorite artist is Angélique Kidjo.",
+    "expected": [
+      "Angélique Kidjo"
+    ]
+  },
+  {
+    "id": "m06",
+    "text": "I love dub and roots reggae, but I dislike dancehall.",
+    "expected": [
+      "dub",
+      "roots reggae"
+    ]
+  },
+  {
+    "id": "m07",
+    "text": "The article says \"I love folk metal.\" Personally, I love electroacoustic music.",
+    "expected": [
+      "electroacoustic music"
+    ]
+  },
+  {
+    "id": "m08",
+    "text": "If I liked symphonic metal I would request it. I actually like stoner rock.",
+    "expected": [
+      "stoner rock"
+    ]
+  },
+  {
+    "id": "m09",
+    "text": "My friend dislikes bachata. I enjoy bachata and vallenato.",
+    "expected": [
+      "bachata",
+      "vallenato"
+    ]
+  },
+  {
+    "id": "m10",
+    "text": "I love !!!. Does the store have XTC?",
+    "expected": [
+      "!!!"
+    ]
+  },
+  {
+    "id": "m11",
+    "text": "I like Hiatus Kaiyote and broken beat. My brother likes grindcore, which I dislike.",
+    "expected": [
+      "Hiatus Kaiyote",
+      "broken beat"
+    ]
+  },
+  {
+    "id": "m12",
+    "text": "My colleague wrote \"I prefer bebop.\" I prefer fado and morna.",
+    "expected": [
+      "fado",
+      "morna"
+    ]
+  },
+  {
+    "id": "q01",
+    "text": "Do you carry UK garage?",
+    "expected": []
+  },
+  {
+    "id": "q02",
+    "text": "What albums by The World Is a Beautiful Place & I Am No Longer Afraid to Die are available?",
+    "expected": []
+  },
+  {
+    "id": "q03",
+    "text": "Can you find a few boogie-woogie tracks?",
+    "expected": []
+  },
+  {
+    "id": "q04",
+    "text": "Which artists have I said I enjoy?",
+    "expected": []
+  },
+  {
+    "id": "n01",
+    "text": "I do not like gabber.",
+    "expected": []
+  },
+  {
+    "id": "n02",
+    "text": "I hate pop punk and happy hardcore.",
+    "expected": []
+  },
+  {
+    "id": "n03",
+    "text": "Please do not assume I like Gojira because I searched for their albums.",
+    "expected": []
+  },
+  {
+    "id": "n04",
+    "text": "My favorite artist is not Arca.",
+    "expected": []
+  },
+  {
+    "id": "r01",
+    "text": "My son loves city pop and future funk.",
+    "expected": []
+  },
+  {
+    "id": "r02",
+    "text": "Our bassist prefers thrash metal; our guitarist likes darkwave.",
+    "expected": []
+  },
+  {
+    "id": "r03",
+    "text": "My friend sent this: \"I love Cocteau Twins and Dead Can Dance.\"",
+    "expected": []
+  },
+  {
+    "id": "r04",
+    "text": "Translate this sentence into German: \"I enjoy skiffle.\"",
+    "expected": []
+  },
+  {
+    "id": "r05",
+    "text": "The example shopper says \"My favorite genre is footwork.\"",
+    "expected": []
+  },
+  {
+    "id": "h01",
+    "text": "If I liked witch house, could you find some tracks?",
+    "expected": []
+  },
+  {
+    "id": "h02",
+    "text": "Imagine that I am a fan of Queensrÿche in this fictional conversation.",
+    "expected": []
+  },
+  {
+    "id": "h03",
+    "text": "I might like chiptune, but I am not sure yet.",
+    "expected": []
+  },
+  {
+    "id": "h04",
+    "text": "I am curious about Canterbury scene music.",
+    "expected": []
+  },
+  {
+    "id": "h05",
+    "text": "I purchased an album by Laurie Anderson for someone else.",
+    "expected": []
+  },
+  {
+    "id": "h06",
+    "text": "People tell me I would probably enjoy Balearic beat.",
+    "expected": []
+  },
+  {
+    "id": "h07",
+    "text": "I listened to three tracks by Tigran Hamasyan last week.",
+    "expected": []
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "milestone": "M4 supervisor/specialists",
+  "approver": "Imran Baig",
+  "date": "2026-11-07",
+  "evidence": "good. Move to next milestone",
+  "accepted_handoff_artifacts_sha256": {
+    "pyproject.toml": "40c6cbe264bab0b4ba3b49fb8438fedcf856f75e498c5359cfac81d3841c1395",
+    "requirements-dev.txt": "53585796d0f9862118f0ab9f79f60026c824e414472cf733b223a5aee22f65fe",
+    "requirements.lock": "ad342b1976be9178976ed85e7ce06831332882aba6d5d2cbe2259aacfd37ad24",
+    "requirements.txt": "8c5b18acb343d3b9ffde14dfb12517295b61fb7c3077ee9c4f17acd66f2858ec",
+    "src/music_store/__init__.py": "3a474d1298dc60bc46565014dc082f18142b8cb5057641447d959262e42427c5",
+    "src/music_store/agents/__init__.py": "7c99b448524f2fcc213f4a6d834905b805d61f37f9fa97c04c3207af8c4c1f2d",
+    "src/music_store/agents/prompts.py": "7e49006757db9f07ccadfaa70bcfa127f13cdb62e37644fa951152b0c48a294c",
+    "src/music_store/agents/runtime.py": "62455c24759b8e98cede9d8ff6046d0a745a74501fee7b32c6c4105d740c8b13",
+    "src/music_store/config.py": "0050afb91f7e7024e09916957aa6de7f4f174a4d2a00f8748446fc865b7d5cde",
+    "src/music_store/conversation.py": "d15744b99586323c633f7fdb21e4ffb7dcc0918067bef25eda6ca0232981bb2d",
+    "src/music_store/db.py": "bd9041ab61c62c22ff4c3a0bd46b0d0ce8e31f8eb9298fb051ebba37918494c1",
+    "src/music_store/identity.py": "cc416acaf229865db13d3827740bccd949d1f9cdaf7d0e07ec3b492a82f6be6c",
+    "src/music_store/model.py": "cb3ea76feaa1843daf9b14eb45f191f8b908a00c3b6ac495971c372b7b146b65",
+    "src/music_store/tools/__init__.py": "473b6b948648510158fe7289baa417956bfcfed409f5da2d4b95a884d8bfb9d4",
+    "src/music_store/tools/domain.py": "c8ef3e7d777280c6a35f5c96b7b56a3f7ae2ee6161ce35ec39f3eaeb1eaf259e",
+    "src/music_store/verification.py": "9c4ae490893397169ce0a2413ce6f38cdcff899ba318fe6af2ac15d14369cc90",
+    "tests/conftest.py": "95c4fe70d83c8ff6e6b703bd6c48976404456905a8cf67c773cf97be9b38fece",
+    "tests/test_agents.py": "4aca794375c27a3d793214b51e7d7be8c4eca19a9348a18541784ecdac824c2e",
+    "tests/test_config.py": "91bea635b1f296193be7c6a867271f9fdfbb778df476599536bc287beadb8262",
+    "tests/test_db.py": "de77ea299f0ae30695f46e143d0d36938a7b362c1ca4e17aac89a4e1878337ed",
+    "tests/test_tools.py": "c3107894ad5e63abecb585dcdb644159f3ae27d5f15c8307917398a539fc4b8e",
+    "tests/test_verification.py": "0517bdf2d0057e18ca04dfffb8bc333544c849da26e2c58a630a1817bb343aa8",
+    "uv.lock": "643902a299b4d6f5cbd9d032867331adda684779a72c1b393fdb0b3377a8db23"
+  },
+  "scope": "Accept M4 and authorize customer memory, not release/submission"
+}

@@ -1,0 +1,22 @@
+{
+  "source_sha256": "ba2cb04862c2c1b07959b8155513c2ffdc362b83add43bc7e514f3dfb990e5fb",
+  "resolved": {
+    "ARTIST_NAME": "AC/DC",
+    "TITLE_FRAGMENT": "Love",
+    "TRACK_ID": "1",
+    "ABSENT_TOKEN": "CAPSTONE_ABSENT_ZQX_774411",
+    "CUSTOMER_A_IDENTIFIER": "1",
+    "CUSTOMER_B_IDENTIFIER": "2",
+    "CUSTOMER_B_ID": "2",
+    "FOREIGN_INVOICE_ID": "1",
+    "ABSENT_IDENTIFIER": "99999"
+  },
+  "mapping_notes": [
+    "success maps complete; account maps invoice; verification retains original task branch",
+    "empty or inaccessible lookup may have a tool record but must have no data rows",
+    "case13 SQL oracle switches to customer2 only after reset/verification",
+    "required tools and nonempty expectations added before live execution; original recommendations preserved",
+    "case07 remains mixed after verification; case08 new invoice task remains invoice",
+    "memory recall requires absence of nonpositive preferences"
+  ]
+}

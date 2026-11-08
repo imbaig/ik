@@ -1,0 +1,22 @@
+{
+  "approval_id": "BASELINE-001",
+  "date": "2026-11-07",
+  "approver": "Imran Baig",
+  "evidence": "User message: approving baseline",
+  "status": "approved",
+  "scope": "Spec/design baseline; implementation may begin. Not release or submission approval.",
+  "review_report": "docs/reviews/baseline-review-002.md",
+  "artifacts_sha256": {
+    ".specify/memory/constitution.md": "50479066ce086ef9f67a663e396eb5ac4a143b5a6dc62308b2db2041cd174293",
+    "docs/business-use-cases.md": "aee00d899814599825de6c7803e8d59d2dff6e50bb8d22233ad783c9c90bf95e",
+    "docs/development-review-workflow.md": "08e720973e6aa2ba5bf40f715de23d4dfd00b0f6f75688b460754ecbbc2520f5",
+    "specs/001-music-store/checklists/requirements.md": "3f31225d11e9d459816eb7f34d99d5f4ecd65b881c26e68868d1fd681023b326",
+    "specs/001-music-store/contracts.md": "5d5b89711e451f2cbc57d40de1a99726db133fcb8ae3d903ffdd58f43f475e89",
+    "specs/001-music-store/plan.md": "fc644951ad46697f44977f160d4d07f1e852ad03b0b3266b0a57fc98aff7d804",
+    "specs/001-music-store/spec.md": "6498fcd46770fabb4d3c6e257fd707cb2f023f9c351db1b4153262f84e38663f",
+    "specs/001-music-store/tasks.md": "a97279a30cf00a4873c4d31c50fdac95e77c4a632bdf233ce1584704695d8a9b",
+    "specs/001-music-store/traceability.md": "ee3237244eb166a6c845d7f5cb561a84ed218f6bfef9ba15d9503c6e4ad5b15f",
+    "specs/measurement.md": "b62672cd2649190228c4be1767baa8f99bad06d4a8404ecdf9aaeeb398efbc18",
+    "specs/non-functional-requirements.md": "d3434cfb8dab4f43dc353dc740bfc0ee6917996e40ba0f083054332524060238"
+  }
+}

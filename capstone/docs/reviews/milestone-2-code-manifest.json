@@ -1,0 +1,16 @@
+{
+  "pyproject.toml": "af58a24be75b3093b1d4d7d8b846e8fce471728eb957cdbdaf103076c77a2eae",
+  "requirements-dev.txt": "53585796d0f9862118f0ab9f79f60026c824e414472cf733b223a5aee22f65fe",
+  "requirements.lock": "27d06ec42a7c3cd1418432ac7b84cbe049f6cd62291773699c99a3f56be4eebb",
+  "requirements.txt": "eba6570094ec96592ac9b8d6bf1054e8eda4315c119ff00ccf6286314f3f1470",
+  "src/music_store/__init__.py": "3a474d1298dc60bc46565014dc082f18142b8cb5057641447d959262e42427c5",
+  "src/music_store/config.py": "0050afb91f7e7024e09916957aa6de7f4f174a4d2a00f8748446fc865b7d5cde",
+  "src/music_store/db.py": "bd9041ab61c62c22ff4c3a0bd46b0d0ce8e31f8eb9298fb051ebba37918494c1",
+  "src/music_store/tools/__init__.py": "473b6b948648510158fe7289baa417956bfcfed409f5da2d4b95a884d8bfb9d4",
+  "src/music_store/tools/domain.py": "c8ef3e7d777280c6a35f5c96b7b56a3f7ae2ee6161ce35ec39f3eaeb1eaf259e",
+  "tests/conftest.py": "95c4fe70d83c8ff6e6b703bd6c48976404456905a8cf67c773cf97be9b38fece",
+  "tests/test_config.py": "91bea635b1f296193be7c6a867271f9fdfbb778df476599536bc287beadb8262",
+  "tests/test_db.py": "de77ea299f0ae30695f46e143d0d36938a7b362c1ca4e17aac89a4e1878337ed",
+  "tests/test_tools.py": "c3107894ad5e63abecb585dcdb644159f3ae27d5f15c8307917398a539fc4b8e",
+  "uv.lock": "e6282de59c69f769db06e775bdc1ea886ec25d0bcb23f82cf77897eca3e165cb"
+}

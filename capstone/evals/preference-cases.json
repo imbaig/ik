@@ -1,0 +1,395 @@
+[
+  {
+    "id": "MEM-001",
+    "text": "I love jazz.",
+    "expected": [
+      "jazz"
+    ],
+    "candidate_probe": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "MEM-002",
+    "text": "I like rock.",
+    "expected": [
+      "rock"
+    ],
+    "candidate_probe": [
+      "rock"
+    ]
+  },
+  {
+    "id": "MEM-003",
+    "text": "I enjoy blues.",
+    "expected": [
+      "blues"
+    ],
+    "candidate_probe": [
+      "blues"
+    ]
+  },
+  {
+    "id": "MEM-004",
+    "text": "I prefer metal.",
+    "expected": [
+      "metal"
+    ],
+    "candidate_probe": [
+      "metal"
+    ]
+  },
+  {
+    "id": "MEM-005",
+    "text": "My favorite genre is Latin.",
+    "expected": [
+      "latin"
+    ],
+    "candidate_probe": [
+      "latin"
+    ]
+  },
+  {
+    "id": "MEM-006",
+    "text": "My favourite band is AC/DC.",
+    "expected": [
+      "ac/dc"
+    ],
+    "candidate_probe": [
+      "ac/dc"
+    ]
+  },
+  {
+    "id": "MEM-007",
+    "text": "I really love classical music.",
+    "expected": [
+      "classical"
+    ],
+    "candidate_probe": [
+      "classical"
+    ]
+  },
+  {
+    "id": "MEM-008",
+    "text": "I'm a fan of Iron Maiden.",
+    "expected": [
+      "iron maiden"
+    ],
+    "candidate_probe": [
+      "iron maiden"
+    ]
+  },
+  {
+    "id": "MEM-009",
+    "text": "I am a fan of Miles Davis.",
+    "expected": [
+      "miles davis"
+    ],
+    "candidate_probe": [
+      "miles davis"
+    ]
+  },
+  {
+    "id": "MEM-010",
+    "text": "I love jazz and blues.",
+    "expected": [
+      "jazz",
+      "blues"
+    ],
+    "candidate_probe": [
+      "jazz",
+      "blues"
+    ]
+  },
+  {
+    "id": "MEM-011",
+    "text": "I like AC/DC and rock.",
+    "expected": [
+      "ac/dc",
+      "rock"
+    ],
+    "candidate_probe": [
+      "ac/dc",
+      "rock"
+    ]
+  },
+  {
+    "id": "MEM-012",
+    "text": "My favorite artist is Led Zeppelin.",
+    "expected": [
+      "led zeppelin"
+    ],
+    "candidate_probe": [
+      "led zeppelin"
+    ]
+  },
+  {
+    "id": "MEM-013",
+    "text": "I LOVE JAZZ!",
+    "expected": [
+      "jazz"
+    ],
+    "candidate_probe": [
+      "JAZZ"
+    ]
+  },
+  {
+    "id": "MEM-014",
+    "text": "I enjoy bossa nova.",
+    "expected": [
+      "bossa nova"
+    ],
+    "candidate_probe": [
+      "bossa nova"
+    ]
+  },
+  {
+    "id": "MEM-015",
+    "text": "I prefer classic rock.",
+    "expected": [
+      "classic rock"
+    ],
+    "candidate_probe": [
+      "classic rock"
+    ]
+  },
+  {
+    "id": "MEM-016",
+    "text": "I love Guns N' Roses.",
+    "expected": [
+      "guns n' roses"
+    ],
+    "candidate_probe": [
+      "Guns N' Roses"
+    ]
+  },
+  {
+    "id": "MEM-017",
+    "text": "Do you have jazz?",
+    "expected": [],
+    "candidate_probe": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "MEM-018",
+    "text": "Show me rock albums.",
+    "expected": [],
+    "candidate_probe": [
+      "rock"
+    ]
+  },
+  {
+    "id": "MEM-019",
+    "text": "I don't like metal.",
+    "expected": [],
+    "candidate_probe": [
+      "metal"
+    ]
+  },
+  {
+    "id": "MEM-020",
+    "text": "I do not enjoy blues.",
+    "expected": [],
+    "candidate_probe": [
+      "blues"
+    ]
+  },
+  {
+    "id": "MEM-021",
+    "text": "I used to love jazz.",
+    "expected": [],
+    "candidate_probe": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "MEM-022",
+    "text": "My friend says I love rock.",
+    "expected": [],
+    "candidate_probe": [
+      "rock"
+    ]
+  },
+  {
+    "id": "MEM-023",
+    "text": "She said \"I love jazz\".",
+    "expected": [],
+    "candidate_probe": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "MEM-024",
+    "text": "\u201cI love jazz\u201d is an example.",
+    "expected": [],
+    "candidate_probe": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "MEM-025",
+    "text": "Pretend I love classical.",
+    "expected": [],
+    "candidate_probe": [
+      "classical"
+    ]
+  },
+  {
+    "id": "MEM-026",
+    "text": "If I like rock, what would you suggest?",
+    "expected": [],
+    "candidate_probe": [
+      "rock"
+    ]
+  },
+  {
+    "id": "MEM-027",
+    "text": "Please save jazz as a guess.",
+    "expected": [],
+    "candidate_probe": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "MEM-028",
+    "text": "Does my favorite artist play jazz?",
+    "expected": [],
+    "candidate_probe": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "MEM-029",
+    "text": "I love jazz, but not metal.",
+    "expected": [
+      "jazz"
+    ],
+    "candidate_probe": [
+      "jazz",
+      "metal"
+    ]
+  },
+  {
+    "id": "MEM-030",
+    "text": "I love jazz. Do you have rock?",
+    "expected": [
+      "jazz"
+    ],
+    "candidate_probe": [
+      "jazz",
+      "rock"
+    ]
+  },
+  {
+    "id": "MEM-031",
+    "text": "I prefer blues; show me metal.",
+    "expected": [
+      "blues"
+    ],
+    "candidate_probe": [
+      "blues",
+      "metal"
+    ]
+  },
+  {
+    "id": "MEM-032",
+    "text": "I love jazz.",
+    "expected": [
+      "jazz"
+    ],
+    "candidate_probe": [
+      "jazz",
+      "nonexistent"
+    ]
+  },
+  {
+    "id": "MEM-033",
+    "text": "I never said I love jazz.",
+    "expected": [],
+    "candidate_probe": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "MEM-034",
+    "text": "It is false that I like rock.",
+    "expected": [],
+    "candidate_probe": [
+      "rock"
+    ]
+  },
+  {
+    "id": "MEM-035",
+    "text": "I don't think I enjoy metal.",
+    "expected": [],
+    "candidate_probe": [
+      "metal"
+    ]
+  },
+  {
+    "id": "MEM-036",
+    "text": "Quote: I love blues.",
+    "expected": [],
+    "candidate_probe": [
+      "blues"
+    ]
+  },
+  {
+    "id": "MEM-037",
+    "text": "I love jazz and hate metal.",
+    "expected": [
+      "jazz"
+    ],
+    "candidate_probe": [
+      "jazz",
+      "metal"
+    ]
+  },
+  {
+    "id": "MEM-038",
+    "text": "It isn't true that I like rock.",
+    "expected": [],
+    "candidate_probe": [
+      "rock"
+    ]
+  },
+  {
+    "id": "MEM-039",
+    "text": "'I love jazz'",
+    "expected": [],
+    "candidate_probe": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "MEM-040",
+    "text": "Suppose I love jazz.",
+    "expected": [],
+    "candidate_probe": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "MEM-041",
+    "text": "I love jazz and don't like metal.",
+    "expected": [
+      "jazz"
+    ],
+    "candidate_probe": [
+      "jazz",
+      "metal"
+    ]
+  },
+  {
+    "id": "MEM-042",
+    "text": "I love jazz, never metal.",
+    "expected": [
+      "jazz"
+    ],
+    "candidate_probe": [
+      "jazz",
+      "metal"
+    ]
+  }
+]

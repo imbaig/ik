@@ -1,0 +1,18 @@
+{
+  ".dockerignore": "0a171f9f922f6564ead31595dd8e0170578b3afe0971cd58f6c91546a78b22ad",
+  ".env.example": "fcabee5abd5bf81c2e0b02f74c7f7671581c4ff2e814419910501c6652739d71",
+  ".gitignore": "4e224ecd589d1d57157c7a8f9359c37020516b4954a351e89d3f80962ad4231f",
+  "data/CHINOOK-LICENSE.txt": "5064d720db431474b0a0b0cef9d2b5e362b6c6f80602b35c6443b07cbc979f77",
+  "data/provenance.json": "c527e3046b6742c91dbb0746f4af5b11dd82b7046231815f6474060e0551bdfa",
+  "pyproject.toml": "f0e8160f4c053b9ea11d52aa564e5cbff42ab4c8b608e719df1999dbb14624b8",
+  "requirements-dev.txt": "53585796d0f9862118f0ab9f79f60026c824e414472cf733b223a5aee22f65fe",
+  "requirements.lock": "323b694ea877c712bdc4861b46bb788c8875113e6bbff3e61356ef5e3ae21b4e",
+  "requirements.txt": "15051e4b1c74d0acc677fc8cbbc17c98a96c051afcfddd78afc7181dc84747f0",
+  "src/music_store/__init__.py": "3a474d1298dc60bc46565014dc082f18142b8cb5057641447d959262e42427c5",
+  "src/music_store/config.py": "0050afb91f7e7024e09916957aa6de7f4f174a4d2a00f8748446fc865b7d5cde",
+  "src/music_store/db.py": "bd9041ab61c62c22ff4c3a0bd46b0d0ce8e31f8eb9298fb051ebba37918494c1",
+  "tests/conftest.py": "95c4fe70d83c8ff6e6b703bd6c48976404456905a8cf67c773cf97be9b38fece",
+  "tests/test_config.py": "91bea635b1f296193be7c6a867271f9fdfbb778df476599536bc287beadb8262",
+  "tests/test_db.py": "de77ea299f0ae30695f46e143d0d36938a7b362c1ca4e17aac89a4e1878337ed",
+  "uv.lock": "a2bc778d37340bf3ca4bb15e8def1849654367da6b7f6dca8005e32e720f650f"
+}

@@ -1,0 +1,54 @@
+name: Capstone offline checks
+
+on:
+  push:
+    paths: ['capstone/**', '.github/workflows/capstone-ci.yml']
+  pull_request:
+    paths: ['capstone/**', '.github/workflows/capstone-ci.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: capstone-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline:
+    name: Python 3.12 tests and Ruff (no LLM credentials)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: capstone
+    env:
+      OPENAI_API_KEY: ''
+      GRADIO_ANALYTICS_ENABLED: 'False'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned package manager
+        run: python -m pip install uv==0.12.5
+      - name: Install locked dependencies
+        run: uv sync --locked --python 3.12
+      - name: Bootstrap verified public Chinook snapshot
+        run: PYTHONPATH=src uv run python -m music_store.db
+      - name: Lint and formatting
+        run: |
+          uv run ruff check src tests app.py
+          uv run ruff format --check src tests app.py
+      - name: Run credential-free regression tests
+        run: uv run pytest -q --junitxml=test-results/junit.xml
+      - name: Preserve test evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: capstone-offline-tests-${{ github.sha }}
+          path: capstone/test-results/junit.xml
+          if-no-files-found: warn
+          retention-days: 14
