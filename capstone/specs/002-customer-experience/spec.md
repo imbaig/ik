@@ -1,7 +1,7 @@
 # Proposed feature specification: customer experience
 
 Feature002; branch `design/issue-5-customer-experience`; created2026-11-08.
-**Status: DRAFT — discovery authored; direction/framework/spec decisions pending Imran.**
+**Status: DRAFT — revised for binding human findings; local visual review, direction/framework/spec decisions and human closure pending Imran.**
 Input: issues [#5](https://github.com/imbaig/ik/issues/5) and [#4](https://github.com/imbaig/ik/issues/4).
 This packet proposes future work; it does not authorize coding, migration or baseline changes.
 Baseline001 and its approval snapshots remain authoritative and unchanged. Feature002 adds
@@ -19,7 +19,7 @@ presentation requirements without extending store capabilities or authentication
 
 Visual trace: [artifact index](../../docs/design/issue-5/README.md), [journeys](../../docs/design/issue-5/visuals/01-journeys.svg),
 [desktop](../../docs/design/issue-5/visuals/02-desktop.svg), [mobile](../../docs/design/issue-5/visuals/02-mobile.svg),
-[state atlas](../../docs/design/issue-5/visuals/04-states.html). Representative A/B/C higher-fidelity
+[state atlas](../../docs/design/issue-5/visuals/04-states.html), [connected walkthrough](../../docs/design/issue-5/visuals/walkthrough.html#a-S01) and [flow key](../../docs/design/issue-5/flow-guide.md). Representative A/B/C higher-fidelity
 mockups are candidates, not approved references; see [directions](../../docs/design/issue-5/directions.md).
 
 ## Proposed functional requirements
@@ -54,6 +54,16 @@ mockups are candidates, not approved references; see [directions](../../docs/des
   phone captures, deviations, exact-revision tests/review and affected live evidence. Imran
   approves design/spec and merging; passing checks or agent review does not do so.
 
+- **CX-13**: The review prototype must begin with an empty first visit, distinct from public
+  result and existing verified conversation. A/B/C share a navigable, state-ID-mapped public,
+  account, mixed and recovery flow in wide/phone composition. Every active mock action leads
+  to its identifiable fixed outcome; noninteractive fields/loading controls are explicitly
+  explained outside the product screen. No account/provider connection is implied.
+- **CX-14**: Product screen areas use realistic proposed customer questions/replies and pinned
+  sample fixtures where available. Structural labels, state IDs, provenance and review notes
+  remain outside; demo-verification and process-local-memory limits appear contextually.
+  Binding human findings H5-01–03 remain pending human closure after actual local previews.
+
 ## Edge cases and success criteria
 
 Required walkthrough: all HC-01–05 plus S01–S16, malicious markup in catalog fields, long
@@ -73,3 +83,12 @@ D1 visual direction, D2 framework/spike, D3 spec and D4 slice scope/schedule rem
 mutation, durable storage, checkout, playback, ticket creation or provider cancellation.
 Approved-spec references:001 FR-003–010, contracts, HC scenarios; source/rendering code was
 inspected to distinguish current facts from proposals. [Traceability](traceability.md).
+
+## Binding human review revision
+
+[H5-01–03](../../docs/design/issue-5/human-findings.md) originate with Imran and are
+mandatory. The initial agent report did not establish human acceptance. Added CX13/14 and
+AC13–16 require distinguishable entry/results, connected actions and realistic copy; exact
+new review SHA and unchanged reviewer report/dispositions are recorded in existing PR6.
+Local coordinator must render actual desktop/mobile preview before presenting completion.
+No human closure/waiver or application implementation follows from this revision.

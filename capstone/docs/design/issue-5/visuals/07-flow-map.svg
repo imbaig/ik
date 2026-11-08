@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1350" viewBox="0 0 1440 1350" role="img" aria-labelledby="title desc"><title id="title">Connected customer flow map</title><desc id="desc">First visit is empty; public browsing bypasses verification; account and mixed paths verify, load and show scoped results. Recovery and reset paths are explicit.</desc><rect width="100%" height="100%" fill="#edf0f4"/><style>text{font-family:Arial,sans-serif;fill:#18283f} .bold{font-weight:700}</style>
+<text x="40" y="52" font-size="30" class="bold">Choose a question. Follow its action to an outcome.</text>
+<text x="40" y="92" font-size="17">All links open fixed states in the one-file walkthrough. This map is review annotation, not a product screen.</text>
+<text x="40" y="170" font-size="21" class="bold">Public discovery</text>
+<a href="walkthrough.html#a-S01">
+<rect x="40" y="195" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="228" font-size="18" class="bold">S01</text>
+<text x="56" y="262" font-size="17">Empty first visit</text>
+</a>
+<text x="360" y="272" font-size="24">→</text>
+<a href="walkthrough.html#a-S02D">
+<rect x="390" y="195" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="228" font-size="18" class="bold">S02D</text>
+<text x="406" y="262" font-size="17">Ask about AC/DC → looking up</text>
+</a>
+<text x="710" y="272" font-size="24">→</text>
+<a href="walkthrough.html#a-S17">
+<rect x="740" y="195" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="228" font-size="18" class="bold">S17</text>
+<text x="756" y="262" font-size="17">Two albums returned</text>
+</a>
+<text x="40" y="392" font-size="21" class="bold">Account · unverified</text>
+<a href="walkthrough.html#a-S03">
+<rect x="40" y="417" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="450" font-size="18" class="bold">S03</text>
+<text x="56" y="484" font-size="17">Ask latest invoice → verify</text>
+</a>
+<text x="360" y="494" font-size="24">→</text>
+<a href="walkthrough.html#a-S02A">
+<rect x="390" y="417" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="450" font-size="18" class="bold">S02A</text>
+<text x="406" y="484" font-size="17">Verify sample 1 → loading</text>
+</a>
+<text x="710" y="494" font-size="24">→</text>
+<a href="walkthrough.html#a-S09">
+<rect x="740" y="417" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="450" font-size="18" class="bold">S09</text>
+<text x="756" y="484" font-size="17">Owned invoice 382 · 8.91</text>
+</a>
+<text x="1060" y="494" font-size="24">→</text>
+<a href="walkthrough.html#a-S18">
+<rect x="1090" y="417" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="1106" y="450" font-size="18" class="bold">S18</text>
+<text x="1106" y="484" font-size="17">All nine line items</text>
+</a>
+<text x="40" y="614" font-size="21" class="bold">Account · already verified</text>
+<a href="walkthrough.html#a-S20">
+<rect x="40" y="639" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="672" font-size="18" class="bold">S20</text>
+<text x="56" y="706" font-size="17">Existing verified</text>
+<text x="56" y="730" font-size="17">conversation</text>
+</a>
+<text x="360" y="716" font-size="24">→</text>
+<a href="walkthrough.html#a-S02A">
+<rect x="390" y="639" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="672" font-size="18" class="bold">S02A</text>
+<text x="406" y="706" font-size="17">Send → loading; no ID prompt</text>
+</a>
+<text x="710" y="716" font-size="24">→</text>
+<a href="walkthrough.html#a-S09">
+<rect x="740" y="639" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="672" font-size="18" class="bold">S09</text>
+<text x="756" y="706" font-size="17">Owned invoice result</text>
+</a>
+<text x="40" y="836" font-size="21" class="bold">Recovery / mixed request</text>
+<a href="walkthrough.html#a-S04">
+<rect x="40" y="861" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="894" font-size="18" class="bold">S04</text>
+<text x="56" y="928" font-size="17">Invalid ID → retry S03</text>
+</a>
+<text x="360" y="938" font-size="24">→</text>
+<a href="walkthrough.html#a-S03M">
+<rect x="390" y="861" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="894" font-size="18" class="bold">S03M</text>
+<text x="406" y="928" font-size="17">Mixed query → verify or exit</text>
+</a>
+<text x="710" y="938" font-size="24">→</text>
+<a href="walkthrough.html#a-S07">
+<rect x="740" y="861" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="894" font-size="18" class="bold">S07</text>
+<text x="756" y="928" font-size="17">Cancel → no account work</text>
+</a>
+<text x="1060" y="938" font-size="24">→</text>
+<a href="walkthrough.html#a-S08">
+<rect x="1090" y="861" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="1106" y="894" font-size="18" class="bold">S08</text>
+<text x="1106" y="928" font-size="17">Catalog only → two albums</text>
+</a>
+<text x="40" y="1058" font-size="21" class="bold">Alternative outcomes</text>
+<a href="walkthrough.html#a-S11">
+<rect x="40" y="1083" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="1116" font-size="18" class="bold">S11</text>
+<text x="56" y="1150" font-size="17">Empty → refine artist</text>
+</a>
+<text x="360" y="1160" font-size="24">→</text>
+<a href="walkthrough.html#a-S10">
+<rect x="390" y="1083" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="1116" font-size="18" class="bold">S10</text>
+<text x="406" y="1150" font-size="17">Error → retry S02A</text>
+</a>
+<text x="710" y="1160" font-size="24">→</text>
+<a href="walkthrough.html#a-S15">
+<rect x="740" y="1083" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="1116" font-size="18" class="bold">S15</text>
+<text x="756" y="1150" font-size="17">Switch refused → S12</text>
+</a>
+<text x="1060" y="1160" font-size="24">→</text>
+<a href="walkthrough.html#a-S12">
+<rect x="1090" y="1083" width="310" height="130" rx="8" fill="white" stroke="#718096"/>
+<text x="1106" y="1116" font-size="18" class="bold">S12</text>
+<text x="1106" y="1150" font-size="17">Reset consequences → S01R</text>
+</a>
+<text x="40" y="1320" font-size="17">Reset clears chat, identity and pending task, not saved process-local preferences. Human acceptance remains pending.</text>
+</svg>

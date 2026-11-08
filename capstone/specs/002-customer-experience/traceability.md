@@ -15,7 +15,7 @@ approval of this packet. No requirement/approval snapshot in001 is modified.
 ## Author analysis (self-review, not independent approval)
 
 - Completeness: HC01–05 and S01–16 have diagram/visual and written references; recovery and
-  synthetic response examples supplied. Whole-page implementation accessibility remains future work.
+  pinned public-fixture response examples and simulated outcomes supplied. Whole-page implementation accessibility remains future work.
 - Consistency: no new store operations, identity authority, preference mutation or durable
   memory implied. Reset and union-memory lifetimes distinguished. Currency absent is explicit.
 - Testability: acceptance gives inputs/expected facts and evidence. Rendering/interaction/
@@ -26,3 +26,14 @@ approval of this packet. No requirement/approval snapshot in001 is modified.
   reports/dispositions in PR; human findings binding. No design/spec/merge approval claimed.
 - Open risks: local rendering may uncover layout defects; Gradio announcements/focus may
   need a different implementation approach. Escalate evidence to Imran before coding.
+
+## Human finding trace
+
+| Binding source | Change requirement | Acceptance | Review visuals |
+|---|---|---|---|
+| Imran H5-01: landing/result ambiguity | CX13 | AC13 | Empty S01 vs S02D/S17 in A/B/C, desktop/mobile SVGs |
+| Imran H5-02: flow unclear | CX13 | AC14/16 | One-file walkthrough, flow map, all linked primary/recovery/reset states |
+| Imran H5-03: filler copy | CX14 | AC15/16 | Same realistic questions/facts across directions, wireframes and state atlas |
+
+All remain binding and pending Imran's closure. Independent re-review verifies authored
+resolution only; local rendered findings and human acceptance cannot be inferred.

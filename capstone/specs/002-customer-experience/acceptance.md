@@ -19,6 +19,20 @@ References: [sources](../../docs/design/issue-5/sources.md), [state matrix/fixtu
 | AC-11 | Given all implemented journeys, verify selected WCAG checks below, plus complete relevant A/AA criterion inventory. Scanner findings resolved/recorded with manual evidence. No conformance claim from this design packet or scanner alone | All; CX09 |
 | AC-12 | Given final future PR, record exact SHA, approved vs actual visuals, offline/e2e checks, security/session cases, independent read-only report/dispositions and affected live evaluation where rendering/grounding/orchestration changes. Imran explicitly decides acceptance | Slice map; CX11/12 |
 
+## Human-review prototype acceptance — binding, not yet closed
+
+These checks apply now to the **design prototype**; preceding app/runtime checks remain
+proposed for future implementation. [Human findings](../../docs/design/issue-5/human-findings.md),
+[entrypoint](../../docs/design/issue-5/visuals/walkthrough.html#a-S01) and
+[route/state key](../../docs/design/issue-5/flow-guide.md).
+
+| ID | Check and required evidence | Findings / status |
+|---|---|---|
+| AC-13 | In each A/B/C wide/phone first visit S01, observe zero messages/results and no verified identity. Select public question → S02D loading → S17 actual two-album result. Capture distinct entry/result previews | H5-01; static separation authored, actual local render and human closure pending |
+| AC-14 | Follow account request S03→S02A→S09→S18; verified S20→S02A skips S03. Inspect invalid/unknown/retry/limit, cancel, mixed/catalog-only, empty/error, switch/reset paths. Active mock anchors resolve; noninteractive fields/loading controls are explained outside product; every reset Keep returns to exact origin | H5-02; static link/route recheck, then local navigation preview required |
+| AC-15 | Product areas contain concrete questions, realistic replies, exact pinned-Chinook values/counts and no structural filler or engineering/provenance notes. Disclosures remain truthful/contextual. Cross-check fixture JSON; inspect all A/B/C, wireframes and atlas in content context | H5-03; source/fixture checks plus rendered local review required |
+| AC-16 | Freeze new SHA, publish separate read-only re-review of changed copy/flows and author dispositions; preserve mandatory human findings. Attach local actual desktop/mobile previews before presenting completion; only Imran closes/waives human findings or approves design/spec | H5-01–03; no human closure/approval inferred from agent/static evidence |
+
 ## Proposed accessibility test protocol
 
 Target is WCAG2.2AA, not a conformance claim. Use actual implemented pages, keyboard-only,

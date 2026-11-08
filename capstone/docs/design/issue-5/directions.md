@@ -1,9 +1,8 @@
 # Three candidate directions — no selection yet
 
 Compare the [visual index](visuals/index.html). These are authored HTML/CSS mockups, not
-Gradio screens or rendered screenshots. Each direction shows discovery and account at a
-wide composition and narrow phone composition. Responsive behavior is proposed, untested.
-No external fonts, logos or fabricated album covers. All example content is synthetic.
+Gradio screens or rendered screenshots. Each direction starts with an empty first visit and carries the same connected public/account/recovery scenes in wide and phone compositions. The single-file walkthrough compares all three. Responsive behavior is proposed, untested.
+No external fonts, logos or fabricated album covers. Album/invoice/contact facts now use the pinned public fixture in sample-fixtures.json; other outcomes are simulated, with labels outside product boundaries.
 
 | Direction | Visual system and layout | Customer benefit hypothesis | Cost / risk | Human choice |
 |---|---|---|---|---|
@@ -25,3 +24,12 @@ follow-up through the existing service after approval; no client-supplied custom
 Refine selected direction after local 1440x900 and 390x844 inspection, 320px reflow and
 landscape/keyboard checks. Capture both discovery and verified invoice views; compare
 against frozen artifact hashes, explain deviations, and get Imran's explicit direction decision.
+
+## Binding human revision
+
+[H5-01–03](human-findings.md) require clear entry/results, action flow and realistic copy.
+[Start at S01](visuals/walkthrough.html#a-S01), not the old static result layout. A/B/C share
+questions, pinned facts and route IDs; their visual treatment differs. Reviewer annotations,
+state IDs and provenance are outside each product screen. Loading controls are explicitly
+noninteractive; all active question/actions navigate local mock fragments. No account/provider
+connection. Local rendered review and Imran's closure are still pending.

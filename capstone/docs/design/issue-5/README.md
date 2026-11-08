@@ -7,27 +7,42 @@ its implementation is not reopened. Author: Codex `/root`. Date: 2026-11-08.
 Duplicate check: GitHub search of all open repository PRs returned none before branch creation.
 Branch: `design/issue-5-customer-experience`; baseline001, code, dependencies and coursework unchanged.
 
-## Compare the artifacts
+## Start here — no repository download needed
 
-Download this directory and open [visual index](visuals/index.html) locally; no server,
-network, installation, JavaScript, external fonts or application credentials are required.
-GitHub displays SVG files directly; download HTML to inspect it in a browser.
+1. Open [the complete customer walkthrough](visuals/walkthrough.html#a-S01), choose
+   **Download raw file** on GitHub, save the single HTML file and open it locally. It includes
+   A/B/C, all linked states and wide/phone composition controls. No server, install or network.
+2. Begin at the **empty first visit**. Choose the AC/DC question for public discovery;
+   restart and choose the invoice question to follow verification → loading → owned result.
+3. Use the flow map for the already-verified shortcut and recovery branches. See the
+   [plain-language guide](flow-guide.md) for the route/state key.
+4. The local coordinator will render actual desktop/mobile previews before this revision
+   is presented as complete. [Human findings H5-01–03](human-findings.md) remain binding;
+   no human closure or approval is claimed.
 
-| Stage | Visual review input | Accompanying decisions/evidence |
+GitHub displays [desktop](visuals/02-desktop.svg), [mobile](visuals/02-mobile.svg) and
+[flow-map](visuals/07-flow-map.svg) SVGs directly. HTML source view is not a rendered
+preview. The one-file walkthrough is the primary portable entrypoint; the older visual
+index and direction files are also retained for directory-based/local review.
+
+| Stage | Visual review input | Accompanying evidence |
 |---|---|---|
-| 1: discover | [HC-01–05 journey board](visuals/01-journeys.svg) | [Inventory and journeys](discovery.md) |
-| 2: arrange | [Desktop wireframes](visuals/02-desktop.svg), [mobile wireframes](visuals/02-mobile.svg) | [State matrix](states-and-responses.md#critical-state-coverage) |
-| 3: compare | [A · Record Room](visuals/direction-a.html), [B · Clear Conversation](visuals/direction-b.html), [C · Reference Desk](visuals/direction-c.html) | Each includes discovery/account desktop and explicit mobile compositions; [tradeoffs](directions.md) |
-| 4: recover | [Critical-state atlas](visuals/04-states.html) | [Responses and exact-fixture rules](states-and-responses.md) |
-| 5: specify | [Gated slice map](visuals/05-slices.svg) | [Draft spec](../../../specs/002-customer-experience/spec.md), [acceptance](../../../specs/002-customer-experience/acceptance.md), [traceability](../../../specs/002-customer-experience/traceability.md) |
-| Evaluate feasibility | [Framework/trust boundary diagram](visuals/06-framework.svg) | [Per-interaction matrix and recommendation](feasibility.md) |
-| Inspect sources | [Source/use ledger](sources.md), [source hashes](source-manifest.json), [static checks](static-validation.md) | Pinned UI UX Pro Max, Gradio5.50 source evidence, Nielsen/HAX/WCAG |
-| Validate locally | [Local inspection checklist](local-inspection.md) | Rendering, mobile/keyboard/assistive tech all pending |
+| Discover | [HC01–05 journey board](visuals/01-journeys.svg) | [Inventory/journeys](discovery.md) |
+| Follow actions | [One-file A/B/C walkthrough](visuals/walkthrough.html#a-S01), [flow map](visuals/07-flow-map.svg) | [Flow guide](flow-guide.md), [route IDs](flow-states.json) |
+| Arrange | [Desktop](visuals/02-desktop.svg), [mobile](visuals/02-mobile.svg) wireframes | Empty entry is separate from question/loading/result |
+| Compare | [A · Record Room](visuals/direction-a.html#a-S01), [B · Clear Conversation](visuals/direction-b.html#b-S01), [C · Reference Desk](visuals/direction-c.html#c-S01) | Each has the same unverified/verified/recovery routes and wide/phone controls |
+| Recover | [All-state atlas](visuals/04-states.html) | [State/copy matrix](states-and-responses.md) |
+| Specify | [Gated slice map](visuals/05-slices.svg) | [Draft002](../../../specs/002-customer-experience/spec.md), [acceptance](../../../specs/002-customer-experience/acceptance.md), [traceability](../../../specs/002-customer-experience/traceability.md) |
+| Evaluate feasibility | [Framework boundary](visuals/06-framework.svg) | [Gradio/alternative matrix](feasibility.md) |
+| Inspect sources | [Ledger](sources.md), [source hashes](source-manifest.json), [sample fixture](sample-fixtures.json) | [Static evidence](static-validation.md) |
+| Recheck binding findings | [Human findings/dispositions](human-findings.md) | [Local inspection handoff](local-inspection.md) |
 
-All screens are **proposed static mockups**. Named music, invoice IDs, dates, totals and
-contact details in them are **synthetic illustration, not actual store records**. Abstract
-shapes are layout marks, not album artwork. No checkout, playback, refund, ticket or account
-change is offered. Runtime responses must be generated from observed tool facts only.
+Product areas contain proposed customer-facing copy. All review labels/state IDs/provenance
+stay outside them. Read-only sample fields and noninteractive loading controls are explained
+in review notes; active actions lead to identifiable fixed mock states. Data now uses the
+existing checksum-verified public Chinook fixture, rather than the first revision's synthetic
+records; exact amounts/counts and extraction provenance are in sample-fixtures.json. No live
+store/account/provider connection, application change, new production feature or human approval.
 
 ## Recommendation for discussion
 

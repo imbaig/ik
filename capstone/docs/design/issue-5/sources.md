@@ -65,3 +65,15 @@ Initial attempted raw GitHub tag URLs returned404; upstream tag lookup returned 
 No version-specific upstream source was substituted silently. Installed source is the
 version-specific API evidence, not proof of rendered semantics. Hashes support local
 reinspection; no dependency/source files from the distribution are copied into this PR.
+
+## Human-review fixture/copy revision
+
+The original synthetic records are superseded by [sample-fixtures.json](sample-fixtures.json),
+extracted from the existing checksum-verified public Chinook SQL using read-only Database and
+bound domain tools with fixture context1. No LLM, verification model, UI session, provider or
+credential was used. source-manifest.json records SQL revision/hash, tool names and fixture
+file hash. New customer copy is authored; verification, loading/error and preference outcomes
+remain simulations, labeled outside product areas. This is not live application evidence.
+The new walkthrough is first-party HTML/CSS only, with no scripts or external assets. Its
+navigation and layout still need actual local browser inspection. No third-party skill code
+was run in this revision; the previous UI UX Pro Max pin and inspected-text limits remain.

@@ -3,73 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Music Store customer experience · design index</title>
-<style>*{box-sizing:border-box}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;color:#172532;background:#edf0f4}body{margin:0;padding:24px}a{color:#154eb5;text-underline-offset:4px}a:focus-visible{outline:3px solid #154eb5;outline-offset:4px}header.review{max-width:1400px;margin:auto auto 32px}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(28px,4vw,46px);line-height:1.15}h2{font-size:28px}p{max-width:76ch}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.review-note{padding:16px;border:1px solid #718096;background:#fff;border-radius:8px}.review-nav{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}.control{display:inline-block;padding:12px 18px;min-height:44px;border:1px solid var(--line,#718096);border-radius:var(--radius,8px);font-weight:650;font-size:14px;background:var(--card,#fff);color:var(--text,#172532)}.primary{background:var(--accent,#154eb5);color:var(--on,#fff);border-color:var(--accent,#154eb5)}.controls{display:flex;flex-wrap:wrap;gap:8px}.field{border:1px solid var(--line,#718096);padding:14px;min-height:64px;border-radius:var(--radius,8px);background:var(--card,#fff);margin:12px 0}.minor{font-size:14px;color:var(--muted,#425265)}.badge{display:inline-block;font-size:12px;border:1px solid var(--line,#718096);padding:5px 10px;border-radius:999px}.section-label{margin:32px 0 12px;font-size:18px}.mock{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.mast{padding:20px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.brand{font-size:22px;font-weight:750;letter-spacing:-.04em}.layout{padding:28px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px}.context{border-right:1px solid var(--line);padding-right:22px}.answer{max-width:760px}.answer h3{font-size:30px;line-height:1.2;letter-spacing:-.03em}.ask{padding:12px 16px;background:var(--soft);border-radius:var(--radius);margin-bottom:24px}.card{padding:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin:14px 0}.card-title{font-size:19px;font-weight:700}.record{display:grid;grid-template-columns:52px minmax(0,1fr) auto;align-items:center;gap:16px;border-top:1px solid var(--line);padding:16px 0}.record:first-of-type{border-top:0}.mark{width:48px;height:48px;display:grid;place-items:center;background:var(--soft);border:1px solid var(--line);font-size:12px;font-weight:800}.amount{font-variant-numeric:tabular-nums;font-weight:750;white-space:normal}.total{font-size:36px;font-weight:750;letter-spacing:-.04em}.rule{border-top:1px solid var(--line);padding-top:16px}.composer{margin-top:24px;padding-top:16px;border-top:1px solid var(--line)}.foot{padding:14px 28px;background:var(--soft);font-size:12px}.phone-grid{display:flex;flex-wrap:wrap;gap:28px}.phone{width:390px;max-width:100%;border:6px solid #182431;border-radius:28px;overflow:hidden}.phone .mast{padding:20px 16px}.phone .layout{display:block;padding:20px 16px}.phone .context{border:0;padding:0;margin-bottom:16px}.phone .answer h3{font-size:28px}.phone .record{grid-template-columns:minmax(0,1fr);gap:8px}.phone .mark{display:none}.phone .controls .control{width:100%;text-align:center}.phone .foot{padding:16px}.phone .card{padding:16px}.phone .minor{overflow-wrap:anywhere}.phone .brand{font-size:19px}.phone .mast .control{font-size:12px;padding:10px}.b .layout{grid-template-columns:minmax(0,760px);justify-content:center}.b .context{border:0;padding:0;display:flex;gap:12px;align-items:center;flex-wrap:wrap}.b .context p{margin:0}.b .answer{margin:auto;width:100%}.c .context{border:0;border-bottom:1px solid var(--line);padding:0 0 16px}.c .layout{grid-template-columns:minmax(0,1fr)}.c .record{grid-template-columns:40px minmax(0,1fr) auto}.c .mark{width:36px;height:36px}.c .answer{max-width:100%;width:100%}.c .card{border-left:4px solid var(--accent)}@media(max-width:700px){body{padding:16px}.layout{display:block;padding:20px 16px}.context{border:0;border-bottom:1px solid var(--line);padding:0 0 16px;margin-bottom:20px}.mast{padding:18px 16px}.record,.c .record{grid-template-columns:minmax(0,1fr);gap:8px}.mark{display:none}.total{font-size:30px}.phone-grid{display:block}.phone{margin-bottom:24px}.controls .control{max-width:100%;overflow-wrap:anywhere}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}.tile{background:#fff;border:1px solid #718096;padding:24px;border-radius:12px}.tile a{font-size:22px;font-weight:700}</style>
+<title>Music Store · start the design review</title>
+<style>body{font:18px/1.6 system-ui,sans-serif;max-width:850px;margin:40px auto;padding:0 20px;color:#18283f;background:#f4f7fc}a{color:#204fbb}li{margin:18px 0}.note{padding:20px;border:1px solid #8393ad;background:white}h1{line-height:1.15}</style>
 </head>
 <body>
-<header class="review">
-<p class="eyebrow">Music Store / issue5 under feature4</p>
-<h1>A clearer conversation about music.</h1>
-<p>Design discovery only. Compare the journey, structure and three visual directions before choosing a frontend or authorizing implementation.</p>
-<div class="review-note">
-<strong>Unapproved proposals. Synthetic data, no store facts.</strong> No browser rendering, mobile or accessibility QA claimed. Local coordination will inspect this frozen artifact revision. No external resources, scripts or live providers. Open linked files locally; GitHub does not render HTML previews as an app.</div>
-<p style="margin-top:20px">Direction, framework, specification and implementation scope all await Imran's decision. <a href="../README.md">Full artifact index and decision register</a>.</p>
-</header>
-<main class="grid" style="max-width:1400px;margin:auto">
-<section class="tile">
-<h2>
-<a href="01-journeys.svg">1 / Journey board</a>
-</h2>
-<p>Five hero goals, gates, recoveries and evidence.</p>
-</section>
-<section class="tile">
-<h2>
-<a href="02-desktop.svg">2 / Desktop wireframes</a>
-</h2>
-<p>Welcome/catalog, verification and account/mixed.</p>
-</section>
-<section class="tile">
-<h2>
-<a href="02-mobile.svg">2 / Mobile wireframes</a>
-</h2>
-<p>Welcome, catalog, verification and account.</p>
-</section>
-<section class="tile">
-<h2>
-<a href="direction-a.html">3A / Record Room</a>
-</h2>
-<p>Warm editorial candidate; desktop and mobile pairs.</p>
-</section>
-<section class="tile">
-<h2>
-<a href="direction-b.html">3B / Clear Conversation</a>
-</h2>
-<p>Conversation-first candidate; desktop and mobile pairs.</p>
-</section>
-<section class="tile">
-<h2>
-<a href="direction-c.html">3C / Reference Desk</a>
-</h2>
-<p>Dense reference candidate; desktop and mobile pairs.</p>
-</section>
-<section class="tile">
-<h2>
-<a href="04-states.html">4 / Critical-state atlas</a>
-</h2>
-<p>Sixteen states and recovery copy.</p>
-</section>
-<section class="tile">
-<h2>
-<a href="05-slices.svg">5 / Gated slice map</a>
-</h2>
-<p>Human decisions before any coding.</p>
-</section>
-<section class="tile">
-<h2>
-<a href="06-framework.svg">6 / Framework boundary</a>
-</h2>
-<p>Gradio versus alternative; server identity preserved.</p>
-</section>
-</main>
+<h1>Start with the first visit</h1>
+<p>This revision separates the empty landing from replies and makes each customer action lead to a named next mock state.</p>
+<ol>
+<li>
+<a href="walkthrough.html#a-S01">Open the complete walkthrough: all A/B/C directions in one file</a>. Switch between wide and phone compositions.</li>
+<li>Choose “What albums by AC/DC do you carry?” for a public discovery path.</li>
+<li>Restart at First visit and choose “Show my latest invoice.” Follow verification, loading and the owned result.</li>
+<li>Use the flow map for already-verified, invalid/retry, cancel/catalog-only, empty/error and switching/reset branches.</li>
+</ol>
+<p class="note">Review prototype only. Public Chinook fixtures; simulated verification/loading/errors/memory; no account or provider connection. Local rendering and Imran’s review are pending.</p>
+<ul>
+<li>
+<a href="02-desktop.svg">Desktop wireframe sequence</a>
+</li>
+<li>
+<a href="02-mobile.svg">Mobile wireframe sequence</a>
+</li>
+<li>
+<a href="07-flow-map.svg">Flow map with state IDs</a>
+</li>
+<li>
+<a href="04-states.html">All-state copy atlas</a>
+</li>
+<li>
+<a href="direction-a.html#a-S01">Direction A</a> · <a href="direction-b.html#b-S01">Direction B</a> · <a href="direction-c.html#c-S01">Direction C</a>
+</li>
+</ul>
 </body>
 </html>

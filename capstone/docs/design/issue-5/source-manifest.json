@@ -52,12 +52,45 @@
   "commands": {
     "third_party_scripts_run": [],
     "spec_kit_commands_run": [],
-    "application_or_provider_calls": []
+    "application_or_provider_calls": [],
+    "read_only_fixture_extraction": "existing checksum-verified SQL + Database/build_tools; not UI, live verification or provider execution"
   },
   "human_decisions": {
     "visual_direction": null,
     "framework": null,
     "spec_approval": null,
     "merge_approval": null
+  },
+  "fixture_extraction": {
+    "file": "sample-fixtures.json",
+    "sha256": "5ddd3d4310f36c84897d34aec7a17f8bbd2ff132ba6090fa413c4931ae880927",
+    "dataset_revision": "c14389e4466cb2dac9fe97782b8dfc6113ed3ae2",
+    "dataset_sha256": "caf31d698a4a79c628215b552dfe6575e71be052ae02b8f18e763498f55f5d44",
+    "method": "existing checksum-verified local SQL loaded read-only; existing bound tools called with fixture trusted context customer1; no verification model/provider or credential access",
+    "read_only_tools": [
+      "get_albums_by_artist",
+      "get_invoices_by_customer_sorted_by_date",
+      "get_invoice_line_items",
+      "get_support_rep_by_invoice",
+      "get_songs_by_genre"
+    ],
+    "no_provider_calls": true
+  },
+  "human_findings": {
+    "H5-01": {
+      "source": "Imran via user message",
+      "mandatory": true,
+      "human_closure": null
+    },
+    "H5-02": {
+      "source": "Imran via user message",
+      "mandatory": true,
+      "human_closure": null
+    },
+    "H5-03": {
+      "source": "Imran via user message",
+      "mandatory": true,
+      "human_closure": null
+    }
   }
 }

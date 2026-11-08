@@ -1,7 +1,7 @@
 # Critical states and readable response contracts
 
 **Proposed behavior and illustrative copy only.** Visual coverage: [state atlas](visuals/04-states.html).
-S01–S16 are linked in the atlas. Nothing in this document claims current store inventory.
+S01–S16 families and the explicit entry/result/loading/shortcut states are linked in the atlas and flow guide. Nothing in this document claims current store inventory.
 
 ## Critical-state coverage
 
@@ -31,42 +31,68 @@ Preference correction is limited to clarifying a question before send or adding 
 positive value. Removing/replacing saved values is outside baseline001 and this proposal;
 HAX correction guidance does not authorize adding mutation tools or delete controls.
 
-## Exact-value illustrative fixture
+## Connected review states and actual fixture values
 
-The following invented fixture is a formatting contract only, not a database extract. All
-names/IDs/amounts/contact addresses below and in visual artifacts are synthetic. Decimal
-strings remain exact; no currency symbol/code is invented when the tool lacks one.
+The [one-file walkthrough](visuals/walkthrough.html#a-S01) and [flow guide](flow-guide.md)
+make the state sequence explicit. S01 is the empty first visit, S02D public loading, S17
+public albums, S03/S03M verification, S02A/S02M verified loading, S09 owned invoice, S18
+all details, S20 already-verified shortcut and S21 mixed answer. S04/05/06 show invalid,
+unknown/limit; S07 cancels; S08 explicitly cancels account work for catalog-only; S10/S10M
+show error/partial failure; S11 is empty catalog; S15 is switch refusal; S12-* preserve
+origin on Keep and clear chat/identity/pending task on confirm to S01R. S13/S13R/S14
+show capture/recall/removal limitation; S16 contact and S16U inaccessible invoice.
 
-- Catalog genre fixture: 6 matching tracks across 2 artists; 2 representative rows returned,
-  `truncated=true`: track9001 “Window Light”, artist “Morrow”, album “Quiet Lines”, unit price
-  `0.9900`; track9002 “Slow Orbit”, artist “Northline”, album “Open Hours”, unit price `0.9900`.
-  This is one representative per artist, not all genre tracks and not an album track list.
-- Owned invoice fixture: invoice9001, date `2026-10-03`, recorded total `2.9700`.
-  Two returned line items: Window Light qty2/unit price `0.9900`; Slow Orbit qty1/unit price
-  `0.9900`. Preserve recorded invoice total rather than recomputing/rounding it in UI.
-- Support fixture: representative “Demo Representative”, `support@example.invalid`,
-  phone “not supplied”. This reserved domain is deliberately non-deliverable, not a contact.
+The original synthetic fixture is superseded. [sample-fixtures.json](sample-fixtures.json)
+contains actual results from the existing checksum-verified local public Chinook snapshot,
+using bound domain tools with trusted fixture context customer1. This was fixture extraction,
+not a live store/account connection, real verification, model evaluation or provider call.
+Data revision/hash and query inputs are recorded. Loading, verification/failure and preference
+outcomes are explicitly simulated outside product screens. Exact monetary strings come from
+the tool envelopes, and no currency is inferred. New customer-facing copy is proposed.
 
-## Response examples
+## Representative customer responses
 
-| Response | Proposed customer-facing text (synthetic fixture unless stated) | Required invariant |
+All statements below are proposed copy for the pinned public fixture, not runtime claims.
+The product screens contain this kind of concrete text, with review provenance outside.
+
+| Response / state | Proposed customer-facing text | Invariant |
 |---|---|---|
-| Album list | “Albums matching Morrow: Quiet Lines — album9101. Showing 1 of 1 returned match.” | Use observed album/artist IDs; no invented track list, artwork or play button |
-| Genre/catalog list | “6 matching tracks across 2 artists. Here are 2 representative tracks, one per artist; this is a sample. Window Light — Morrow · Quiet Lines · track9001 · unit price0.9900. Slow Orbit — Northline · Open Hours · track9002 · unit price0.9900. Currency was not supplied.” | Preserve returned_count/total_count/truncated and distinct artists separately; do not call sample complete |
-| Invoice summary | “Your latest invoice: 9001 · 2026-10-03 · recorded total2.9700. Currency was not supplied. Ask for line items for invoice9001.” | Latest only from sorted observed results; verified account required; no account-switch field |
-| Invoice detail | “Invoice9001 — Window Light: quantity2, unit price0.9900. Slow Orbit: quantity1, unit price0.9900. Recorded invoice total2.9700.” | All returned rows and quantities, exact decimals; do not silently total the sample or add currency |
-| Mixed answer | “Your purchase: [the owned invoice summary above]. Catalog: [the observed album list above].” | Account first; separate source/outcome/count labels; failure in either section never hidden |
-| Catalog-only continuation | “Account request cancelled. Catalog results only. [Observed catalog list].” | Pending account part discarded; no private data |
-| Preference capture | “Saved music preferences: jazz. These remain only while this service process runs.” | Only after actual save outcome; a catalog question is not preference evidence |
-| Preference recall | “Saved music preferences: jazz, blues. These remain only while this service process runs.” | Actual loaded union only; verify fresh conversation; no cross-account recall |
-| Removal request | “Removing or replacing saved preferences is not supported in this demo. A new conversation clears this chat and identity, but does not delete saved preferences.” | Do not invent successful correction/removal |
-| Empty | “No matching catalog records were returned. Try a different artist, title or genre.” / “No invoices were returned for your verified account.” | Empty only after successful empty result; errors never represented as empty |
-| Error/partial | “Invoice details could not be retrieved. Please retry. Catalog results are shown below; the account part did not finish.” | Preserve actual safe partial records, no internal exception/SQL/provider text |
-| Switch refusal | “Your verified identity cannot change in this conversation. Select New conversation to start a fresh verification flow.” | Existing merged behavior retained; no target existence disclosure |
-| Support | “I cannot issue refunds or create support tickets. For this invoice, the returned representative is Demo Representative; email support@example.invalid. No phone was supplied.” | Only tool-returned fields; no link auto-open, ticket, email send or refund claim |
-| Unowned invoice | “That invoice is unavailable for this conversation. Check the invoice ID or ask about your invoices.” | Same generic result regardless of whether another account owns it |
+| Empty first visit /S01 | “What would you like to explore? Find albums and tracks, or revisit a purchase.” Questions: “What albums by AC/DC do you carry?” /“Show my latest invoice.” | No previous messages, result rows or verified account |
+| Public albums /S17 | “Here are the albums by AC/DC. Showing 2 of 2 albums. For Those About To Rock We Salute You — Album1. Let There Be Rock — Album4.” | Actual returned order; no invented artwork/playback |
+| Verification /S03 | “To show your invoice, first verify one sample identifier. Your request is waiting here.” Label: “Sample customer ID, email or phone.” | Demo-auth caveat contextual; no purchase rows yet |
+| Loading /S02A | “Finding your latest invoice… You’re verified for this conversation. I’m checking your invoices.” | Distinct from result; send/reset unavailable; review continuation outside screen |
+| Owned summary /S09 | “Your latest invoice is 382, dated 2025-08-07. This is the most recent of the 7 invoices found for your account. Recorded total 8.91. Currency is not included in this record.” | Only owned fixture; exact total; no invented currency |
+| Detail /S18 | “Invoice 382. Showing 9 of 9 line items.” Vamo Batê Lata: quantity1, unit price0.99; Mensagen De Amor (2000): quantity1, unit price0.99; Saber Amar: quantity1, unit price0.99; Cinema Mudo: quantity1, unit price0.99; Meu Erro: quantity1, unit price0.99; Será Que Vai Chover?: quantity1, unit price0.99; Mama, I'm Coming Home: quantity1, unit price0.99; Flying High Again: quantity1, unit price0.99; Paranoid: quantity1, unit price0.99. “Recorded invoice total 8.91.” | All returned rows/order/quantities; do not recalculate or round |
+| Mixed /S21 | “Your latest invoice” — invoice382, 2025-08-07, recorded total8.91. Then “Albums by AC/DC” — the two albums above, showing2 of2. | Both concrete sections visible in actual mock; account first |
+| Catalog-only /S08 | “Account request cancelled. Catalog results only. To ask about your purchases later, you’ll need to verify again.” Then both AC/DC albums. | Pending account portion discarded, not secretly resumed |
+| Invalid /S04 | “Check the identifier. Enter one customer ID, email or phone, then try again.” Field error: “Use a single identifier, not two customer IDs.” | Retry retains pending account task; no candidates disclosed |
+| Empty /S11 | “No albums matching ‘The Clockwork Lanterns’ were returned. Try a different artist name.” | Actual empty lookup; not a claim that an artist exists |
+| Error /S10 | “We couldn’t retrieve your invoices. Please try again. You’re still verified for this conversation.” | Simulated failure distinct from empty; identity not silently cleared |
+| Partial mixed /S10M | “Your invoice could not be retrieved. Please retry the purchase question. The account part did not finish.” Then both observed AC/DC albums. | Safe partial results labeled; no complete-task claim |
+| Preference capture/recall /S13/R | “I’ve saved your preference for jazz. These preferences remain only while this service is running.” /“You’ve told me you like jazz.” | Simulated explicit-positive save/recall, not real stored profile evidence |
+| Removal /S14 | “Removing or replacing saved preferences is not supported in this demo. A new conversation clears chat and verification, but does not delete saved preferences.” | No delete/undo control or success claim |
+| Switch /S15 | “Your verified identity cannot change in this conversation. Select New conversation to start a fresh verification flow.” | No target data/existence; invoice IDs unaffected |
+| Contact /S16 | “For invoice382, your contact is Jane Peacock. Email: jane@chinookcorp.com. Phone: +1 (403) 262-3443. I can help you find the contact, but I can’t issue refunds or create support tickets.” | Public sample contact; plain text, no real send/call/action |
+| Inaccessible /S16U | “That invoice is unavailable here. Check the invoice ID or ask about your invoices.” | Same generic response for foreign/nonexistent invoice |
 
-Fallback rule: if a new/unrecognized tool envelope cannot be formatted without losing facts,
-show a safe unavailable message and log only an allowlisted internal outcome. Never ask the
-model to fill missing fields. Later rendering implementation needs deterministic projection
-and escaping tests; this PR neither changes renderer nor claims regression/live passes.
+## Count/truncation example for genre lookup
+
+Pinned Jazz fixture: **130 matching tracks across 10 artists; 10 representative tracks
+shown, one per artist**. This is a sample, not a complete track list. Every row below is a
+returned fixture row, not a curated/invented recommendation:
+
+- Desafinado — Antônio Carlos Jobim; Warner 25 Anos; track63; unit price0.99.
+- Quadrant — Billy Cobham; The Best Of Billy Cobham; track123; unit price0.99.
+- Doce De Carnaval (Candy All) — Gilberto Gil; Quanta Gente Veio ver--Bônus De Carnaval; track1102; unit price0.99.
+- Heart of the Night — Spyro Gyra; Heart of the Night; track456; unit price0.99.
+- Now's The Time — Miles Davis; The Essential Miles Davis [Disc 1]; track597; unit price0.99.
+- Jeepers Creepers — Gene Krupa; Up An' Atom; track624; unit price0.99.
+- Roll Call — Dennis Chambers; Outbreak; track842; unit price0.99.
+- Colibri — Incognito; Blue Moods; track1188; unit price0.99.
+- Amanda — Aisha Duo; Quiet Songs; track3349; unit price0.99.
+- OAM's Blues — Aaron Goldberg; Worlds; track3357; unit price0.99.
+
+Currency was not supplied. The album examples do not offer album-to-track lookup; artist-track
+or returned-track-ID questions remain within supported tools. Later implementation must compare
+all nine tool projections against fixtures, keeping exact decimals/counts/order and safe failures.
+No formatter, tool, provider or application UI was changed by these design artifacts.
