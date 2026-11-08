@@ -49,6 +49,7 @@ class Event(BaseModel):
         "unknown",
     ]
     outcome: Literal[
+        "identity_switch_refused",
         "complete",
         "error",
         "waiting",

@@ -89,6 +89,7 @@ class ConversationService:
             "waiting",
             "cancelled",
             "catalog_only",
+            "identity_switch_refused",
         }:
 
             def update(cid, _):
@@ -278,10 +279,28 @@ class ConversationService:
             if action != "retry":
                 raise ValueError("Verification action requires a waiting conversation")
             session.last_kind = "unknown"
-            session.history.append(HumanMessage(content=text))
-            already_verified = self._verification.with_identity(
-                handle, lambda cid, _: cid is not None
+            customer_id = self._verification.with_identity(handle, lambda cid, _: cid)
+            # Recognize explicit customer labels, never bare numbers or invoice IDs.
+            # This is a UX guard only; trusted identity/tool ownership remain authoritative.
+            asserted_ids = re.findall(
+                r"\bcustomer(?:[ _-]*id)?\s*(?:(?:is\s+)?now\s+|is\s+|[=:#]\s*)?"
+                r"([0-9]+)\b",
+                text,
+                flags=re.IGNORECASE,
             )
+            if customer_id is not None and any(int(cid) != customer_id for cid in asserted_ids):
+                session.last_kind = "invoice"
+                session.history.append(HumanMessage(content="[customer switch refused]"))
+                return self._save(
+                    session,
+                    ConversationReply(
+                        "Your verified identity cannot change in this conversation. "
+                        "Select New conversation to start a fresh verification flow.",
+                        "identity_switch_refused",
+                    ),
+                )
+            session.history.append(HumanMessage(content=text))
+            already_verified = customer_id is not None
             if already_verified:
                 session.memory_history.append(HumanMessage(content=text))
                 session.memory_history = session.memory_history[-10:]
