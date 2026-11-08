@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="880" viewBox="0 0 1440 880" role="img" aria-labelledby="title desc"><title id="title">Framework and trusted-session boundary comparison</title><desc id="desc">Two proposed frontend options preserve server-owned identity. No frontend migration or new endpoint implemented.</desc><rect width="100%" height="100%" fill="#f5f6f8"/>
+<style>text{font-family:Arial,sans-serif;fill:#182431} .h{font-weight:700} .muted{fill:#485766}</style>
+<text x="40" y="54" font-size="32" class="h">Two presentation options. Same server authority.</text>
+<text x="40" y="94" font-size="18">DESIGN PROPOSAL • API presence is not session security or rendered accessibility evidence</text>
+<rect x="40" y="148" width="660" height="645" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="64" y="191" font-size="24" class="h">Retain Gradio5.50</text>
+<rect x="62" y="220" width="616" height="155" rx="12" fill="#eef2f6" stroke="#758393"/>
+<text x="80" y="251" font-size="18" class="h">Presentation</text>
+<text x="80" y="285" font-size="18">Blocks + readable text + scoped theme. Existing</text>
+<text x="80" y="310" font-size="18">UIController and per-tab State.</text>
+<rect x="62" y="400" width="616" height="155" rx="12" fill="#eef2f6" stroke="#758393"/>
+<text x="80" y="431" font-size="18" class="h">TRUST BOUNDARY</text>
+<text x="80" y="465" font-size="18">Existing ConversationService → verifier → guarded</text>
+<text x="80" y="490" font-size="18">tools → bound SQL.</text>
+<rect x="62" y="580" width="616" height="155" rx="12" fill="#eef2f6" stroke="#758393"/>
+<text x="80" y="611" font-size="18" class="h">Tradeoffs / unverified</text>
+<text x="80" y="645" font-size="18">Lower setup cost. Mobile/focus semantics unverified.</text>
+<text x="80" y="670" font-size="18">Avoid internal DOM selectors and rich custom</text>
+<text x="80" y="695" font-size="18">components.</text>
+<rect x="740" y="148" width="660" height="645" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="764" y="191" font-size="24" class="h">Alternative: React / Vite + FastAPI</text>
+<rect x="762" y="220" width="616" height="155" rx="12" fill="#eef2f6" stroke="#758393"/>
+<text x="780" y="251" font-size="18" class="h">Presentation</text>
+<text x="780" y="285" font-size="18">Static frontend + same-origin API adapter. New opaque</text>
+<text x="780" y="310" font-size="18">session capability/lifecycle.</text>
+<rect x="762" y="400" width="616" height="155" rx="12" fill="#eef2f6" stroke="#758393"/>
+<text x="780" y="431" font-size="18" class="h">TRUST BOUNDARY</text>
+<text x="780" y="465" font-size="18">Adapter must resolve server session; no client</text>
+<text x="780" y="490" font-size="18">customer_id authority. Existing verifier/tools remain</text>
+<text x="780" y="515" font-size="18">private.</text>
+<rect x="762" y="580" width="616" height="155" rx="12" fill="#eef2f6" stroke="#758393"/>
+<text x="780" y="611" font-size="18" class="h">Tradeoffs / unverified</text>
+<text x="780" y="645" font-size="18">More DOM control. New</text>
+<text x="780" y="670" font-size="18">CSRF/origin/cookie/expiry/stream/cache risks; Node</text>
+<text x="780" y="695" font-size="18">build and API parity tests.</text>
+<text x="40" y="844" font-size="18">Both preserve sample-verification limits, ownership guards, process-local memory and exact tool facts.</text>
+</svg>

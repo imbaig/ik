@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1230" viewBox="0 0 1440 1230" role="img" aria-labelledby="title desc"><title id="title">Mobile wireframes W-M1 to W-M4</title><desc id="desc">Four proposed phone layouts for welcome, catalog, verification and account. Placeholders only; no rendered QA.</desc><rect width="100%" height="100%" fill="#f5f6f8"/>
+<style>text{font-family:Arial,sans-serif;fill:#182431} .h{font-weight:700} .muted{fill:#485766}</style>
+<text x="40" y="50" font-size="32" class="h">Mobile • low fidelity</text>
+<text x="40" y="88" font-size="18">PROPOSED / ILLUSTRATIVE • Each frame is 320px wide • Vertical content, no fixed overlay composer</text>
+<text x="40" y="143" font-size="20" class="h">W-M1 · Welcome</text>
+<rect x="40" y="170" width="310" height="956" rx="22" fill="#ffffff" stroke="#263749"/>
+<text x="56" y="208" font-size="22" class="h">Music Store</text>
+<text x="56" y="243" font-size="17">New conversation</text>
+<text x="56" y="280" font-size="16">S01 / HC-01</text>
+<rect x="56" y="310" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="70" y="340" font-size="18" class="h">Discover music</text>
+<text x="70" y="375" font-size="17">Public catalog browsing.</text>
+<text x="70" y="399" font-size="17">Purchases need sample</text>
+<text x="70" y="423" font-size="17">verification.</text>
+<rect x="56" y="500" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="70" y="530" font-size="18" class="h">Start with a question</text>
+<text x="70" y="565" font-size="17">Find an artist • Show my</text>
+<text x="70" y="589" font-size="17">invoices</text>
+<rect x="56" y="690" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="70" y="720" font-size="18" class="h">Demo limitations</text>
+<text x="70" y="755" font-size="17">Not production</text>
+<text x="70" y="779" font-size="17">authentication.</text>
+<text x="70" y="803" font-size="17">Preferences last only in</text>
+<text x="70" y="827" font-size="17">this process.</text>
+<text x="58" y="920" font-size="17">Status: ready / waiting</text>
+<rect x="56" y="947" width="278" height="76" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="70" y="976" font-size="17">Message (visible label)</text>
+<rect x="56" y="1041" width="278" height="52" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="169" y="1074" font-size="18" class="h">Send</text>
+<text x="390" y="143" font-size="20" class="h">W-M2 · Catalog</text>
+<rect x="390" y="170" width="310" height="956" rx="22" fill="#ffffff" stroke="#263749"/>
+<text x="406" y="208" font-size="22" class="h">Music Store</text>
+<text x="406" y="243" font-size="17">New conversation</text>
+<text x="406" y="280" font-size="16">S02/11 / HC-01</text>
+<rect x="406" y="310" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="420" y="340" font-size="18" class="h">Catalog answer</text>
+<text x="420" y="375" font-size="17">Human labels and returned</text>
+<text x="420" y="399" font-size="17">IDs. No artwork or</text>
+<text x="420" y="423" font-size="17">invented tracks.</text>
+<rect x="406" y="500" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="420" y="530" font-size="18" class="h">Sample disclosure</text>
+<text x="420" y="565" font-size="17">Returned / total and</text>
+<text x="420" y="589" font-size="17">exact unit prices.</text>
+<text x="420" y="613" font-size="17">Currency only when</text>
+<text x="420" y="637" font-size="17">supplied.</text>
+<rect x="406" y="690" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="420" y="720" font-size="18" class="h">Next question</text>
+<text x="420" y="755" font-size="17">Ask about a returned</text>
+<text x="420" y="779" font-size="17">track. Empty → refine;</text>
+<text x="420" y="803" font-size="17">error → retry.</text>
+<text x="408" y="920" font-size="17">Status: ready / waiting</text>
+<rect x="406" y="947" width="278" height="76" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="420" y="976" font-size="17">Message (visible label)</text>
+<rect x="406" y="1041" width="278" height="52" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="519" y="1074" font-size="18" class="h">Send</text>
+<text x="740" y="143" font-size="20" class="h">W-M3 · Verification</text>
+<rect x="740" y="170" width="310" height="956" rx="22" fill="#ffffff" stroke="#263749"/>
+<text x="756" y="208" font-size="22" class="h">Music Store</text>
+<text x="756" y="243" font-size="17">New conversation</text>
+<text x="756" y="280" font-size="16">S03–08 / HC-02–05</text>
+<rect x="756" y="310" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="770" y="340" font-size="18" class="h">Paused purchase task</text>
+<text x="770" y="375" font-size="17">Verify one sample ID,</text>
+<text x="770" y="399" font-size="17">email or phone. No</text>
+<text x="770" y="423" font-size="17">account data shown.</text>
+<rect x="756" y="500" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="770" y="530" font-size="18" class="h">Identifier field</text>
+<text x="770" y="565" font-size="17">Safe inline error. Retry</text>
+<text x="770" y="589" font-size="17">with another identifier.</text>
+<rect x="756" y="690" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="770" y="720" font-size="18" class="h">Recovery</text>
+<text x="770" y="755" font-size="17">Cancel verification.</text>
+<text x="770" y="779" font-size="17">Catalog-only for mixed</text>
+<text x="770" y="803" font-size="17">request.</text>
+<text x="758" y="920" font-size="17">Status: ready / waiting</text>
+<rect x="756" y="947" width="278" height="76" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="770" y="976" font-size="17">Message (visible label)</text>
+<rect x="756" y="1041" width="278" height="52" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="869" y="1074" font-size="18" class="h">Send</text>
+<text x="1090" y="143" font-size="20" class="h">W-M4 · Account</text>
+<rect x="1090" y="170" width="310" height="956" rx="22" fill="#ffffff" stroke="#263749"/>
+<text x="1106" y="208" font-size="22" class="h">Music Store</text>
+<text x="1106" y="243" font-size="17">New conversation</text>
+<text x="1106" y="280" font-size="16">S09 / HC-02/03/05</text>
+<rect x="1106" y="310" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="1120" y="340" font-size="18" class="h">Your invoice</text>
+<text x="1120" y="375" font-size="17">Date / invoice ID /</text>
+<text x="1120" y="399" font-size="17">recorded total. Exact</text>
+<text x="1120" y="423" font-size="17">line items below.</text>
+<rect x="1106" y="500" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="1120" y="530" font-size="18" class="h">Catalog if mixed</text>
+<text x="1120" y="565" font-size="17">Separate section after</text>
+<text x="1120" y="589" font-size="17">account answer; own</text>
+<text x="1120" y="613" font-size="17">result status.</text>
+<rect x="1106" y="690" width="278" height="174" rx="12" fill="#f5f6f8" stroke="#758393"/>
+<text x="1120" y="720" font-size="18" class="h">Support / memory</text>
+<text x="1120" y="755" font-size="17">Returned contact only.</text>
+<text x="1120" y="779" font-size="17">Preferences process-</text>
+<text x="1120" y="803" font-size="17">local; no delete control.</text>
+<text x="1108" y="920" font-size="17">Status: ready / waiting</text>
+<rect x="1106" y="947" width="278" height="76" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="1120" y="976" font-size="17">Message (visible label)</text>
+<rect x="1106" y="1041" width="278" height="52" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="1219" y="1074" font-size="18" class="h">Send</text>
+<text x="40" y="1180" font-size="18">Phone keyboard, safe areas, large text, target size and screen-reader behavior remain untested.</text>
+</svg>

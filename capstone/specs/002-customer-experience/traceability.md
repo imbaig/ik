@@ -1,0 +1,28 @@
+# Traceability and analysis
+
+All feature002 requirements are proposed. Baseline001 links establish constraints, not
+approval of this packet. No requirement/approval snapshot in001 is modified.
+
+| Hero / current baseline | Proposed requirement | Acceptance | Visual reference |
+|---|---|---|---|
+| HC01;001 FR002/003/009/010 | CX01/02/09/10 | AC01/02/09/11 | Journey01, W-D1/M1/2; A/B/C discovery; S01/02/11 |
+| HC02;001 FR004–007/009 | CX02/03/04/08/10 | AC03/04/05 | Journey02, W-D2/3/M3/4; account mockups; S03–07/09/12/15 |
+| HC03;001 FR001/006/009 | CX03/05/08 | AC03/06/10 | Journey03, W-D3/M4; S08/10 |
+| HC04;001 FR008 | CX04/06/08 | AC05/07 | Journey04; S12–14 |
+| HC05;001 FR004/009 | CX04/07/10 | AC04/08 | Journey05; S16 |
+| All;001 FR010/011; issue4 visual gate | CX09/11/12 | AC09/10/11/12 | Directions A/B/C; state atlas; slice map; framework boundary |
+
+## Author analysis (self-review, not independent approval)
+
+- Completeness: HC01–05 and S01–16 have diagram/visual and written references; recovery and
+  synthetic response examples supplied. Whole-page implementation accessibility remains future work.
+- Consistency: no new store operations, identity authority, preference mutation or durable
+  memory implied. Reset and union-memory lifetimes distinguished. Currency absent is explicit.
+- Testability: acceptance gives inputs/expected facts and evidence. Rendering/interaction/
+  accessibility proposals are untested; static checks do not mark those passed.
+- Feasibility: per-interaction N/S/F/U matrix and time estimates expose migration cost;
+  source API presence is not a rendered proof. Framework selection stays open.
+- Governance: source pins and artifact hashes, separate reviewer exact commit and unchanged
+  reports/dispositions in PR; human findings binding. No design/spec/merge approval claimed.
+- Open risks: local rendering may uncover layout defects; Gradio announcements/focus may
+  need a different implementation approach. Escalate evidence to Imran before coding.

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1910" viewBox="0 0 1440 1910" role="img" aria-labelledby="title desc"><title id="title">Desktop wireframes W-D1 to W-D3</title><desc id="desc">Proposed low fidelity desktop layouts: welcome and catalog, verification, mixed account result. Illustrative placeholders only.</desc><rect width="100%" height="100%" fill="#f5f6f8"/>
+<style>text{font-family:Arial,sans-serif;fill:#182431} .h{font-weight:700} .muted{fill:#485766}</style>
+<text x="40" y="50" font-size="32" class="h">Desktop • low fidelity</text>
+<text x="40" y="89" font-size="18">PROPOSED / ILLUSTRATIVE • Wide composition • Not screenshots • Local rendering pending</text>
+<text x="40" y="130" font-size="20" class="h">W-D1 · HC-01 · S01/02/11</text>
+<rect x="40" y="154" width="1360" height="510" rx="12" fill="#ffffff" stroke="#758393"/>
+<rect x="60" y="174" width="1320" height="58" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="80" y="210" font-size="22" class="h">Music Store Assistant</text>
+<rect x="1150" y="183" width="212" height="40" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="1162" y="209" font-size="17">New conversation</text>
+<rect x="60" y="249" width="248" height="367" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="78" y="281" font-size="18" class="h">Conversation context</text>
+<text x="78" y="319" font-size="17">Public catalog. One</text>
+<text x="78" y="343" font-size="17">verified customer per</text>
+<text x="78" y="367" font-size="17">conversation. Sample</text>
+<text x="78" y="391" font-size="17">demo, not production</text>
+<text x="78" y="415" font-size="17">authentication.</text>
+<text x="78" y="470" font-size="16">Preferences are</text>
+<text x="78" y="493" font-size="16">process-local. New</text>
+<text x="78" y="516" font-size="16">conversation clears</text>
+<text x="78" y="539" font-size="16">chat and identity, not</text>
+<text x="78" y="562" font-size="16">saved preferences.</text>
+<text x="340" y="280" font-size="24" class="h">Discover music</text>
+<rect x="340" y="298" width="1018" height="73" rx="12" fill="#f8f9fb" stroke="#758393"/>
+<text x="358" y="323" font-size="17" class="h">Welcome</text>
+<text x="358" y="348" font-size="16">Browse the catalog without verifying. Account questions need sample verification.</text>
+<rect x="340" y="381" width="1018" height="73" rx="12" fill="#f8f9fb" stroke="#758393"/>
+<text x="358" y="406" font-size="17" class="h">Result area</text>
+<text x="358" y="431" font-size="16">Artist / album / track labels, exact prices and returned / total / sample counts.</text>
+<rect x="340" y="464" width="1018" height="73" rx="12" fill="#f8f9fb" stroke="#758393"/>
+<text x="358" y="489" font-size="17" class="h">Next step</text>
+<text x="358" y="514" font-size="16">Ask a follow-up using a returned track ID. No playback or checkout.</text>
+<rect x="340" y="559" width="842" height="52" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="355" y="591" font-size="17">Labeled message input / verification input when waiting</text>
+<rect x="1200" y="559" width="158" height="52" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="1250" y="591" font-size="18" class="h">Send</text>
+<text x="40" y="710" font-size="20" class="h">W-D2 · HC-02–05 · S03–08</text>
+<rect x="40" y="734" width="1360" height="510" rx="12" fill="#ffffff" stroke="#758393"/>
+<rect x="60" y="754" width="1320" height="58" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="80" y="790" font-size="22" class="h">Music Store Assistant</text>
+<rect x="1150" y="763" width="212" height="40" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="1162" y="789" font-size="17">New conversation</text>
+<rect x="60" y="829" width="248" height="367" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="78" y="861" font-size="18" class="h">Conversation context</text>
+<text x="78" y="899" font-size="17">Public catalog. One</text>
+<text x="78" y="923" font-size="17">verified customer per</text>
+<text x="78" y="947" font-size="17">conversation. Sample</text>
+<text x="78" y="971" font-size="17">demo, not production</text>
+<text x="78" y="995" font-size="17">authentication.</text>
+<text x="78" y="1050" font-size="16">Preferences are</text>
+<text x="78" y="1073" font-size="16">process-local. New</text>
+<text x="78" y="1096" font-size="16">conversation clears</text>
+<text x="78" y="1119" font-size="16">chat and identity, not</text>
+<text x="78" y="1142" font-size="16">saved preferences.</text>
+<text x="340" y="860" font-size="24" class="h">Verify to continue</text>
+<rect x="340" y="878" width="1018" height="73" rx="12" fill="#f8f9fb" stroke="#758393"/>
+<text x="358" y="903" font-size="17" class="h">Pending request</text>
+<text x="358" y="928" font-size="16">Your purchase question is paused. No private records displayed.</text>
+<rect x="340" y="961" width="1018" height="73" rx="12" fill="#f8f9fb" stroke="#758393"/>
+<text x="358" y="986" font-size="17" class="h">Sample identifier</text>
+<text x="358" y="1011" font-size="16">One customer ID, email or phone. Field label + safe inline error. Paste allowed.</text>
+<rect x="340" y="1044" width="1018" height="73" rx="12" fill="#f8f9fb" stroke="#758393"/>
+<text x="358" y="1069" font-size="17" class="h">Recovery actions</text>
+<text x="358" y="1094" font-size="16">Retry • Cancel verification • Catalog-only for a mixed request. Retry limit respected.</text>
+<rect x="340" y="1139" width="842" height="52" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="355" y="1171" font-size="17">Labeled message input / verification input when waiting</text>
+<rect x="1200" y="1139" width="158" height="52" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="1250" y="1171" font-size="18" class="h">Send</text>
+<text x="40" y="1290" font-size="20" class="h">W-D3 · HC-02/03/05 · S09/10/16</text>
+<rect x="40" y="1314" width="1360" height="510" rx="12" fill="#ffffff" stroke="#758393"/>
+<rect x="60" y="1334" width="1320" height="58" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="80" y="1370" font-size="22" class="h">Music Store Assistant</text>
+<rect x="1150" y="1343" width="212" height="40" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="1162" y="1369" font-size="17">New conversation</text>
+<rect x="60" y="1409" width="248" height="367" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="78" y="1441" font-size="18" class="h">Conversation context</text>
+<text x="78" y="1479" font-size="17">Public catalog. One</text>
+<text x="78" y="1503" font-size="17">verified customer per</text>
+<text x="78" y="1527" font-size="17">conversation. Sample</text>
+<text x="78" y="1551" font-size="17">demo, not production</text>
+<text x="78" y="1575" font-size="17">authentication.</text>
+<text x="78" y="1630" font-size="16">Preferences are</text>
+<text x="78" y="1653" font-size="16">process-local. New</text>
+<text x="78" y="1676" font-size="16">conversation clears</text>
+<text x="78" y="1699" font-size="16">chat and identity, not</text>
+<text x="78" y="1722" font-size="16">saved preferences.</text>
+<text x="340" y="1440" font-size="24" class="h">Your purchase + catalog</text>
+<rect x="340" y="1458" width="1018" height="73" rx="12" fill="#f8f9fb" stroke="#758393"/>
+<text x="358" y="1483" font-size="17" class="h">Account section first</text>
+<text x="358" y="1508" font-size="16">Invoice ID / date / exact recorded total. All returned line items and quantities.</text>
+<rect x="340" y="1541" width="1018" height="73" rx="12" fill="#f8f9fb" stroke="#758393"/>
+<text x="358" y="1566" font-size="17" class="h">Catalog section second</text>
+<text x="358" y="1591" font-size="16">Grounded artist/album/track list. Independent counts and partial failure label.</text>
+<rect x="340" y="1624" width="1018" height="73" rx="12" fill="#f8f9fb" stroke="#758393"/>
+<text x="358" y="1649" font-size="17" class="h">Human support</text>
+<text x="358" y="1674" font-size="16">Only returned representative details; no refund or ticket execution.</text>
+<rect x="340" y="1719" width="842" height="52" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="355" y="1751" font-size="17">Labeled message input / verification input when waiting</text>
+<rect x="1200" y="1719" width="158" height="52" rx="12" fill="#eef0f3" stroke="#758393"/>
+<text x="1250" y="1751" font-size="18" class="h">Send</text>
+<text x="40" y="1890" font-size="17">Wide rows collapse to a readable phone column. Exact pixel behavior and focus must be verified locally.</text>
+</svg>

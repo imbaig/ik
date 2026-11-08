@@ -1,0 +1,14 @@
+# Proposed packet checklist
+
+This is a document completeness checklist, not acceptance/conformance or approval.
+
+- [x] HC01–05 journeys, desktop/mobile wireframes, three candidate directions and representative mockups linked.
+- [x] S01–16 critical states, exact synthetic-fixture responses and unsupported-control limits documented.
+- [x] Gradio5.50 source-backed N/S/F/U assessment and alternative security/session/deployment costs included.
+- [x] Standards linked to observable proposed checks; UI UX Pro Max source/use pinned and bounded.
+- [x] Source-observed behavior distinguished from hypotheses; baseline001 and dependencies untouched.
+- [x] Candidate requirements, acceptance, clarifications, plan, tasks and author analysis authored.
+- [ ] Local artifacts rendered/inspected; any visual findings recorded against frozen revision.
+- [ ] Independent read-only design/spec report and dispositions published (record in draft PR).
+- [ ] Imran decides direction/framework/spec and scope; no coding before decision.
+- [ ] Future implementation screenshots, accessibility/behavior/eval evidence and human acceptance.
