@@ -62,3 +62,9 @@ shortcut, mixed-only catalog exit, reset origins and busy controls. Numeric SVG 
 rectangles stay in the viewBox; text extents and rendered layout are untested. Source-only
 product DOM checks found no listed structural filler or review-note class inside screens.
 No rendered navigation/visual/accessibility pass or human closure is inferred.
+
+Semantic map repair R5-HR1-01: the reviewer found that valid SVG/fragments still connected
+unrelated states. Author corrected the diagram and checked all drawn edges against actual
+flow-states.json product actions/loading continuations, including invalid retry, separate
+mixed exits and switch reset/Keep origin. Independent alternatives have no connecting arrows.
+Full unchanged report and exact-SHA recheck are in PR6. No local rendered QA/human closure.

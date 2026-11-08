@@ -28,3 +28,19 @@ separate read-only re-review report/dispositions will be recorded in the existin
    data provenance and simulated-outcome labels remain outside. Check wrapping/clipping.
 5. Publish actual desktop/mobile preview/captures and findings against the new exact SHA.
    Only Imran can close/waive these human findings. Agent/static verification is not closure.
+
+## Independent re-review repair — R5-HR1-01
+
+Reviewer `/root/issue5_human_rereview` requested changes on
+`a4b4d77821a36101df220bd91a517f7bf3da7c97`: the new SVG flow map connected recovery
+alternatives sequentially and linked generic reset instead of the switch-origin reset.
+Author accepted the medium finding. Replaced those arrows with actual separate routes:
+S04→S03; S03M Verify→S02M, Cancel→S07, catalog-only→S08; switch S15→S12-S15 with
+Keep→S15 and confirm→S01R. Empty/error alternatives are independent cards without arrows.
+Every drawn edge is checked against product actions or explicit loading continuations in
+flow-states.json. This is semantic source evidence, not rendered usability verification.
+
+The unchanged first re-review report is preserved in PR6; final exact-SHA recheck/disposition
+is recorded there separately. R5-HR1-01: accepted, fixed-pending-verification; human-adopted
+and mandatory flags=null unless Imran adopts it, human closure=null. Human-origin H5-01–03
+remain mandatory and pending local rendered preview and Imran closure regardless of recheck.
