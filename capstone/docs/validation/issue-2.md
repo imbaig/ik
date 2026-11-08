@@ -18,8 +18,8 @@ Using project-local ignored `.cache/uv` and `.cache/pip`, Python 3.12, uv 0.12.5
 `uv sync --locked --python 3.12` succeeded without lockfile changes.
 Commands from capstone (uv executable `.cache/cloud-tools/bin/uv`):
 
-- `uv run --locked pytest -q tests/test_agents.py tests/test_verification.py tests/test_conversation_eval.py`: 87 passed.
-- `uv run --locked pytest -q --junitxml=test-results/issue-2.xml`: 312 passed.
+- `uv run --locked pytest -q tests/test_agents.py tests/test_verification.py tests/test_conversation_eval.py tests/test_telemetry.py`: 99 passed.
+- `uv run --locked pytest -q --junitxml=test-results/issue-2.xml`: 313 passed.
 - `uv run --locked ruff check src tests app.py`: passed.
 - `uv run --locked ruff format --check src tests app.py`: passed, 30 files.
 
@@ -52,3 +52,14 @@ human approval. Any implementation change requires affected validation and revie
 Independent read-only reviewer identity, report, author dispositions and exact reviewed
 SHA are recorded in the draft PR conversation/body so recording them does not mutate
 the reviewed implementation revision. No agent or tests approve merging; only Imran does.
+
+## Independent review repair cycle 1
+
+Reviewer `/root/issue2_readonly_review` reviewed implementation
+`b53702231899051f482d530d26873af8a1bc63b8` and raised I2-R1 (medium): the
+new refusal status was missing from the telemetry outcome allowlist, dropping request
+events. Author accepted the finding. Added the explicit outcome and an end-to-end
+regression checking retained request/outcome/latency counts without raw identity text.
+The full unchanged first report is preserved in draft PR #3, comment 6722819677.
+Human-adopted and mandatory flags are undecided (null); no human closure/waiver claimed.
+Final exact-SHA recheck and disposition are recorded in that PR conversation.
