@@ -19,6 +19,7 @@ from pydantic import Field, create_model
 
 from music_store.agents.prompts import CATALOG_PROMPT, INVOICE_PROMPT, SUPERVISOR_PROMPT
 from music_store.db import Database
+from music_store.record_formatting import render_records
 from music_store.tools import build_tools
 from music_store.verification import ACCOUNT_TOOLS
 
@@ -172,24 +173,6 @@ class AgentResult:
     status: str
     records: tuple
     trace: tuple
-
-
-def render_records(records):
-    """Never expose a model-authored store claim; compose actual tool envelopes verbatim."""
-    sections = []
-    for record in records:
-        result = record["result"]
-        title = record["tool"].replace("_", " ")
-        if result["status"] != "ok":
-            sections.append(title + ": " + result["message"])
-            continue
-        header = title + ": " + str(result["returned_count"]) + " of " + str(result["total_count"])
-        if result["truncated"]:
-            header += " (sample; more results exist)"
-        sections.append(
-            header + "\n" + "\n".join(json.dumps(row, ensure_ascii=False) for row in result["data"])
-        )
-    return "\n\n".join(sections)
 
 
 class AgentRuntime:

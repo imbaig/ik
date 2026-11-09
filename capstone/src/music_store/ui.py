@@ -1,101 +1,51 @@
 """Gradio presentation boundary; conversation identity stays in server-side State."""
 
-import threading
-import time
-from dataclasses import dataclass, field
-from uuid import uuid4
-
 import gradio as gr
 
-
-@dataclass
-class _View:
-    handle: str
-    history: list = field(default_factory=list)
-    waiting: bool = False
-    lock: threading.Lock = field(default_factory=threading.Lock)
+from music_store.application_contracts import Action, ActionKind
+from music_store.presentation.controller import PresentationController
 
 
 class UIController:
+    """Gradio-only mapping of neutral snapshots; no domain/action state lives here."""
+
     def __init__(self, service):
         self.service = service
-        self._views = {}
-        self._lock = threading.RLock()
+        self.presentation = PresentationController(service)
 
     def open(self):
-        token = str(uuid4())
-        with self._lock:
-            self._views[token] = _View(self.service.new_session())
-        return token
-
-    def _view(self, token):
-        with self._lock:
-            view = self._views.get(token)
-        if view is None:
-            raise ValueError("Conversation expired; reload this page")
-        return view
+        return self.presentation.open()
 
     def close(self, token):
-        with self._lock:
-            view = self._views.pop(token, None)
-        if view:
-            with view.lock:
-                self.service.close(view.handle)
+        self.presentation.close(token)
+
+    def _view(self, token):
+        # Compatibility for existing diagnostics; the server binding never enters outputs.
+        return self.presentation._view(token)
 
     @staticmethod
-    def output(view, status, *, busy=False, text=""):
+    def output(state):
+        if state is None:
+            return (gr.skip(),) * 7
         return (
-            list(view.history),
-            gr.update(value=text, interactive=not busy),
-            gr.update(interactive=not busy),
-            gr.update(interactive=not busy),
-            status,
-            gr.update(visible=view.waiting, interactive=not busy),
-            gr.update(visible=view.waiting, interactive=not busy),
+            [{"role": m.role, "content": m.content} for m in state.messages],
+            gr.update(value=state.draft, interactive=not state.busy),
+            gr.update(interactive=not state.busy),
+            gr.update(interactive=not state.busy),
+            state.status,
+            gr.update(visible=state.waiting, interactive=not state.busy),
+            gr.update(visible=state.can_catalog_only, interactive=not state.busy),
         )
 
     def send(self, text, token, *, action="retry"):
-        view = self._view(token)
-        if not view.lock.acquire(blocking=False):
-            # An in-flight callback owns the UI; do not overwrite its outputs.
-            yield (gr.skip(),) * 7
-            return
-        try:
-            if action == "retry" and (not text.strip() or len(text) > 2000):
-                yield self.output(view, "Enter 1–2000 characters.", text=text)
-                return
-            label = (
-                text
-                if action == "retry"
-                else {
-                    "cancel": "Cancel verification",
-                    "catalog_only": "Continue with catalog only",
-                }[action]
-            )
-            view.history.append({"role": "user", "content": label})
-            yield self.output(view, "Working…", busy=True)
-            started = time.perf_counter()
-            try:
-                reply = self.service.send(view.handle, text, action=action)
-                view.waiting = reply.waiting
-                view.history.append({"role": "assistant", "content": reply.text})
-                status = "Verification needed" if reply.waiting else reply.status.replace("_", " ")
-                status += f" · {time.perf_counter() - started:.1f}s"
-            except Exception:
-                view.history.append(
-                    {
-                        "role": "assistant",
-                        "content": (
-                            "This request could not finish. Please retry "
-                            "or start a new conversation."
-                        ),
-                    }
-                )
-                status = "Request unavailable"
-            view.history = view.history[-80:]
-            yield self.output(view, status)
-        finally:
-            view.lock.release()
+        kind = {
+            "retry": ActionKind.SEND,
+            "cancel": ActionKind.CANCEL_VERIFICATION,
+            "catalog_only": ActionKind.CATALOG_ONLY,
+        }[action]
+        for state in self.presentation.dispatch(token, Action(kind, text)):
+            if self.presentation.is_current(token, state):
+                yield self.output(state)
 
     def cancel(self, text, token):
         yield from self.send("", token, action="cancel")
@@ -104,12 +54,12 @@ class UIController:
         yield from self.send("", token, action="catalog_only")
 
     def reset(self, token):
-        view = self._view(token)
-        with view.lock:
-            view.handle = self.service.reset(view.handle)
-            view.history.clear()
-            view.waiting = False
-            return self.output(view, "New conversation · identity cleared")
+        state = self.presentation.reset(token)
+        return (
+            self.output(state)
+            if state is None or self.presentation.is_current(token, state)
+            else (gr.skip(),) * 7
+        )
 
 
 def build_ui(service, *, test_banner=None):
