@@ -84,7 +84,7 @@ revision; later changes to rendering/orchestration require affected exact-revisi
 ## Architecture amendment — H5-04
 
 Imran's [full architecture requirement](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179)
-requires MVVM-inspired server-backed separation. Read the canonical [proposed design.md](../../../specs/002-customer-experience/design.md)
+requires framework-independent presentation separation. Read the canonical [proposed design.md](../../../specs/002-customer-experience/design.md)
 for subsystem/dependency diagram, current/proposed responsibilities, action/result/view-state
 contracts, server session authority, exact facts/escaping, cancellation/reset limits, ADR and
 migration/testing cost. No app extraction, new API/MVVM library, frontend migration or detailed

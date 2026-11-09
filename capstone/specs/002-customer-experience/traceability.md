@@ -50,3 +50,5 @@ resolution only; local rendered findings and human acceptance cannot be inferred
 H5-04 is human-origin/mandatory; detailed design acceptance/closure remains Imran's decision.
 Current app and all previously reviewed walkthrough artifact bytes are preserved. Proposed
 fake-view/formatter/ownership tests are not executed or claimed passing in this doc revision.
+
+| H5-05 latest app-specific architecture clarification | CX15–17 / design ADR-002-01 / clarification D8 | Exact-revision documentation review; AC17–21 remain proposed implementation checks | No Microsoft MVVM framework/hierarchy; API remains optional future adapter |

@@ -61,3 +61,9 @@ progress acceptance. Updated plan/spec/traceability/index and added a pointer in
 non-snapshot specs/design.md. Current app, dependencies, approved001/snapshots and reviewed
 walkthroughs unchanged. Status: authored/fixed-pending-independent-verification and Imran
 acceptance; exact final SHA/report/dispositions recorded in PR6. Proposed tests are not run.
+
+## H5-05 — app-specific layered architecture; no Microsoft MVVM framework
+
+Source: [Imran clarification6734378270](https://github.com/imbaig/ik/pull/6#issuecomment-6734378270). Source=human; mandatory=true; human closure/waiver=null. Supersedes strict interpretations of H5-04, without removing its separation requirements.
+
+Author: local coordinating Codex /root, taking over this documentation repair after the cloud message remained delivery-unconfirmed. Accepted: describe the design and ADR as lightweight layered server-backed architecture; retain replaceable UI adapter, neutral contracts, pure formatter and server-owned identity/workflow. No Microsoft MVVM toolkit, rigid ViewModel hierarchy, API service or frontend migration required. Canonical design, plan, spec, clarifications and navigation wording updated; current-vs-proposed distinction retained. Independent verification and Imran acceptance remain pending; no app code, walkthrough, dependency or baseline001 changes.

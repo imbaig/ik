@@ -15,8 +15,10 @@ Boundaries are already fixed: no preference delete/replace, refunds/tickets/chec
 production-auth claims, fabricated facts, baseline approval edits, credentials or provider calls.
 Local visual findings and any human-adopted findings are binding; only Imran closes/waives them.
 
-D7: MVVM-inspired presentation separation is now a **binding requirement**, per
+D7: Framework-independent presentation separation is now a **binding requirement**, per
 [Imran's architecture comment](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179).
 The proposed detailed contracts/module extraction in [design.md](design.md) need independent
 review and Imran acceptance. This does not decide D1 direction or D2 frontend migration;
 no MVVM library/API service is needed merely to satisfy the pattern.
+
+D8: [Latest human clarification](https://github.com/imbaig/ik/pull/6#issuecomment-6734378270) resolves architecture naming and approach: lightweight layered architecture, chosen for this app; no Microsoft MVVM framework/dependency or mandatory ViewModel hierarchy. MVVM is background inspiration only. The server-owned authority, formatter and neutral contracts remain required. Future transport/API adapters are optional extension seams, not required new infrastructure. Detailed revised-spec acceptance remains pending.

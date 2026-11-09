@@ -18,9 +18,9 @@ Alternative React/TypeScript+Vite with a same-origin FastAPI adapter is assessed
 
 [design.md](design.md) is the canonical proposed002 architecture and ADR-002-01. Imran's
 [architecture feedback](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179) makes
-the **MVVM-inspired server-backed presentation boundary** binding, while detailed spec
+the **framework-independent presentation boundary** binding, while detailed spec
 acceptance, visual direction, framework migration and implementation permission remain open.
-This is not full client-side MVVM and requires no MVVM library or API service now.
+The [latest human clarification](https://github.com/imbaig/ik/pull/6#issuecomment-6734378270) selects app-specific layered separation, not a Microsoft MVVM framework or rigid ViewModel hierarchy. No MVVM library or API service is required now.
 
 Current UIController still mixes Gradio update tuples with display/action logic, and current
 agent runtime still formats observed records. Proposed extraction separates View adapter,

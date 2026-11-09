@@ -64,7 +64,7 @@ mockups are candidates, not approved references; see [directions](../../docs/des
   remain outside; demo-verification and process-local-memory limits appear contextually.
   Binding human findings H5-01–03 remain pending human closure after actual local previews.
 
-- **CX-15**: Honor binding H5-04 with the [canonical MVVM-inspired server-backed design](design.md):
+- **CX-15**: Honor binding H5-04 with the [canonical layered server-backed design](design.md):
   Gradio View adapter → framework-independent presentation controller/model → application
   conversation/verification services → agents/tools/storage/config, with explicit external LLM
   boundary. No Gradio objects in core; no API/MVVM library or client identity authority required.

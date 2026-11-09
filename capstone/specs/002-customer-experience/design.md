@@ -1,9 +1,14 @@
-# Proposed architecture — MVVM-inspired server-backed chat
+# Proposed architecture — lightweight layered server-backed chat
 
 **Canonical design for feature002; proposal, not implemented or accepted as a revised spec.**
 Binding source: [Imran's full architecture requirement](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179),
 2026-11-08; finding H5-04. This selects a presentation-boundary requirement, **not** a visual
 direction, frontend migration, MVVM library, API service, merge or implementation permission.
+Latest binding clarification: [Imran's app-specific layered architecture direction](https://github.com/imbaig/ik/pull/6#issuecomment-6734378270).
+This supersedes strict MVVM interpretations: no Microsoft MVVM framework, dependency or
+mandatory ViewModel class hierarchy. MVVM is background inspiration only; the architecture
+is chosen for this Python, Gradio and agent-workflow application.
+
 Current code reference: `252a454658d38c6fbc8854922f6a1bb1e3a00d50`; app source unchanged
 from merged main `8138e7d1c02e759e758c328ccf8b84c25413e4bc`. Approved001 and snapshots
 remain immutable. [Plan](plan.md), [acceptance](acceptance.md), [traceability](traceability.md).
@@ -258,15 +263,16 @@ review fixes. This overlaps, rather than adds mechanically to, earlier presentat
 Future transport/frontend adds the separate API/session/deployment costs in feasibility.md.
 Deadline remains November20; trade scope/date explicitly rather than weakening safety checks.
 
-## ADR-002-01 — MVVM-inspired server-backed chat
+## ADR-002-01 — lightweight layered server-backed chat
 
 **Decision constraint:** binding human requirement H5-04. **Document status:** proposed detailed
 design, independent review/human acceptance pending; implementation not authorized.
 
 Choose a View adapter plus framework-independent presentation model/controller and pure
-formatter over the existing application/services. “MVVM-inspired” describes separation and
-projection of observable state; it is **not full client-side MVVM**, two-way identity binding,
-a client-owned domain model, a new reactive framework or an API-for-pattern-compliance.
+formatter over the existing application/services. This is a lightweight layered design,
+not a Microsoft MVVM implementation. Presentation state is a read-only projection, not
+a second workflow or identity authority. No mandatory ViewModel hierarchy, two-way identity
+binding, reactive framework, client-owned domain model or API-for-pattern-compliance is selected.
 
 Rationale: the current UIController mixes Gradio updates with action/display logic, and agent
 runtime owns customer record formatting. Extracting these improves testability and frontend
