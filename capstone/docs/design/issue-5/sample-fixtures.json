@@ -1,0 +1,255 @@
+{
+  "provenance": {
+    "kind": "public pinned Chinook fixture, not live store/customer data",
+    "dataset_revision": "c14389e4466cb2dac9fe97782b8dfc6113ed3ae2",
+    "dataset_sha256": "caf31d698a4a79c628215b552dfe6575e71be052ae02b8f18e763498f55f5d44",
+    "dataset_url": "https://raw.githubusercontent.com/lerocha/chinook-database/c14389e4466cb2dac9fe97782b8dfc6113ed3ae2/ChinookDatabase/DataSources/Chinook_Sqlite.sql",
+    "source_app_revision": "8138e7d1c02e759e758c328ccf8b84c25413e4bc",
+    "method": "existing checksum-verified local SQL loaded read-only; existing bound tools called with fixture trusted context customer1; no verification model/provider or credential access",
+    "design_copy": "new proposed copy; loading/failure/verification/preference outcomes are simulated, not runtime evidence",
+    "currency": "not present in tool payload; none inferred"
+  },
+  "customer_fixture": 1,
+  "albums": {
+    "status": "ok",
+    "data": [
+      {
+        "AlbumId": 1,
+        "Title": "For Those About To Rock We Salute You",
+        "ArtistId": 1,
+        "Artist": "AC/DC"
+      },
+      {
+        "AlbumId": 4,
+        "Title": "Let There Be Rock",
+        "ArtistId": 1,
+        "Artist": "AC/DC"
+      }
+    ],
+    "total_count": 2,
+    "returned_count": 2,
+    "truncated": false,
+    "message": "Results returned",
+    "error_code": null
+  },
+  "latest_invoice": {
+    "InvoiceId": 382,
+    "InvoiceDate": "2025-08-07 00:00:00",
+    "Total": "8.91"
+  },
+  "invoice_count": 7,
+  "invoice_detail": {
+    "status": "ok",
+    "data": [
+      {
+        "InvoiceLineId": 2065,
+        "InvoiceId": 382,
+        "TrackId": 2061,
+        "Name": "Vamo Batê Lata",
+        "Quantity": 1,
+        "UnitPrice": "0.99"
+      },
+      {
+        "InvoiceLineId": 2066,
+        "InvoiceId": 382,
+        "TrackId": 2067,
+        "Name": "Mensagen De Amor (2000)",
+        "Quantity": 1,
+        "UnitPrice": "0.99"
+      },
+      {
+        "InvoiceLineId": 2067,
+        "InvoiceId": 382,
+        "TrackId": 2073,
+        "Name": "Saber Amar",
+        "Quantity": 1,
+        "UnitPrice": "0.99"
+      },
+      {
+        "InvoiceLineId": 2068,
+        "InvoiceId": 382,
+        "TrackId": 2079,
+        "Name": "Cinema Mudo",
+        "Quantity": 1,
+        "UnitPrice": "0.99"
+      },
+      {
+        "InvoiceLineId": 2069,
+        "InvoiceId": 382,
+        "TrackId": 2085,
+        "Name": "Meu Erro",
+        "Quantity": 1,
+        "UnitPrice": "0.99"
+      },
+      {
+        "InvoiceLineId": 2070,
+        "InvoiceId": 382,
+        "TrackId": 2091,
+        "Name": "Será Que Vai Chover?",
+        "Quantity": 1,
+        "UnitPrice": "0.99"
+      },
+      {
+        "InvoiceLineId": 2071,
+        "InvoiceId": 382,
+        "TrackId": 2097,
+        "Name": "Mama, I'm Coming Home",
+        "Quantity": 1,
+        "UnitPrice": "0.99"
+      },
+      {
+        "InvoiceLineId": 2072,
+        "InvoiceId": 382,
+        "TrackId": 2103,
+        "Name": "Flying High Again",
+        "Quantity": 1,
+        "UnitPrice": "0.99"
+      },
+      {
+        "InvoiceLineId": 2073,
+        "InvoiceId": 382,
+        "TrackId": 2109,
+        "Name": "Paranoid",
+        "Quantity": 1,
+        "UnitPrice": "0.99"
+      }
+    ],
+    "total_count": 9,
+    "returned_count": 9,
+    "truncated": false,
+    "message": "Results returned",
+    "error_code": null
+  },
+  "support": {
+    "status": "ok",
+    "data": [
+      {
+        "EmployeeId": 3,
+        "FirstName": "Jane",
+        "LastName": "Peacock",
+        "Email": "jane@chinookcorp.com",
+        "Phone": "+1 (403) 262-3443"
+      }
+    ],
+    "total_count": 1,
+    "returned_count": 1,
+    "truncated": false,
+    "message": "Results returned",
+    "error_code": null
+  },
+  "genre": {
+    "status": "ok",
+    "data": [
+      {
+        "TrackId": 63,
+        "Name": "Desafinado",
+        "ArtistId": 6,
+        "Artist": "Antônio Carlos Jobim",
+        "Album": "Warner 25 Anos",
+        "Genre": "Jazz",
+        "UnitPrice": "0.99"
+      },
+      {
+        "TrackId": 123,
+        "Name": "Quadrant",
+        "ArtistId": 10,
+        "Artist": "Billy Cobham",
+        "Album": "The Best Of Billy Cobham",
+        "Genre": "Jazz",
+        "UnitPrice": "0.99"
+      },
+      {
+        "TrackId": 1102,
+        "Name": "Doce De Carnaval (Candy All)",
+        "ArtistId": 27,
+        "Artist": "Gilberto Gil",
+        "Album": "Quanta Gente Veio ver--Bônus De Carnaval",
+        "Genre": "Jazz",
+        "UnitPrice": "0.99"
+      },
+      {
+        "TrackId": 456,
+        "Name": "Heart of the Night",
+        "ArtistId": 53,
+        "Artist": "Spyro Gyra",
+        "Album": "Heart of the Night",
+        "Genre": "Jazz",
+        "UnitPrice": "0.99"
+      },
+      {
+        "TrackId": 597,
+        "Name": "Now's The Time",
+        "ArtistId": 68,
+        "Artist": "Miles Davis",
+        "Album": "The Essential Miles Davis [Disc 1]",
+        "Genre": "Jazz",
+        "UnitPrice": "0.99"
+      },
+      {
+        "TrackId": 624,
+        "Name": "Jeepers Creepers",
+        "ArtistId": 69,
+        "Artist": "Gene Krupa",
+        "Album": "Up An' Atom",
+        "Genre": "Jazz",
+        "UnitPrice": "0.99"
+      },
+      {
+        "TrackId": 842,
+        "Name": "Roll Call",
+        "ArtistId": 79,
+        "Artist": "Dennis Chambers",
+        "Album": "Outbreak",
+        "Genre": "Jazz",
+        "UnitPrice": "0.99"
+      },
+      {
+        "TrackId": 1188,
+        "Name": "Colibri",
+        "ArtistId": 89,
+        "Artist": "Incognito",
+        "Album": "Blue Moods",
+        "Genre": "Jazz",
+        "UnitPrice": "0.99"
+      },
+      {
+        "TrackId": 3349,
+        "Name": "Amanda",
+        "ArtistId": 197,
+        "Artist": "Aisha Duo",
+        "Album": "Quiet Songs",
+        "Genre": "Jazz",
+        "UnitPrice": "0.99"
+      },
+      {
+        "TrackId": 3357,
+        "Name": "OAM's Blues",
+        "ArtistId": 202,
+        "Artist": "Aaron Goldberg",
+        "Album": "Worlds",
+        "Genre": "Jazz",
+        "UnitPrice": "0.99"
+      }
+    ],
+    "total_count": 130,
+    "returned_count": 10,
+    "truncated": true,
+    "message": "Results returned",
+    "error_code": null,
+    "distinct_artist_count": 10
+  },
+  "empty_catalog": {
+    "status": "not_found",
+    "data": [],
+    "total_count": 0,
+    "returned_count": 0,
+    "truncated": false,
+    "message": "No matching results found",
+    "error_code": null
+  },
+  "query_inputs": {
+    "albums": "AC/DC",
+    "genre": "Jazz",
+    "empty_catalog": "The Clockwork Lanterns"
+  }
+}

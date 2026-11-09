@@ -1,3 +1,14 @@
+> **Architecture navigation — current versus proposed (PR6 amendment).** Current application
+> code is [ui.py](../src/music_store/ui.py), [conversation.py](../src/music_store/conversation.py)
+> and [agents/runtime.py](../src/music_store/agents/runtime.py); it has **not** been refactored
+> into the proposed presentation boundary. Approved baseline context remains
+> [001-music-store/plan.md](001-music-store/plan.md) and its unchanged approval records.
+> **Canonical proposed UX architecture: [002-customer-experience/design.md](002-customer-experience/design.md)**
+> (lightweight layered server-backed chat, contracts, dependency diagram, formatter extraction and ADR).
+> Imran requires that separation; detailed revised-spec acceptance/implementation remain pending.
+> The historical draft below is preserved unchanged for provenance, including superseded storage
+> descriptions; it is not a description of the current runtime or approval of feature002.
+
 > Superseded draft: current proposed baseline is [001-music-store/plan.md](001-music-store/plan.md).
 > Historical content below remains for review provenance; conflicting details are not current requirements.
 

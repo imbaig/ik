@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="2400" viewBox="0 0 1440 2400" role="img" aria-labelledby="title desc"><title id="title">Actual mock navigation routes and separate recovery alternatives</title><desc id="desc">Empty first visit to public discovery or verified purchases. Mixed verify, cancel and catalog-only are separate routes. Switch reset Keep returns to the switch state. Independent alternative cards have no sequential arrows.</desc><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#245b45"/></marker></defs><rect width="1440" height="2400" fill="#edf0f4"/><style>text{font-family:Arial,sans-serif;fill:#18283f}.bold{font-weight:700}</style>
+<text x="40" y="50" font-size="30" class="bold">Actions connect real mock states; alternatives stay separate.</text>
+<text x="40" y="90" font-size="17">Review map only. Click a state to inspect it in the one-file walkthrough. No account or provider connection.</text>
+<text x="40" y="155" font-size="21" class="bold">Public discovery</text>
+<a href="walkthrough.html#a-S01"><rect x="40" y="180" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="210" font-size="18" class="bold">S01</text>
+<text x="56" y="241" font-size="17">Empty first visit</text>
+</a>
+<g data-from="S01" data-to="S02D" data-action="Ask the AC/DC question"><title>S01: Ask the AC/DC question → S02D</title><path d="M350 235 L390 235" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S02D"><rect x="390" y="180" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="210" font-size="18" class="bold">S02D</text>
+<text x="406" y="241" font-size="17">Looking up AC/DC</text>
+</a>
+<g data-from="S02D" data-to="S17" data-action="Next preview"><title>S02D: Next preview → S17</title><path d="M700 235 L740 235" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S17"><rect x="740" y="180" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="210" font-size="18" class="bold">S17</text>
+<text x="756" y="241" font-size="17">Two albums returned</text>
+</a>
+<text x="40" y="328" font-size="16">Actions: Ask the AC/DC question → Next preview.</text>
+<text x="40" y="360" font-size="16">Choose the album question, then use the loading preview continuation. No verification.</text>
+<text x="40" y="395" font-size="21" class="bold">Account request · unverified</text>
+<a href="walkthrough.html#a-S03"><rect x="40" y="420" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="450" font-size="18" class="bold">S03</text>
+<text x="56" y="481" font-size="17">Verify one sample identifier</text>
+</a>
+<g data-from="S03" data-to="S02A" data-action="Verify"><title>S03: Verify → S02A</title><path d="M350 475 L390 475" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S02A"><rect x="390" y="420" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="450" font-size="18" class="bold">S02A</text>
+<text x="406" y="481" font-size="17">Verified; finding invoice</text>
+</a>
+<g data-from="S02A" data-to="S09" data-action="Next preview"><title>S02A: Next preview → S09</title><path d="M700 475 L740 475" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S09"><rect x="740" y="420" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="450" font-size="18" class="bold">S09</text>
+<text x="756" y="481" font-size="17">Invoice 382 · total 8.91</text>
+</a>
+<g data-from="S09" data-to="S18" data-action="Show invoice items"><title>S09: Show invoice items → S18</title><path d="M1050 475 L1090 475" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S18"><rect x="1090" y="420" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="1106" y="450" font-size="18" class="bold">S18</text>
+<text x="1106" y="481" font-size="17">All nine line items</text>
+</a>
+<text x="40" y="568" font-size="16">Actions: Verify → Next preview → Show invoice items.</text>
+<text x="40" y="600" font-size="16">From the first visit, ask for the latest invoice; verify before any purchase result appears.</text>
+<text x="40" y="635" font-size="21" class="bold">Account request · already verified</text>
+<a href="walkthrough.html#a-S20"><rect x="40" y="660" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="690" font-size="18" class="bold">S20</text>
+<text x="56" y="721" font-size="17">Existing verified</text>
+<text x="56" y="745" font-size="17">conversation</text>
+</a>
+<g data-from="S20" data-to="S02A" data-action="Send"><title>S20: Send → S02A</title><path d="M350 715 L390 715" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S02A"><rect x="390" y="660" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="690" font-size="18" class="bold">S02A</text>
+<text x="406" y="721" font-size="17">Send directly to loading</text>
+</a>
+<g data-from="S02A" data-to="S09" data-action="Next preview"><title>S02A: Next preview → S09</title><path d="M700 715 L740 715" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S09"><rect x="740" y="660" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="690" font-size="18" class="bold">S09</text>
+<text x="756" y="721" font-size="17">Owned invoice result</text>
+</a>
+<text x="40" y="808" font-size="16">Actions: Send → Next preview.</text>
+<text x="40" y="840" font-size="16">The existing conversation skips identifier entry. This is not the empty first visit.</text>
+<text x="40" y="875" font-size="21" class="bold">Invalid identifier · retry</text>
+<a href="walkthrough.html#a-S04"><rect x="40" y="900" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="930" font-size="18" class="bold">S04</text>
+<text x="56" y="961" font-size="17">Single-identifier error</text>
+</a>
+<g data-from="S04" data-to="S03" data-action="Try again with one identifier"><title>S04: Try again with one identifier → S03</title><path d="M350 955 L390 955" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S03"><rect x="390" y="900" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="930" font-size="18" class="bold">S03</text>
+<text x="406" y="961" font-size="17">Same pending invoice request</text>
+</a>
+<text x="40" y="1048" font-size="16">Actions: Try again with one identifier.</text>
+<text x="40" y="1080" font-size="16">Retry returns to S03, not the mixed-request screen. Cancel remains a separate choice.</text>
+<text x="40" y="1115" font-size="21" class="bold">Mixed request · verify branch</text>
+<a href="walkthrough.html#a-S03M"><rect x="40" y="1140" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="1170" font-size="18" class="bold">S03M</text>
+<text x="56" y="1201" font-size="17">Invoice + AC/DC question</text>
+</a>
+<g data-from="S03M" data-to="S02M" data-action="Verify"><title>S03M: Verify → S02M</title><path d="M350 1195 L390 1195" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S02M"><rect x="390" y="1140" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="1170" font-size="18" class="bold">S02M</text>
+<text x="406" y="1201" font-size="17">Verify; account first</text>
+</a>
+<g data-from="S02M" data-to="S21" data-action="Next preview"><title>S02M: Next preview → S21</title><path d="M700 1195 L740 1195" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S21"><rect x="740" y="1140" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="1170" font-size="18" class="bold">S21</text>
+<text x="756" y="1201" font-size="17">Invoice, then two albums</text>
+</a>
+<text x="40" y="1288" font-size="16">Actions: Verify → Next preview.</text>
+<text x="40" y="1320" font-size="16">Verification completes both supported parts; independent result sections stay in order.</text>
+<text x="40" y="1355" font-size="21" class="bold">Mixed request · cancel branch</text>
+<a href="walkthrough.html#a-S03M"><rect x="40" y="1380" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="1410" font-size="18" class="bold">S03M</text>
+<text x="56" y="1441" font-size="17">Invoice + AC/DC question</text>
+</a>
+<g data-from="S03M" data-to="S07" data-action="Cancel verification"><title>S03M: Cancel verification → S07</title><path d="M350 1435 L390 1435" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S07"><rect x="390" y="1380" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="1410" font-size="18" class="bold">S07</text>
+<text x="406" y="1441" font-size="17">Account task cancelled</text>
+</a>
+<text x="40" y="1528" font-size="16">Actions: Cancel verification.</text>
+<text x="40" y="1560" font-size="16">Cancel abandons the account request. It does not transition automatically to catalog-only results.</text>
+<text x="40" y="1595" font-size="21" class="bold">Mixed request · catalog-only branch</text>
+<a href="walkthrough.html#a-S03M"><rect x="40" y="1620" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="1650" font-size="18" class="bold">S03M</text>
+<text x="56" y="1681" font-size="17">Invoice + AC/DC question</text>
+</a>
+<g data-from="S03M" data-to="S08" data-action="Continue with catalog only"><title>S03M: Continue with catalog only → S08</title><path d="M350 1675 L390 1675" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S08"><rect x="390" y="1620" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="1650" font-size="18" class="bold">S08</text>
+<text x="406" y="1681" font-size="17">Account cancelled; albums</text>
+<text x="406" y="1705" font-size="17">only</text>
+</a>
+<g data-from="S08" data-to="S03" data-action="Show my latest invoice"><title>S08: Show my latest invoice → S03</title><path d="M700 1675 L740 1675" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S03"><rect x="740" y="1620" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="1650" font-size="18" class="bold">S03</text>
+<text x="756" y="1681" font-size="17">Later account question</text>
+<text x="756" y="1705" font-size="17">verifies</text>
+</a>
+<text x="40" y="1768" font-size="16">Actions: Continue with catalog only → Show my latest invoice.</text>
+<text x="40" y="1800" font-size="16">Catalog-only is a sibling choice to Cancel. A later invoice question requires verification.</text>
+<text x="40" y="1835" font-size="21" class="bold">Switch refusal · preserve reset origin</text>
+<a href="walkthrough.html#a-S15"><rect x="40" y="1860" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="1890" font-size="18" class="bold">S15</text>
+<text x="56" y="1921" font-size="17">Identity cannot change here</text>
+</a>
+<g data-from="S15" data-to="S12-S15" data-action="New conversation"><title>S15: New conversation → S12-S15</title><path d="M350 1915 L390 1915" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S12-S15"><rect x="390" y="1860" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="1890" font-size="18" class="bold">S12-S15</text>
+<text x="406" y="1921" font-size="17">Confirm reset or Keep</text>
+</a>
+<g data-from="S12-S15" data-to="S01R" data-action="Start new conversation"><title>S12-S15: Start new conversation → S01R</title><path d="M700 1915 L740 1915" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<a href="walkthrough.html#a-S01R"><rect x="740" y="1860" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="1890" font-size="18" class="bold">S01R</text>
+<text x="756" y="1921" font-size="17">Chat and identity cleared</text>
+</a>
+<g data-from="S12-S15" data-to="S15" data-action="Keep this conversation"><title>S12-S15: Keep this conversation → S15</title><path d="M545 1970 L545 1997 L195 1997 L195 1970" stroke="#245b45" stroke-width="2" fill="none" marker-end="url(#arrow)"/></g>
+<text x="70" y="2025" font-size="16">Keep this conversation returns to S15.</text>
+<text x="760" y="2013" font-size="16">Confirm clears chat, identity and pending task, not saved process-</text>
+<text x="760" y="2036" font-size="16">local preferences.</text>
+<text x="40" y="2110" font-size="21" class="bold">Independent alternative states · these cards are NOT a sequence</text>
+<a href="walkthrough.html#a-S11"><rect x="40" y="2135" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="56" y="2165" font-size="18" class="bold">S11</text>
+<text x="56" y="2196" font-size="17">Empty catalog → refine query</text>
+</a>
+<a href="walkthrough.html#a-S10"><rect x="390" y="2135" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="406" y="2165" font-size="18" class="bold">S10</text>
+<text x="406" y="2196" font-size="17">Account error → retry S02A</text>
+</a>
+<a href="walkthrough.html#a-S10M"><rect x="740" y="2135" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="756" y="2165" font-size="18" class="bold">S10M</text>
+<text x="756" y="2196" font-size="17">Partial mixed → retry</text>
+<text x="756" y="2220" font-size="17">account</text>
+</a>
+<a href="walkthrough.html#a-S16U"><rect x="1090" y="2135" width="310" height="110" rx="8" fill="white" stroke="#718096"/>
+<text x="1106" y="2165" font-size="18" class="bold">S16U</text>
+<text x="1106" y="2196" font-size="17">Unavailable invoice → own</text>
+<text x="1106" y="2220" font-size="17">latest</text>
+</a>
+<text x="40" y="2302" font-size="17">No arrows connect the unrelated alternatives. Their own product actions lead to the linked recovery state.</text>
+<text x="40" y="2342" font-size="17">Proposed design only. Local rendered navigation/visual review and Imran’s acceptance remain pending.</text>
+</svg>

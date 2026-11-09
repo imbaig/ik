@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1510" viewBox="0 0 1440 1510" role="img" aria-labelledby="title desc"><title id="title">HC-01–05 journey board</title><desc id="desc">Proposed journeys, gates, recovery and success evidence. No rendered QA.</desc><rect width="100%" height="100%" fill="#f5f6f8"/>
+<style>text{font-family:Arial,sans-serif;fill:#182431} .h{font-weight:700} .muted{fill:#485766}</style>
+<text x="40" y="52" font-size="32" class="h">Five customer goals. One trusted conversation.</text>
+<text x="40" y="91" font-size="18">PROPOSED • Design discovery only • No store claims or research results • See discovery.md</text>
+<text x="40" y="145" font-size="17" class="h">ENTRY / CUSTOMER GOAL</text>
+<text x="390" y="145" font-size="17" class="h">STEPS / VERIFICATION</text>
+<text x="740" y="145" font-size="17" class="h">OUTCOMES / RECOVERY</text>
+<text x="1090" y="145" font-size="17" class="h">SUCCESS EVIDENCE</text>
+<text x="40" y="200" font-size="20" class="h">HC-01 • Find music</text>
+<rect x="40" y="220" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="58" y="249" font-size="17">Public welcome. Ask artist,</text>
+<text x="58" y="273" font-size="17">title or genre. Goal: find</text>
+<text x="58" y="297" font-size="17">actual catalog options.</text>
+<text x="360" y="312" font-size="26">→</text>
+<rect x="390" y="220" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="408" y="249" font-size="17">No account gate. Search →</text>
+<text x="408" y="273" font-size="17">read observed list → follow</text>
+<text x="408" y="297" font-size="17">up with returned track ID.</text>
+<text x="710" y="312" font-size="26">→</text>
+<rect x="740" y="220" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="758" y="249" font-size="17">Empty → refine query.</text>
+<text x="758" y="273" font-size="17">Failure → retry. No invented</text>
+<text x="758" y="297" font-size="17">stock or album-track lookup.</text>
+<text x="1060" y="312" font-size="26">→</text>
+<rect x="1090" y="220" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="1108" y="249" font-size="17">Rows, order, prices and</text>
+<text x="1108" y="273" font-size="17">sample counts match tools.</text>
+<text x="1108" y="297" font-size="17">AC-01/02.</text>
+<text x="40" y="452" font-size="20" class="h">HC-02 • Understand purchase</text>
+<rect x="40" y="472" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="58" y="501" font-size="17">Ask latest invoice and what</text>
+<text x="58" y="525" font-size="17">was on it. Goal: accurate</text>
+<text x="58" y="549" font-size="17">purchase explanation.</text>
+<text x="360" y="564" font-size="26">→</text>
+<rect x="390" y="472" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="408" y="501" font-size="17">Pause → sample</text>
+<text x="408" y="525" font-size="17">ID/email/phone →</text>
+<text x="408" y="549" font-size="17">deterministic match → owned</text>
+<text x="408" y="573" font-size="17">invoice → detail.</text>
+<text x="710" y="564" font-size="26">→</text>
+<rect x="740" y="472" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="758" y="501" font-size="17">Unknown → retry/cancel.</text>
+<text x="758" y="525" font-size="17">Foreign invoice → generic</text>
+<text x="758" y="549" font-size="17">unavailable. Never expose</text>
+<text x="758" y="573" font-size="17">existence.</text>
+<text x="1060" y="564" font-size="26">→</text>
+<rect x="1090" y="472" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="1108" y="501" font-size="17">Exact total and line items</text>
+<text x="1108" y="525" font-size="17">match scoped SQL. Identity</text>
+<text x="1108" y="549" font-size="17">unchanged. AC-03/04/05.</text>
+<text x="40" y="704" font-size="20" class="h">HC-03 • Combine tasks</text>
+<rect x="40" y="724" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="58" y="753" font-size="17">Ask purchases plus music in</text>
+<text x="58" y="777" font-size="17">one message. Goal: avoid</text>
+<text x="58" y="801" font-size="17">support/discovery handoff.</text>
+<text x="360" y="816" font-size="26">→</text>
+<rect x="390" y="724" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="408" y="753" font-size="17">Verify once → account first</text>
+<text x="408" y="777" font-size="17">→ catalog second → separated</text>
+<text x="408" y="801" font-size="17">answer sections.</text>
+<text x="710" y="816" font-size="26">→</text>
+<rect x="740" y="724" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="758" y="753" font-size="17">Failed verification → cancel</text>
+<text x="758" y="777" font-size="17">or catalog-only. Partial</text>
+<text x="758" y="801" font-size="17">failure stays explicit.</text>
+<text x="1060" y="816" font-size="26">→</text>
+<rect x="1090" y="724" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="1108" y="753" font-size="17">Both supported parts</text>
+<text x="1108" y="777" font-size="17">grounded; new account task</text>
+<text x="1108" y="801" font-size="17">re-verifies after bypass.</text>
+<text x="1108" y="825" font-size="17">AC-06.</text>
+<text x="40" y="956" font-size="20" class="h">HC-04 • Remember taste</text>
+<rect x="40" y="976" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="58" y="1005" font-size="17">Explicit taste → later</text>
+<text x="58" y="1029" font-size="17">visit. Goal: continuity</text>
+<text x="58" y="1053" font-size="17">without repeating</text>
+<text x="58" y="1077" font-size="17">preferences.</text>
+<text x="360" y="1068" font-size="26">→</text>
+<rect x="390" y="976" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="408" y="1005" font-size="17">Verify → save observed union</text>
+<text x="408" y="1029" font-size="17">→ New conversation →</text>
+<text x="408" y="1053" font-size="17">reverify → recall.</text>
+<text x="710" y="1068" font-size="26">→</text>
+<rect x="740" y="976" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="758" y="1005" font-size="17">Extraction error → keep old</text>
+<text x="758" y="1029" font-size="17">data. Removal unsupported.</text>
+<text x="758" y="1053" font-size="17">Restart loses process</text>
+<text x="758" y="1077" font-size="17">memory.</text>
+<text x="1060" y="1068" font-size="26">→</text>
+<rect x="1090" y="976" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="1108" y="1005" font-size="17">Only explicit positives</text>
+<text x="1108" y="1029" font-size="17">stored; union and customer</text>
+<text x="1108" y="1053" font-size="17">isolation proven. AC-07.</text>
+<text x="40" y="1208" font-size="20" class="h">HC-05 • Find a human</text>
+<rect x="40" y="1228" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="58" y="1257" font-size="17">Ask invoice contact or</text>
+<text x="58" y="1281" font-size="17">refund help. Goal: reach the</text>
+<text x="58" y="1305" font-size="17">assigned representative.</text>
+<text x="360" y="1320" font-size="26">→</text>
+<rect x="390" y="1228" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="408" y="1257" font-size="17">Verify → choose owned</text>
+<text x="408" y="1281" font-size="17">invoice → retrieve permitted</text>
+<text x="408" y="1305" font-size="17">representative fields.</text>
+<text x="710" y="1320" font-size="26">→</text>
+<rect x="740" y="1228" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="758" y="1257" font-size="17">No contact → honest</text>
+<text x="758" y="1281" font-size="17">unavailable. No refund,</text>
+<text x="758" y="1305" font-size="17">ticket or email execution.</text>
+<text x="1060" y="1320" font-size="26">→</text>
+<rect x="1090" y="1228" width="310" height="170" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="1108" y="1257" font-size="17">Contact matches owned</text>
+<text x="1108" y="1281" font-size="17">invoice tool response; no</text>
+<text x="1108" y="1305" font-size="17">invented actions. AC-08.</text>
+<text x="40" y="1480" font-size="17">All five hero cases are proposed scenarios, not measured customer outcomes. Visual QA is pending locally.</text>
+</svg>

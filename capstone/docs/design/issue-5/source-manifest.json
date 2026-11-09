@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-08",
+  "author": "Codex /root",
+  "base_sha": "8138e7d1c02e759e758c328ccf8b84c25413e4bc",
+  "design_status": "proposed_not_approved",
+  "rendered_visual_qa": "pending_local",
+  "ui_ux_pro_max": {
+    "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "revision": "4f2dbb67e64969a9a30ab00742f2d55d66ddec2b",
+    "execution": [],
+    "use": "inspected text only; no Gradio stack support",
+    "sha256": {
+      "README.md": "025068efb73ac9a3b6e247d138c0c83e3929759757a8672ce89f84a0e1a842e8",
+      ".claude/skills/ui-ux-pro-max/SKILL.md": "14f43337edfbf7822e091428e4ae0c6f92f86e3353deda6a30f6613121e2cf2d",
+      ".claude/skills/ui-ux-pro-max/references/quick-reference.md": "fc53ccfafaa08d40d7326e34e88e9387df60b4256cd649d34dcae0284f247949",
+      ".claude/skills/ui-ux-pro-max/references/pro-rules.md": "d28442d61c310b49c054a4ea736f89fb3008beebdbbc38c4b3a540b8f7fadf23",
+      "src/ui-ux-pro-max/data/ux-guidelines.csv": "d63dc39439cf615cdccfdf7acd2301e0c3ce5e1e56a89b60617fa190f7511512",
+      "src/ui-ux-pro-max/data/styles.csv": "a9b6cadbd1cb9e7cb8398a3b445e0691d01e42ed5e5efa60a5d0c08c99c8100d",
+      "cli/assets/skills/design/SKILL.md": "e93fe3683b7fa18a9bfcd00c0dc6e12c6859be07b7bfe20145f96ea49b72da13",
+      "LICENSE": "738f69dfa83db5c347c678fb9d90e560877059f0de93a327c39001bff92dc014"
+    }
+  },
+  "gradio": {
+    "version": "5.50.0",
+    "evidence": "existing locked installed source, API inspection only; no browser testing",
+    "sha256": {
+      "gradio-5.50.0.dist-info/METADATA": "ea704e62f825856e7640c0204ac88ef0f5ac298d38ddb2a10daf4f7c15ffc2c4",
+      "gradio/blocks.py": "0abe754db962adc42a00d4adf9aef759184d9617eee33af057ea4e18ee2ee073",
+      "gradio/components/chatbot.py": "b1ea35bb303fe4128068831a8b353124c8ce26f947e746251694e03c0cccc519",
+      "gradio/components/state.py": "ac8b2b6c750c505106450eb1e1d0c640e02877d333984bb4784b43fcddcebde0",
+      "gradio/layouts/row.py": "04b8de193ac031cde9a6ec750e71e01a168d2555da9ed6926493bea32265698b",
+      "gradio/layouts/column.py": "67ad638b7362cca8e61baa3dbcf2573394663246658567bb3baf0459757043c9",
+      "gradio/components/button.py": "f822ea9e653f31bb6631f467812e096274c8d088d60be0e717ea48e617863f4a",
+      "gradio/components/markdown.py": "a44d743b61b629c38b63601415d4bec35660aeae24db32aec0d331d9497a1845",
+      "gradio/themes/base.py": "ff6db227ba52c7bfbe9946c554275bc0147b832fa68d4ce9935c92879cae8674"
+    }
+  },
+  "primary_sources": {
+    "retrieval": "direct runtime blocked403; coordinated parent/web-tool textual retrieval available2026-11-08; no rendered inspection",
+    "urls": [
+      "https://www.nngroup.com/articles/ten-usability-heuristics/",
+      "https://www.microsoft.com/en-us/haxtoolkit/ai-guidelines/",
+      "https://www.microsoft.com/en-us/haxtoolkit/library/",
+      "https://www.w3.org/TR/2024/REC-WCAG22-20241212/",
+      "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+      "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+      "https://react.dev/learn/creating-a-react-app",
+      "https://react.dev/learn/build-a-react-app-from-scratch",
+      "https://fastapi.tiangolo.com/advanced/custom-response/"
+    ]
+  },
+  "commands": {
+    "third_party_scripts_run": [],
+    "spec_kit_commands_run": [],
+    "application_or_provider_calls": [],
+    "read_only_fixture_extraction": "existing checksum-verified SQL + Database/build_tools; not UI, live verification or provider execution"
+  },
+  "human_decisions": {
+    "visual_direction": null,
+    "framework": null,
+    "spec_approval": null,
+    "merge_approval": null
+  },
+  "fixture_extraction": {
+    "file": "sample-fixtures.json",
+    "sha256": "5ddd3d4310f36c84897d34aec7a17f8bbd2ff132ba6090fa413c4931ae880927",
+    "dataset_revision": "c14389e4466cb2dac9fe97782b8dfc6113ed3ae2",
+    "dataset_sha256": "caf31d698a4a79c628215b552dfe6575e71be052ae02b8f18e763498f55f5d44",
+    "method": "existing checksum-verified local SQL loaded read-only; existing bound tools called with fixture trusted context customer1; no verification model/provider or credential access",
+    "read_only_tools": [
+      "get_albums_by_artist",
+      "get_invoices_by_customer_sorted_by_date",
+      "get_invoice_line_items",
+      "get_support_rep_by_invoice",
+      "get_songs_by_genre"
+    ],
+    "no_provider_calls": true
+  },
+  "human_findings": {
+    "H5-01": {
+      "source": "Imran via user message",
+      "mandatory": true,
+      "human_closure": null
+    },
+    "H5-02": {
+      "source": "Imran via user message",
+      "mandatory": true,
+      "human_closure": null
+    },
+    "H5-03": {
+      "source": "Imran via user message",
+      "mandatory": true,
+      "human_closure": null
+    }
+  }
+}

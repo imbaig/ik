@@ -1,0 +1,488 @@
+{
+  "review_only": true,
+  "no_real_connections": true,
+  "directions": [
+    "a",
+    "b",
+    "c"
+  ],
+  "states": {
+    "S01": {
+      "name": "First visit \u00b7 no conversation yet",
+      "verified": false,
+      "targets": [
+        "S02D",
+        "S03",
+        "S03M"
+      ],
+      "review_continuation": null
+    },
+    "S01R": {
+      "name": "New conversation \u00b7 identity cleared",
+      "verified": false,
+      "targets": [
+        "S02D",
+        "S03"
+      ],
+      "review_continuation": null
+    },
+    "S02D": {
+      "name": "Public question \u2192 loading",
+      "verified": false,
+      "targets": [],
+      "review_continuation": [
+        "Next preview: see the catalog result",
+        "S17"
+      ]
+    },
+    "S17": {
+      "name": "Public discovery result",
+      "verified": false,
+      "targets": [
+        "S12-S17",
+        "S03",
+        "S11"
+      ],
+      "review_continuation": null
+    },
+    "S17V": {
+      "name": "Discovery in a verified conversation",
+      "verified": true,
+      "targets": [
+        "S12-S17V",
+        "S02A",
+        "S13"
+      ],
+      "review_continuation": null
+    },
+    "S03": {
+      "name": "Account request \u2192 verification",
+      "verified": false,
+      "targets": [
+        "S12-S03",
+        "S02A",
+        "S07"
+      ],
+      "review_continuation": null
+    },
+    "S03M": {
+      "name": "Mixed request \u2192 verification",
+      "verified": false,
+      "targets": [
+        "S12-S03M",
+        "S02M",
+        "S07",
+        "S08"
+      ],
+      "review_continuation": null
+    },
+    "S04": {
+      "name": "Invalid identifier \u2192 retry",
+      "verified": false,
+      "targets": [
+        "S12-S04",
+        "S03",
+        "S07"
+      ],
+      "review_continuation": null
+    },
+    "S05": {
+      "name": "Unverified identifier \u2192 retry",
+      "verified": false,
+      "targets": [
+        "S12-S05",
+        "S03",
+        "S07"
+      ],
+      "review_continuation": null
+    },
+    "S06": {
+      "name": "Retry limit",
+      "verified": false,
+      "targets": [
+        "S12-S06",
+        "S12-S06",
+        "S02D"
+      ],
+      "review_continuation": null
+    },
+    "S07": {
+      "name": "Verification cancelled",
+      "verified": false,
+      "targets": [
+        "S12-S07",
+        "S02D",
+        "S03"
+      ],
+      "review_continuation": null
+    },
+    "S08": {
+      "name": "Catalog-only outcome",
+      "verified": false,
+      "targets": [
+        "S12-S08",
+        "S03"
+      ],
+      "review_continuation": null
+    },
+    "S02A": {
+      "name": "Verified account \u2192 loading",
+      "verified": true,
+      "targets": [],
+      "review_continuation": [
+        "Next preview: see the owned invoice",
+        "S09"
+      ]
+    },
+    "S02M": {
+      "name": "Verified mixed request \u2192 loading",
+      "verified": true,
+      "targets": [],
+      "review_continuation": [
+        "Next preview: see the mixed answer",
+        "S21"
+      ]
+    },
+    "S09": {
+      "name": "Owned invoice result",
+      "verified": true,
+      "targets": [
+        "S12-S09",
+        "S18",
+        "S16",
+        "S20"
+      ],
+      "review_continuation": null
+    },
+    "S18": {
+      "name": "Owned invoice details",
+      "verified": true,
+      "targets": [
+        "S12-S18",
+        "S16",
+        "S09"
+      ],
+      "review_continuation": null
+    },
+    "S20": {
+      "name": "Already-verified shortcut",
+      "verified": true,
+      "targets": [
+        "S12-S20",
+        "S02A"
+      ],
+      "review_continuation": null
+    },
+    "S21": {
+      "name": "Mixed answer \u00b7 account then catalog",
+      "verified": true,
+      "targets": [
+        "S12-S21",
+        "S18",
+        "S13"
+      ],
+      "review_continuation": null
+    },
+    "S10": {
+      "name": "Account request error",
+      "verified": true,
+      "targets": [
+        "S12-S10",
+        "S02A",
+        "S12-S10"
+      ],
+      "review_continuation": null
+    },
+    "S10M": {
+      "name": "Partial mixed answer",
+      "verified": true,
+      "targets": [
+        "S12-S10M",
+        "S02A"
+      ],
+      "review_continuation": null
+    },
+    "S11": {
+      "name": "Empty catalog result",
+      "verified": false,
+      "targets": [
+        "S12-S11",
+        "S02D"
+      ],
+      "review_continuation": null
+    },
+    "S12": {
+      "name": "New conversation \u00b7 confirm consequences",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S09"
+      ],
+      "review_continuation": null
+    },
+    "S12U": {
+      "name": "New conversation \u00b7 while unverified",
+      "verified": false,
+      "targets": [
+        "S01R",
+        "S03"
+      ],
+      "review_continuation": null
+    },
+    "S15": {
+      "name": "Customer switch refused",
+      "verified": true,
+      "targets": [
+        "S12-S15",
+        "S12-S15",
+        "S02A"
+      ],
+      "review_continuation": null
+    },
+    "S13": {
+      "name": "Preference capture",
+      "verified": true,
+      "targets": [
+        "S12-S13",
+        "S13R",
+        "S12-S13"
+      ],
+      "review_continuation": null
+    },
+    "S13R": {
+      "name": "Preference recall",
+      "verified": true,
+      "targets": [
+        "S12-S13R",
+        "S14",
+        "S17V"
+      ],
+      "review_continuation": null
+    },
+    "S14": {
+      "name": "Preference removal unsupported",
+      "verified": true,
+      "targets": [
+        "S12-S14",
+        "S13R"
+      ],
+      "review_continuation": null
+    },
+    "S16": {
+      "name": "Invoice support contact",
+      "verified": true,
+      "targets": [
+        "S12-S16",
+        "S09"
+      ],
+      "review_continuation": null
+    },
+    "S16U": {
+      "name": "Inaccessible invoice",
+      "verified": true,
+      "targets": [
+        "S12-S16U",
+        "S02A"
+      ],
+      "review_continuation": null
+    },
+    "S12-S17": {
+      "name": "Reset confirmation from S17",
+      "verified": false,
+      "targets": [
+        "S01R",
+        "S17"
+      ],
+      "review_continuation": null
+    },
+    "S12-S17V": {
+      "name": "Reset confirmation from S17V",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S17V"
+      ],
+      "review_continuation": null
+    },
+    "S12-S03": {
+      "name": "Reset confirmation from S03",
+      "verified": false,
+      "targets": [
+        "S01R",
+        "S03"
+      ],
+      "review_continuation": null
+    },
+    "S12-S03M": {
+      "name": "Reset confirmation from S03M",
+      "verified": false,
+      "targets": [
+        "S01R",
+        "S03M"
+      ],
+      "review_continuation": null
+    },
+    "S12-S04": {
+      "name": "Reset confirmation from S04",
+      "verified": false,
+      "targets": [
+        "S01R",
+        "S04"
+      ],
+      "review_continuation": null
+    },
+    "S12-S05": {
+      "name": "Reset confirmation from S05",
+      "verified": false,
+      "targets": [
+        "S01R",
+        "S05"
+      ],
+      "review_continuation": null
+    },
+    "S12-S06": {
+      "name": "Reset confirmation from S06",
+      "verified": false,
+      "targets": [
+        "S01R",
+        "S06"
+      ],
+      "review_continuation": null
+    },
+    "S12-S07": {
+      "name": "Reset confirmation from S07",
+      "verified": false,
+      "targets": [
+        "S01R",
+        "S07"
+      ],
+      "review_continuation": null
+    },
+    "S12-S08": {
+      "name": "Reset confirmation from S08",
+      "verified": false,
+      "targets": [
+        "S01R",
+        "S08"
+      ],
+      "review_continuation": null
+    },
+    "S12-S09": {
+      "name": "Reset confirmation from S09",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S09"
+      ],
+      "review_continuation": null
+    },
+    "S12-S18": {
+      "name": "Reset confirmation from S18",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S18"
+      ],
+      "review_continuation": null
+    },
+    "S12-S20": {
+      "name": "Reset confirmation from S20",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S20"
+      ],
+      "review_continuation": null
+    },
+    "S12-S21": {
+      "name": "Reset confirmation from S21",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S21"
+      ],
+      "review_continuation": null
+    },
+    "S12-S10": {
+      "name": "Reset confirmation from S10",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S10"
+      ],
+      "review_continuation": null
+    },
+    "S12-S10M": {
+      "name": "Reset confirmation from S10M",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S10M"
+      ],
+      "review_continuation": null
+    },
+    "S12-S11": {
+      "name": "Reset confirmation from S11",
+      "verified": false,
+      "targets": [
+        "S01R",
+        "S11"
+      ],
+      "review_continuation": null
+    },
+    "S12-S15": {
+      "name": "Reset confirmation from S15",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S15"
+      ],
+      "review_continuation": null
+    },
+    "S12-S13": {
+      "name": "Reset confirmation from S13",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S13"
+      ],
+      "review_continuation": null
+    },
+    "S12-S13R": {
+      "name": "Reset confirmation from S13R",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S13R"
+      ],
+      "review_continuation": null
+    },
+    "S12-S14": {
+      "name": "Reset confirmation from S14",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S14"
+      ],
+      "review_continuation": null
+    },
+    "S12-S16": {
+      "name": "Reset confirmation from S16",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S16"
+      ],
+      "review_continuation": null
+    },
+    "S12-S16U": {
+      "name": "Reset confirmation from S16U",
+      "verified": true,
+      "targets": [
+        "S01R",
+        "S16U"
+      ],
+      "review_continuation": null
+    }
+  }
+}

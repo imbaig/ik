@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="670" viewBox="0 0 1440 670" role="img" aria-labelledby="title desc"><title id="title">Gated future implementation slices</title><desc id="desc">Discovery visuals lead to human decisions, optional authorized spike, bounded implementation and validation. No coding authorization.</desc><rect width="100%" height="100%" fill="#f5f6f8"/>
+<style>text{font-family:Arial,sans-serif;fill:#182431} .h{font-weight:700} .muted{fill:#485766}</style>
+<text x="40" y="55" font-size="30" class="h">From design evidence to an explicit human decision</text>
+<text x="40" y="94" font-size="18">PROPOSED • No implementation authorization • Only Imran approves direction, framework, spec and merging</text>
+<rect x="40" y="155" width="310" height="255" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="60" y="193" font-size="22" class="h">G0 · Human gate</text>
+<text x="60" y="236" font-size="19">Local renders + reviewer</text>
+<text x="60" y="262" font-size="19">findings. D1 direction,</text>
+<text x="60" y="288" font-size="19">D2 framework, D3 spec, D4</text>
+<text x="60" y="314" font-size="19">scope. All pending.</text>
+<text x="360" y="292" font-size="26">→</text>
+<rect x="390" y="155" width="310" height="255" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="410" y="193" font-size="22" class="h">P0 · Optional spike</text>
+<text x="410" y="236" font-size="19">Separate authorization.</text>
+<text x="410" y="262" font-size="19">One engineer-day. Prove</text>
+<text x="410" y="288" font-size="19">N/S Gradio paths; report</text>
+<text x="410" y="314" font-size="19">failed checks.</text>
+<text x="710" y="292" font-size="26">→</text>
+<rect x="740" y="155" width="310" height="255" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="760" y="193" font-size="22" class="h">I1 / I2 / I3</text>
+<text x="760" y="236" font-size="19">Readable facts →</text>
+<text x="760" y="262" font-size="19">responsive recovery →</text>
+<text x="760" y="288" font-size="19">mixed/preferences/support.</text>
+<text x="760" y="314" font-size="19">One active PR at a time.</text>
+<text x="1060" y="292" font-size="26">→</text>
+<rect x="1090" y="155" width="310" height="255" rx="12" fill="#ffffff" stroke="#758393"/>
+<text x="1110" y="193" font-size="22" class="h">V1 · Validate</text>
+<text x="1110" y="236" font-size="19">Approved vs actual</text>
+<text x="1110" y="262" font-size="19">desktop/phone captures,</text>
+<text x="1110" y="288" font-size="19">accessibility, exact-SHA</text>
+<text x="1110" y="314" font-size="19">tests/evals and</text>
+<text x="1110" y="340" font-size="19">independent review.</text>
+<rect x="40" y="460" width="1360" height="130" rx="12" fill="#e9eef5" stroke="#758393"/>
+<text x="62" y="500" font-size="22" class="h">STOP before coding until Imran explicitly decides. No migration follows from a recommendation.</text>
+<text x="62" y="543" font-size="18">Human findings and human-adopted findings are binding; only Imran may close or waive them.</text>
+</svg>
