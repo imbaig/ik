@@ -47,8 +47,8 @@ resolution only; local rendered findings and human acceptance cannot be inferred
 | H5-04;001 FR005–008/010 | CX17 | AC17/19/21 | design.md sections3/5; projected view state, server-owned identity/lifecycle and cancellation/progress limits |
 | H5-04 rationale/tradeoffs | CX15–17 | Exact-SHA independent documentation review now; future AC17–21 later | ADR-002-01 and plan; no full client MVVM/API/MVVM dependency or free migration promise |
 
+| H5-05 latest app-specific architecture clarification | CX15–17 / design ADR-002-01 / clarification D8 | Exact-revision documentation review; AC17–21 remain proposed implementation checks | No Microsoft MVVM framework/hierarchy; API remains optional future adapter |
+
 H5-04 is human-origin/mandatory; detailed design acceptance/closure remains Imran's decision.
 Current app and all previously reviewed walkthrough artifact bytes are preserved. Proposed
 fake-view/formatter/ownership tests are not executed or claimed passing in this doc revision.
-
-| H5-05 latest app-specific architecture clarification | CX15–17 / design ADR-002-01 / clarification D8 | Exact-revision documentation review; AC17–21 remain proposed implementation checks | No Microsoft MVVM framework/hierarchy; API remains optional future adapter |
