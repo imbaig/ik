@@ -14,6 +14,28 @@ Rich card controls, sticky composition and arbitrary frontend DOM hooks are defe
 Alternative React/TypeScript+Vite with a same-origin FastAPI adapter is assessed in
 [feasibility](../../docs/design/issue-5/feasibility.md), not chosen or integrated.
 
+## Canonical proposed architecture
+
+[design.md](design.md) is the canonical proposed002 architecture and ADR-002-01. Imran's
+[architecture feedback](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179) makes
+the **MVVM-inspired server-backed presentation boundary** binding, while detailed spec
+acceptance, visual direction, framework migration and implementation permission remain open.
+This is not full client-side MVVM and requires no MVVM library or API service now.
+
+Current UIController still mixes Gradio update tuples with display/action logic, and current
+agent runtime still formats observed records. Proposed extraction separates View adapter,
+framework-neutral presentation controller/contracts/formatter and authoritative application
+services; no such refactor is claimed implemented. Neutral application contracts prevent
+core imports of Gradio/presentation. Structured facts are the machine contract, not markup.
+
+Add an architecture-contract slice before I1/I2: fake-view actions without importing Gradio,
+server ownership/reset/stale-delivery tests, deterministic formatting and sink-escaping tests.
+Then stage the runtime renderer extraction and Gradio adapter conversion while retaining a
+working app and SQL-truth/grounding checks. See design.md sections3–7 and AC17–21 for exact
+contracts, module map, cancellation/progress limits, migration cost and verification plan.
+The current callbacks remain in-process; a future transport adapter needs its own security,
+serialization/session and integration validation, not agent/tool/DB policy rewrites.
+
 ## Constitution check and trust boundary
 
 Specification precedes implementation; separate read-only design/spec review on frozen

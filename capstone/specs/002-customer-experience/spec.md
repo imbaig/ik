@@ -64,6 +64,19 @@ mockups are candidates, not approved references; see [directions](../../docs/des
   remain outside; demo-verification and process-local-memory limits appear contextually.
   Binding human findings H5-01–03 remain pending human closure after actual local previews.
 
+- **CX-15**: Honor binding H5-04 with the [canonical MVVM-inspired server-backed design](design.md):
+  Gradio View adapter → framework-independent presentation controller/model → application
+  conversation/verification services → agents/tools/storage/config, with explicit external LLM
+  boundary. No Gradio objects in core; no API/MVVM library or client identity authority required.
+- **CX-16**: Use neutral typed actions/results and presentation view-state contracts; move
+  customer-facing record rendering out of agent runtime into deterministic formatting without
+  moving/weakening grounding, ownership, SQL or execution-budget checks. Preserve exact values,
+  counts/truncation/order, safe notices and sink escaping; markup is not the sole machine contract.
+- **CX-17**: Make presentation driveable through a fake View without Gradio. Application owns
+  identity, session/pending lifecycle and guards; view state is a read-only projection. Specify
+  generation/request association for stale delivery, reset isolation, verification cancellation
+  distinct from provider cancellation, and only actually supported busy/final/progress semantics.
+
 ## Edge cases and success criteria
 
 Required walkthrough: all HC-01–05 plus S01–S16, malicious markup in catalog fields, long
@@ -92,3 +105,11 @@ AC13–16 require distinguishable entry/results, connected actions and realistic
 new review SHA and unchanged reviewer report/dispositions are recorded in existing PR6.
 Local coordinator must render actual desktop/mobile preview before presenting completion.
 No human closure/waiver or application implementation follows from this revision.
+
+## Binding architecture amendment H5-04
+
+Full [human comment](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179) is the
+source of CX15–17 /AC17–21 and [design.md](design.md). The separation choice is a requirement;
+this revised design/spec still needs exact-revision independent review and Imran acceptance.
+Current implementation and reviewed walkthroughs are unchanged. No framework migration,
+production authentication, new cancellation/streaming capability or implementation claimed.

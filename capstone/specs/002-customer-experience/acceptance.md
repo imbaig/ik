@@ -54,3 +54,23 @@ Also inspect color-independent meaning, help consistency, no forced motion/hover
 controls, no timeouts that strand users silently, and future confirmation behavior. A final
 relevant A/AA inventory must account for every criterion, marking applicability with reasons.
 Static mockup buttons do not implement forms, sessions, focus recovery or live regions.
+
+## Proposed architecture/refactor acceptance — H5-04
+
+These are requirements for a **future authorized implementation**, not tests executed by
+this design-only amendment. [Canonical design/ADR](design.md); binding [human source](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179).
+Documentation acceptance now requires coherent current/proposed boundaries and a separate
+exact-SHA architecture review; only Imran accepts the detailed spec or closes H5-04.
+
+| ID | Future test setup, action and required result | Boundary / evidence |
+|---|---|---|
+| AC-17 | Block Gradio imports in a deterministic fake-view harness; import neutral contracts/controller/formatter, supply a scripted fake application port and consume ViewState snapshots. Exercise Open, Send→Busy→verification-required, invalid/retry Resume, successful Resume→result, Cancel, mixed-only CatalogOnly, safe error, Keep/Confirm Reset, expiry/Close. Assert ordered statuses/actions and one dispatch per accepted command, without widget tuples or provider calls | CX15/17; presentation contract test, not live reasoning. Separate real-service tests still required |
+| AC-18 | Project fixtures for all nine tool contracts, empty/error/partial and malformed envelopes; compare every displayed fact, exact decimal string/quantity/ID/order, returned/total/truncation and genre artist/sample metadata to source. Assert no float/currency inference/recomputed total or model prose promoted to fact. Inject HTML, Markdown link syntax, script-like names and unsafe URL schemes; verify pure display values and adapter sink-encoding helpers preserve literal visible text without executable markup/double escaping; keep sanitization on. Actual Gradio/browser DOM integration is a separate required check | CX02/10/16; formatter+encoding tests without LLM; retain SQL-truth/eval guards |
+| AC-19 | With real application/verification services and offline fixtures, create two isolated bindings/accounts. Tamper with copied view verified/status/action hints or submit foreign invoice/customer IDs; app guards retain trusted identity and generic unavailable responses. A stale/foreign binding cannot access another session. Reset/Close invalidates old handle/checkpoint/private/pending state; fresh handle is unverified, preferences retained only under existing scoped process policy; replay an old response/generation after reset and assert no private flash in fake View/new session | CX04/15/17; server ownership, reset isolation and presentation stale-delivery regression |
+| AC-20 | Inspect/import-check dependencies: View adapter imports presentation; both sides use neutral application_contracts; application/verification/agents/tools/db/memory/config never import Gradio, ViewState or presentation markup. Runtime still validates observed facts, trusted ownership and bounded execution after record-layout extraction; neutral result DTO survives a fake alternate View without parsing Markdown/HTML. Update renderer/eval imports/oracles explicitly and retain exact SQL/data assertions | CX15/16; dependency and parity tests; no migration or zero-change substitution claim |
+| AC-21 | While waiting for verification, Cancel abandons pending verification; CatalogOnly only applies to mixed waiting task. During active provider work, there is no Stop/abort command or fake completion/progress; duplicate sends/reset are busy/serialized, never optimistic clear. Once server reset succeeds, stale deliveries cannot reappear. Future transport replay/disconnect/expiry tests precede any richer stream. Require affected full offline pytest/Ruff, actual desktop/mobile/accessibility integration and exact-revision live evaluation under existing workflow before accepting a later refactor | CX08/12/17; current bounded capabilities, not provider cancellation guarantee |
+
+The already-reviewed static walkthrough remains an illustrative flow, not implementation of
+these contracts or a fake-view test. Architecture unit tests do not replace actual application
+ownership regressions, rendered/a11y testing or relevant live evaluation. No app/provider/key
+access is needed to review this documentation revision.

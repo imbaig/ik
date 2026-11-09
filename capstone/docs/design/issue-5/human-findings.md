@@ -44,3 +44,20 @@ The unchanged first re-review report is preserved in PR6; final exact-SHA rechec
 is recorded there separately. R5-HR1-01: accepted, fixed-pending-verification; human-adopted
 and mandatory flags=null unless Imran adopts it, human closure=null. Human-origin H5-01–03
 remain mandatory and pending local rendered preview and Imran closure regardless of recheck.
+
+## H5-04 — binding MVVM-inspired presentation architecture
+
+Source: [Imran's full comment6730142179](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179),
+read in full by the author. Source=human, mandatory=true; human-adopted=null (human-origin);
+human closure/waiver=null. The comment positively reviews the walkthrough and authorizes
+separation as a design requirement; it does not select visual direction/migration or accept
+an unseen revised spec. No previous human finding is silently closed from that feedback.
+
+Author response: accepted. Added canonical002 design.md and ADR with current/proposed
+boundaries, neutral actions/results, projected ViewState, dependency/fact diagram, deterministic
+formatter extraction, exact metadata/encoding rules and retained server authority. Added
+AC17–21 fake-view/import, formatter/escaping, ownership/reset/stale-delivery and cancellation/
+progress acceptance. Updated plan/spec/traceability/index and added a pointer in historical
+non-snapshot specs/design.md. Current app, dependencies, approved001/snapshots and reviewed
+walkthroughs unchanged. Status: authored/fixed-pending-independent-verification and Imran
+acceptance; exact final SHA/report/dispositions recorded in PR6. Proposed tests are not run.

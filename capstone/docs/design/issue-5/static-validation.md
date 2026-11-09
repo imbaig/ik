@@ -68,3 +68,17 @@ unrelated states. Author corrected the diagram and checked all drawn edges again
 flow-states.json product actions/loading continuations, including invalid retry, separate
 mixed exits and switch reset/Keep origin. Independent alternatives have no connecting arrows.
 Full unchanged report and exact-SHA recheck are in PR6. No local rendered QA/human closure.
+
+## H5-04 architecture documentation amendment
+
+Read full human comment6730142179. Added proposed002 design.md (current/proposed map,
+Mermaid dependency/fact diagram, neutral contracts, session/cancel/reset/progress limits,
+formatter extraction, ADR and migration/test plan); linked spec/plan/acceptance/trace/index
+and added a navigation pointer to non-snapshot specs/design.md. No app test, fake-view
+implementation or architecture refactor is claimed. AC17–21 are future acceptance tests.
+
+Author checks: all12 existing visual/walkthrough files are byte-identical to252a454;
+Markdown relative links/static artifact parse and git whitespace checks passed. No approved001,
+hash/approval snapshots, application/dependency/test or coursework changes. Exact frozen SHA,
+independent architecture review/dispositions and rechecks are recorded in PR6. Human H5-04
+and prior binding findings are not self-closed; no rendered/provider/credential work performed.

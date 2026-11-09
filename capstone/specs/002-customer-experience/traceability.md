@@ -37,3 +37,16 @@ approval of this packet. No requirement/approval snapshot in001 is modified.
 
 All remain binding and pending Imran's closure. Independent re-review verifies authored
 resolution only; local rendered findings and human acceptance cannot be inferred.
+
+## Architecture amendment trace
+
+| Binding source / constraints | Proposed requirement | Acceptance | Canonical design evidence |
+|---|---|---|---|
+| Imran H5-04; [full comment](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179) | CX15 | AC17/20 | design.md sections1/2/6; View→presentation→application; current-vs-proposed module map |
+| H5-04;001 FR003/004/009 | CX16 | AC18/20 | design.md sections3/4/7; structured fact/result DTO, pure formatter and retained runtime grounding |
+| H5-04;001 FR005–008/010 | CX17 | AC17/19/21 | design.md sections3/5; projected view state, server-owned identity/lifecycle and cancellation/progress limits |
+| H5-04 rationale/tradeoffs | CX15–17 | Exact-SHA independent documentation review now; future AC17–21 later | ADR-002-01 and plan; no full client MVVM/API/MVVM dependency or free migration promise |
+
+H5-04 is human-origin/mandatory; detailed design acceptance/closure remains Imran's decision.
+Current app and all previously reviewed walkthrough artifact bytes are preserved. Proposed
+fake-view/formatter/ownership tests are not executed or claimed passing in this doc revision.

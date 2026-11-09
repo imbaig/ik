@@ -32,6 +32,7 @@ index and direction files are also retained for directory-based/local review.
 | Arrange | [Desktop](visuals/02-desktop.svg), [mobile](visuals/02-mobile.svg) wireframes | Empty entry is separate from question/loading/result |
 | Compare | [A · Record Room](visuals/direction-a.html#a-S01), [B · Clear Conversation](visuals/direction-b.html#b-S01), [C · Reference Desk](visuals/direction-c.html#c-S01) | Each has the same unverified/verified/recovery routes and wide/phone controls |
 | Recover | [All-state atlas](visuals/04-states.html) | [State/copy matrix](states-and-responses.md) |
+| Architecture | [Canonical proposed design and ADR](../../../specs/002-customer-experience/design.md) | [Current vs proposed, contracts, server authority and migration tests](../../../specs/002-customer-experience/design.md#1-current-implementation-versus-proposed-extraction); binding H5-04, acceptance pending |
 | Specify | [Gated slice map](visuals/05-slices.svg) | [Draft002](../../../specs/002-customer-experience/spec.md), [acceptance](../../../specs/002-customer-experience/acceptance.md), [traceability](../../../specs/002-customer-experience/traceability.md) |
 | Evaluate feasibility | [Framework boundary](visuals/06-framework.svg) | [Gradio/alternative matrix](feasibility.md) |
 | Inspect sources | [Ledger](sources.md), [source hashes](source-manifest.json), [sample fixture](sample-fixtures.json) | [Static evidence](static-validation.md) |
@@ -79,3 +80,13 @@ primary-source text was available through coordinated parent/web-tool retrieval.
 application credentials accessed, no live provider calls, no global installation or
 third-party script execution. Live evaluation is not run or required for this documentation
 revision; later changes to rendering/orchestration require affected exact-revision checks.
+
+## Architecture amendment — H5-04
+
+Imran's [full architecture requirement](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179)
+requires MVVM-inspired server-backed separation. Read the canonical [proposed design.md](../../../specs/002-customer-experience/design.md)
+for subsystem/dependency diagram, current/proposed responsibilities, action/result/view-state
+contracts, server session authority, exact facts/escaping, cancellation/reset limits, ADR and
+migration/testing cost. No app extraction, new API/MVVM library, frontend migration or detailed
+spec acceptance is claimed. Reviewed walkthroughs and their visual bytes are unchanged.
+H5-01–03 closure remains separate; positive walkthrough feedback is not inferred closure.

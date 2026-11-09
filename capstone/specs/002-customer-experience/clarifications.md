@@ -14,3 +14,9 @@
 Boundaries are already fixed: no preference delete/replace, refunds/tickets/checkout/playback,
 production-auth claims, fabricated facts, baseline approval edits, credentials or provider calls.
 Local visual findings and any human-adopted findings are binding; only Imran closes/waives them.
+
+D7: MVVM-inspired presentation separation is now a **binding requirement**, per
+[Imran's architecture comment](https://github.com/imbaig/ik/pull/6#issuecomment-6730142179).
+The proposed detailed contracts/module extraction in [design.md](design.md) need independent
+review and Imran acceptance. This does not decide D1 direction or D2 frontend migration;
+no MVVM library/API service is needed merely to satisfy the pattern.

@@ -19,3 +19,10 @@ Human review revision:
 - [ ] Changed artifacts independently re-reviewed at new exact SHA (record report in PR6).
 - [ ] Local coordinator rendered actual desktop/mobile preview and recorded visual findings.
 - [ ] Imran accepted resolutions / closed or waived each human finding explicitly.
+
+Architecture amendment:
+- [x] Canonical proposed design/ADR distinguishes current implementation from extraction.
+- [x] Typed contracts, dependency diagram/rules, authority/lifecycle and exact-fact preservation documented.
+- [x] Fake-view, encoding and server ownership/reset/stale-delivery acceptance proposed, not run.
+- [ ] Separate exact-SHA architecture review published (record in PR6).
+- [ ] Imran accepts revised architecture/spec and closes H5-04; no inferred approval.
