@@ -15,6 +15,7 @@ class _Binding:
     delivery_id: str = field(default_factory=lambda: str(uuid4()))
     history: list[ChatMessage] = field(default_factory=list)
     waiting: bool = False
+    verified: bool = False
     can_catalog_only: bool = False
     generation: int = 0
     revision: int = 0
@@ -25,8 +26,9 @@ class _Binding:
 
 
 class PresentationController:
-    def __init__(self, service: ApplicationPort):
+    def __init__(self, service: ApplicationPort, *, formatter=None):
         self.service = service
+        self._formatter = formatter or (lambda result: result.text)
         self._views: dict[str, _Binding] = {}
         self._lock = threading.RLock()
 
@@ -54,6 +56,7 @@ class PresentationController:
             binding_id=view.delivery_id,
             busy=view.busy,
             waiting=view.waiting,
+            verified=view.verified,
             can_catalog_only=view.can_catalog_only,
             draft=draft,
             result=result,
@@ -118,7 +121,7 @@ class PresentationController:
                     else reply.status.replace("_", " ")
                 )
                 status += f" · {time.perf_counter() - started:.1f}s"
-                message = reply.text
+                message = self._formatter(reply)
             except SessionExpired:
                 reply = None
                 message = "Conversation expired; start a new conversation."
@@ -133,8 +136,9 @@ class PresentationController:
                 if status == "Conversation expired":
                     view.generation += 1
                     view.history.clear()
-                    view.waiting = view.can_catalog_only = False
+                    view.waiting = view.can_catalog_only = view.verified = False
                 if reply is not None:
+                    view.verified = reply.session.verified
                     view.waiting = reply.session.waiting
                     view.can_catalog_only = reply.session.can_catalog_only
                 view.history.append(ChatMessage("assistant", message))
@@ -158,7 +162,7 @@ class PresentationController:
                 view.handle = self.service.new_session()
             view.generation += 1
             view.history.clear()
-            view.waiting = view.can_catalog_only = False
+            view.waiting = view.can_catalog_only = view.verified = False
             return self._snapshot(view, "New conversation · identity cleared")
 
     def close(self, token):

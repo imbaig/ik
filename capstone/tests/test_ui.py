@@ -55,7 +55,7 @@ def test_immediate_message_and_busy_then_answer(controller):
     first = next(stream)
     assert first[0] == [{"role": "user", "content": "hello"}]
     assert first[2]["interactive"] is False
-    assert first[4] == "Working…"
+    assert 'role="status"' in first[4] and "Working…" in first[4]
     assert controller.service.calls == []
     final = next(stream)
     assert final[0][-1]["content"] == "Response 1"
@@ -119,8 +119,8 @@ def test_gradio_blocks_constructs_without_provider(controller):
     assert not demo.analytics_enabled
 
 
-def test_plain_text_adapter_preserves_sanitized_no_markup_sink(controller):
+def test_readable_adapter_preserves_sanitization_and_disallows_tags_downloads(controller):
     demo = build_ui(controller.service)
     chat = next(c for c in demo.config["components"] if c["type"] == "chatbot")["props"]
-    assert chat["render_markdown"] is False and chat["sanitize_html"] is True
+    assert chat["render_markdown"] is True and chat["sanitize_html"] is True
     assert chat["allow_tags"] is False and chat["allow_file_downloads"] is False

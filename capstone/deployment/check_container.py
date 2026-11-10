@@ -160,6 +160,8 @@ print("production nonroot/file exclusions passed")
             expected = "OPENAI_API_KEY is required" if extra else "Login requires"
             assert expected in logs
             assert password not in logs
+            command("rm", failure_name)
+            created.remove(failure_name)
         health = json.loads(command("inspect", "--format", "{{json .State.Health}}", name))
         # Wait only for Docker's own periodic healthcheck, not a live provider.
         for _ in range(20):
@@ -168,11 +170,17 @@ print("production nonroot/file exclusions passed")
             time.sleep(1)
             health = json.loads(command("inspect", "--format", "{{json .State.Health}}", name))
         assert health["Status"] == "healthy"
+        labels = json.loads(
+            command("image", "inspect", "--format", "{{json .Config.Labels}}", args.production)
+        )
+        assert labels["org.opencontainers.image.revision"] == args.revision
+        assert labels["app.input_source_revision"] == info["input_source_revision"]
         print(
             json.dumps(
                 {
                     "checks": "passed",
                     "metadata": info,
+                    "production_labels": labels,
                     "production_image": command(
                         "image", "inspect", "--format", "{{.Id}}", args.production
                     ),
