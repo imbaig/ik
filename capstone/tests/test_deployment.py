@@ -59,3 +59,24 @@ def test_metadata_identifies_source_and_package_without_environment_leak():
     )
     with pytest.raises(ConfigurationError):
         metadata({})
+
+
+def test_explicit_container_harness_reaches_real_domain_tools(database, monkeypatch):
+    import runpy
+    from pathlib import Path
+
+    from music_store.application_contracts import Action, ActionKind
+
+    root = Path(__file__).resolve().parents[1]
+    monkeypatch.syspath_prepend(str(root / "tests"))
+    app = runpy.run_path(str(root / "deployment/smoke_entry.py"))["service"](database)
+    handle = app.new_session()
+    catalog = app.dispatch(handle, Action(ActionKind.SEND, "Show Queen albums"))
+    assert catalog.facts[0].tool == "get_albums_by_artist"
+    assert catalog.facts[0].envelope["data"][0]["Artist"] == "Queen"
+    waiting = app.dispatch(handle, Action(ActionKind.SEND, "Show my invoices"))
+    assert waiting.session.waiting and not waiting.session.verified
+    owned = app.dispatch(handle, Action(ActionKind.RESUME_VERIFICATION, "1"))
+    assert owned.session.verified
+    assert owned.facts[0].envelope["data"][0]["InvoiceId"] == 382
+    app.close(handle)

@@ -105,7 +105,7 @@ def main():
 import sys
 sys.path.insert(0, "/opt")
 from pathlib import Path
-from ui_harness import service
+from smoke_entry import service
 from music_store.db import initialize_database
 from music_store.application_contracts import Action, ActionKind
 with_db=initialize_database(Path("/app/data/chinook"))
