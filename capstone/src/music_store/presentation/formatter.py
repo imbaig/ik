@@ -52,7 +52,14 @@ def safe_text(value):
     """Escape HTML and Markdown syntax, including autolink delimiters; never emit links."""
     text = "Not provided" if value is None else str(value)
     text = html.escape(text, quote=True)
-    return re.sub(r"([\\`*_{}\[\]()#+.!|~:])", r"\\\1", text)
+    text = re.sub(r"([\\`*_{}\[\]()#+.!|~:=\-])", r"\\\1", text)
+    # Prevent indented code blocks without discarding the original whitespace.
+    text = re.sub(
+        r"(?m)^[ \t]+",
+        lambda match: "".join("&#32;" if ch == " " else "&#9;" for ch in match[0]),
+        text,
+    )
+    return text.replace("\n", "  \n")
 
 
 def render_fact(section):

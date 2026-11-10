@@ -134,3 +134,12 @@ and vertically stacked field records replace custom HTML cards; no artwork or un
 production controls. Context rail collapses on narrow screens; critical disclosures remain
 in the main column. This is a runnable integrated v1 candidate, not a claim of final design
 parity, accessibility conformance, human closure or deployment approval.
+
+Independent review cycle1 identified incomplete multiline Markdown encoding (I13-R1):
+hyphen/setext/indented text could become structural markup. Accepted and repaired with
+block-syntax escaping, literal leading whitespace and preserved hard line breaks. Added
+reference Markdown parsing, fact-value/user-sink regressions, and actual Gradio
+`process_api` callbacks using real services/deterministic models (not a browser/live test).
+Final exact-revision independent recheck and evidence are published in the draft PR.
+The v1-only container checker now removes each failed-config container immediately to
+bound `vfs` disk usage and checks production OCI labels. The reviewed v0 branch is unchanged.

@@ -176,3 +176,84 @@ def test_real_catalog_only_cancellation_keeps_notice_and_requires_fresh_verifica
     retry = list(controller.send("Show my invoices", token))[-1]
     assert retry[5]["visible"]
     controller.close(token)
+
+
+def test_multiline_values_and_customer_messages_cannot_create_markdown_blocks():
+    from markdown_it import MarkdownIt
+    from test_ui import Service
+
+    original = "a\n- injected\n\n---\nFake\n===\n    indented\n\tfenced"
+    escaped = safe_text(original)
+    rendered = MarkdownIt().render(escaped)
+    for tag in ("<ul", "<hr", "<h1", "<h2", "<pre", "<code"):
+        assert tag not in rendered
+    assert "injected" in rendered and "indented" in rendered
+    assert "<br" in rendered
+    envelope = dict(
+        status="ok",
+        data=[{"Composer": original}],
+        total_count=1,
+        returned_count=1,
+        truncated=False,
+        message="Results returned",
+    )
+    section = FactSection("get_track_details", json.dumps(envelope), 0)
+    assert escaped in render_fact(section)
+    assert section.envelope["data"][0]["Composer"] == original
+    controller = UIController(Service())
+    token = controller.open()
+    stream = controller.send(original, token)
+    assert next(stream)[0][0]["content"] == escaped
+    stream.close()
+    controller.close(token)
+
+
+def test_actual_gradio_callbacks_dispatch_real_services_and_reset(database, monkeypatch):
+    import asyncio
+    import runpy
+    from pathlib import Path
+
+    from gradio.state_holder import SessionState
+
+    root = Path(__file__).resolve().parents[1]
+    monkeypatch.syspath_prepend(str(root / "tests"))
+    service = runpy.run_path(str(root / "deployment/smoke_entry.py"))["service"](database)
+    demo = build_ui(service)
+    session = SessionState(demo)
+    indices = {fn.fn.__name__: index for index, fn in demo.fns.items() if fn.fn is not None}
+
+    async def send(text):
+        response = await demo.process_api(indices["send"], [text, None], state=session)
+        assert "Working…" in response["data"][4]
+        response = await demo.process_api(
+            indices["send"], [], state=session, iterator=response["iterator"]
+        )
+        final = response["data"]
+        await demo.process_api(indices["send"], [], state=session, iterator=response["iterator"])
+        return final
+
+    async def run():
+        await demo.process_api(indices["open"], [], state=session)
+        catalog = await send("Show Queen albums")
+        assert "Greatest Hits II" in catalog[0][-1]["content"]
+        assert catalog[8]["visible"] is False and catalog[9]["visible"] is True
+        waiting = await send("Show my invoices")
+        assert waiting[5]["visible"] and "Not verified" in waiting[7]
+        owned = await send("1")
+        assert "Your invoices" in owned[0][-1]["content"]
+        assert "Verified for this conversation" in owned[7]
+        assert owned[11]["value"] == "Show the items on invoice 382"
+        response = await demo.process_api(indices["request_reset"], [None], state=session)
+        assert response["data"][0]["visible"] is True
+        reset = await demo.process_api(indices["reset"], [None], state=session)
+        assert reset["data"][0] == [] and "Not verified" in reset["data"][7]
+        assert reset["data"][8]["visible"] and not reset["data"][9]["visible"]
+        assert len(service._sessions) == 1
+        for binding in list(session.state_data.values()):
+            if isinstance(binding, str):
+                # Explicitly dispose the real browser binding, as Gradio TTL would.
+                next(fn.fn for fn in demo.fns.values() if fn.fn.__name__ == "open").__self__.close(
+                    binding
+                )
+
+    asyncio.run(run())
