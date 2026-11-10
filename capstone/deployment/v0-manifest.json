@@ -1,0 +1,15 @@
+{
+  "version": "v0.0.0-preview",
+  "immutable_source_tag": "capstone-v0.0.0-preview",
+  "input_source_revision": "7d137081b579b49128068d9dcc4be009cfea9def",
+  "packaging_revision": "supplied as PACKAGE_REVISION build argument; actual evidence in draft PR",
+  "runtime": "Python3.12-slim; requirements.lock exact versions",
+  "default_target": "production",
+  "test_target": "smoke: deterministic models with real services/graphs/tools/DB, never default",
+  "access_mode": "required login by default; local-only requires loopback HOST",
+  "provider": "undecided; provider-neutral Docker only",
+  "hosting": "not authorized or performed",
+  "known_reliability": "Original14/16 live run retained; issues10/11 deferred by Imran until before demo, not fixed or silently waived",
+  "memory": "process-local; reset clears conversation/identity, not preferences; v0/v1 processes isolated",
+  "source_vs_package": "tag is source only, not build/smoke/hosting/merge evidence"
+}
