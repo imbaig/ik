@@ -143,3 +143,7 @@ reference Markdown parsing, fact-value/user-sink regressions, and actual Gradio
 Final exact-revision independent recheck and evidence are published in the draft PR.
 The v1-only container checker now removes each failed-config container immediately to
 bound `vfs` disk usage and checks production OCI labels. The reviewed v0 branch is unchanged.
+Cycle1 recheck kept I13-R1 open for bare carriage-return indentation. Repair2 normalizes
+CRLF/CR to visible LF before escaping, matching Markdown parser newline semantics;
+source fact envelopes remain unchanged. LF/CRLF/CR variants now share the regression.
+No browser DOM or human closure is implied; second exact-SHA recheck is required.

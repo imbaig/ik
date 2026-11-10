@@ -51,6 +51,8 @@ LABELS = {
 def safe_text(value):
     """Escape HTML and Markdown syntax, including autolink delimiters; never emit links."""
     text = "Not provided" if value is None else str(value)
+    # Markdown parsers normalize both CRLF and bare CR before block parsing.
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
     text = html.escape(text, quote=True)
     text = re.sub(r"([\\`*_{}\[\]()#+.!|~:=\-])", r"\\\1", text)
     # Prevent indented code blocks without discarding the original whitespace.

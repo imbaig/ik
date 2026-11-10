@@ -178,12 +178,16 @@ def test_real_catalog_only_cancellation_keeps_notice_and_requires_fresh_verifica
     controller.close(token)
 
 
-def test_multiline_values_and_customer_messages_cannot_create_markdown_blocks():
+@pytest.mark.parametrize("newline", ["\n", "\r\n", "\r"])
+def test_multiline_values_and_customer_messages_cannot_create_markdown_blocks(newline):
     from markdown_it import MarkdownIt
     from test_ui import Service
 
     original = "a\n- injected\n\n---\nFake\n===\n    indented\n\tfenced"
+    original = original.replace("\n", newline)
     escaped = safe_text(original)
+    assert "\r" not in escaped
+    assert escaped == safe_text(original.replace("\r\n", "\n").replace("\r", "\n"))
     rendered = MarkdownIt().render(escaped)
     for tag in ("<ul", "<hr", "<h1", "<h2", "<pre", "<code"):
         assert tag not in rendered
