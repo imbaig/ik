@@ -72,6 +72,7 @@ class ApplicationResult:
     verification_outcome: str = "not_attempted"
     memory_status: str = "not_attempted"
     request_id: str = ""
+    notices: tuple[str, ...] = ()
 
 
 class ApplicationPort(Protocol):

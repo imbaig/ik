@@ -10,7 +10,7 @@ from music_store.config import ConfigurationError, load_settings
 from music_store.db import DATASET_REVISION, DATASET_SHA256, initialize_database
 
 SOURCE_REVISION = "7d137081b579b49128068d9dcc4be009cfea9def"
-VERSION = "v0.0.0-preview"
+VERSION = "v1.0.0-preview"
 
 
 def secret_value(name: str, environ: Mapping[str, str]) -> str:

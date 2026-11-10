@@ -60,6 +60,7 @@ class ConversationReply:
     memory_status: str = "not_attempted"
     verification_outcome: str = "not_attempted"
     branch: str = "unknown"
+    notices: tuple[str, ...] = ()
 
 
 class ConversationService:
@@ -108,13 +109,20 @@ class ConversationService:
             outcome = self._verification.with_identity(session.handle, update)
             if outcome is not None:
                 text = response.text
+                notices = response.notices
                 if outcome.status == "error":
-                    text += "\nPreference update unavailable; previous preferences are unchanged."
+                    notice = "Preference update unavailable; previous preferences are unchanged."
+                    text += "\n" + notice
+                    notices += (notice,)
                 elif outcome.added:
-                    text += "\nSaved music preferences: " + ", ".join(outcome.added)
+                    notice = "Saved music preferences: " + ", ".join(outcome.added)
+                    text += "\n" + notice
+                    notices += (notice,)
                 elif text == "Preference request processed.":
                     text = "No new explicit music preferences were saved."
-                response = replace(response, text=text, memory_status=outcome.status)
+                response = replace(
+                    response, text=text, memory_status=outcome.status, notices=notices
+                )
         session.history.append(AIMessage(content=response.text))
         session.history = session.history[-40:]
         return response
@@ -167,6 +175,7 @@ class ConversationService:
                 result.status,
                 records=result.records,
                 trace=result.trace,
+                notices=((prefix.strip(),) if prefix else ()) + result.notices,
             ),
         )
 
@@ -386,6 +395,7 @@ class ConversationService:
                 reply.verification_outcome,
                 reply.memory_status,
                 request_id=session.request_id,
+                notices=reply.notices,
             )
 
     def reset(self, handle):
