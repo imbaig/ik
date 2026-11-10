@@ -112,8 +112,10 @@ STYLE = """
 #conversation-history {min-height:260px;}
 /* Gradio 5.50 renders each action toolbar immediately after its message row. */
 #conversation-history .message-wrap {display:grid!important;
- grid-template-columns:minmax(0,1fr) 36px;align-items:start;gap:8px;}
+ grid-template-columns:minmax(0,1fr) 36px;align-items:start;gap:8px;padding-top:20px;}
 #conversation-history .message-row {grid-column:1;min-width:0;margin:0!important;}
+#conversation-history .bot-row .flex-wrap {width:100%;max-width:100%;}
+#conversation-history .bot {width:100%;max-width:100%!important;}
 #conversation-history .message-buttons {grid-column:2;align-self:start!important;
  margin:0!important;width:36px;max-width:36px;}
 #conversation-history .message-buttons .icon-button-wrapper {margin:0!important;width:36px;}

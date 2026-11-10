@@ -32,9 +32,8 @@ POPULARITY_REQUEST = re.compile(
     re.IGNORECASE,
 )
 POPULARITY_NOTICE = (
-    "I don't have popularity rankings, chart positions or streaming counts in this catalog, "
-    "so I can't determine which songs are most popular. "
-    "I can look up matching catalog tracks instead; their order is not a popularity ranking."
+    "I don't have popularity rankings in this catalog, so I can't identify the most popular song. "
+    "I can show unranked catalog matches instead."
 )
 
 
