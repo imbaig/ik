@@ -53,7 +53,7 @@ def safe_text(value):
     text = "Not provided" if value is None else str(value)
     # Markdown parsers normalize both CRLF and bare CR before block parsing.
     text = text.replace("\r\n", "\n").replace("\r", "\n")
-    text = html.escape(text, quote=True)
+    text = html.escape(text, quote=False)
     text = re.sub(r"([\\`*_{}\[\]()#+.!|~:=\-])", r"\\\1", text)
     # Prevent indented code blocks without discarding the original whitespace.
     text = re.sub(
@@ -126,8 +126,14 @@ def render_fact(section):
 def render_result(result):
     if not result.facts:
         return safe_text(result.text)
-    sections = [render_fact(section) for section in result.facts]
-    sections.extend(safe_text(notice) for notice in result.notices)
+    sections = [safe_text(notice) for notice in result.notices]
+    if (
+        not result.notices
+        and result.status == "complete"
+        and any(section.envelope["data"] for section in result.facts)
+    ):
+        sections.append("Here’s what I found.")
+    sections.extend(render_fact(section) for section in result.facts)
     if result.status != "complete":
         sections.append(
             "**This request did not fully complete.** You can retry the unfinished part."

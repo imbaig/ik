@@ -24,6 +24,28 @@ from music_store.application_contracts import (
 )
 from music_store.verification import VerificationResult, VerificationService
 
+POPULARITY_REQUEST = re.compile(
+    r"\b(?:most\s+(?:popular|poular|famous|streamed|played)|best[ -]selling|"
+    r"top[ -]rated|chart[ -]topping|popularity|stream(?:ing)?\s+counts?|"
+    r"chart\s+rankings?|biggest\s+hits?|top\s+(?:hits?|\d+\s+(?:songs?|tracks?))|"
+    r"popular\s+(?:songs?|tracks?|albums?))\b",
+    re.IGNORECASE,
+)
+POPULARITY_NOTICE = (
+    "I don't have popularity rankings, chart positions or streaming counts in this catalog, "
+    "so I can't determine which songs are most popular. "
+    "I can look up matching catalog tracks instead; their order is not a popularity ranking."
+)
+
+
+def catalog_limitation(kind, request):
+    """A bounded capability rule, not a general interpretation of every qualifier."""
+    return (
+        POPULARITY_NOTICE
+        if kind in {"catalog", "mixed"} and POPULARITY_REQUEST.search(request)
+        else ""
+    )
+
 
 class RouteDecision(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
@@ -128,6 +150,9 @@ class ConversationService:
         return response
 
     def _run(self, handle, session, kind, request, *, prefix=""):
+        limitation = catalog_limitation(kind, request)
+        if limitation:
+            prefix += limitation + "\n"
         if re.search(r"\brefund(?:s|ed|ing)?\b", request, flags=re.IGNORECASE):
             prefix += (
                 "I cannot issue refunds or create support tickets. I can help find the "
@@ -158,7 +183,29 @@ class ConversationService:
                         )
                     )
                 ]
-            messages = [*trusted_messages, *memory_messages, *session.history[-10:]]
+            capability_messages = (
+                [
+                    SystemMessage(
+                        content=(
+                            "This catalog has no popularity/chart/streaming rankings. "
+                            "For this request, "
+                            "use catalog tools to look up the requested artist or title "
+                            "as an unranked "
+                            "alternative. Do not choose or claim a most-popular song. "
+                            "The application "
+                            "will explain this limitation to the customer."
+                        )
+                    )
+                ]
+                if limitation
+                else []
+            )
+            messages = [
+                *trusted_messages,
+                *memory_messages,
+                *capability_messages,
+                *session.history[-10:],
+            ]
             if (
                 not messages
                 or not isinstance(messages[-1], HumanMessage)

@@ -80,3 +80,7 @@ architecture framework, human findings closure or merge approval changes.
 ## Human UI feedback — issue19
 
 Imran requested viewport-sized conversation history and collapsible tables for long results. Implement as a presentation-only refinement: preserve exact facts/metadata and sanitizer, native keyboard disclosure above five rows, contained narrow-screen table scrolling, and mobile header stacking. Acceptance and measured browser evidence: docs/implementation/issue-19.md. No new domain features or model calls; human visual acceptance remains pending.
+
+## Human conversational UX feedback — issue21
+
+Compact inline message copy control; acknowledge unsupported popularity/chart/streaming requests before offering unranked catalog results, with a short factual introduction for ordinary results. Exact facts, escaping, typed notices, identity and action budgets remain authoritative. Acceptance/limitations/evidence: docs/implementation/issue-21.md. User authorized implementation; visual acceptance pending.

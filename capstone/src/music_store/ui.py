@@ -110,6 +110,16 @@ STYLE = """
 #record-room .message {overflow-wrap:anywhere;}
 #record-room .prose {overflow-wrap:anywhere;}
 #conversation-history {min-height:260px;}
+/* Gradio 5.50 renders each action toolbar immediately after its message row. */
+#conversation-history .message-wrap {display:grid!important;
+ grid-template-columns:minmax(0,1fr) 36px;align-items:start;gap:8px;}
+#conversation-history .message-row {grid-column:1;min-width:0;margin:0!important;}
+#conversation-history .message-buttons {grid-column:2;align-self:start!important;
+ margin:0!important;width:36px;max-width:36px;}
+#conversation-history .message-buttons .icon-button-wrapper {margin:0!important;width:36px;}
+#conversation-history button[aria-label="Copy message"] {width:36px!important;height:36px!important;
+ min-height:36px!important;min-width:36px!important;padding:8px!important;}
+#conversation-history button[aria-label="Copy message"] svg {width:18px;height:18px;}
 #record-room .result-disclosure {border:1px solid #8c958b;border-radius:4px;margin:12px 0;}
 #record-room .result-disclosure summary {cursor:pointer;padding:12px;font-weight:600;}
 #record-room .result-table {max-width:100%;overflow-x:auto;margin:8px 0;}
