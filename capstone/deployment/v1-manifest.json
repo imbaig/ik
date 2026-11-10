@@ -1,0 +1,13 @@
+{
+  "version": "v1.0.0-preview",
+  "input_source_revision": "7d137081b579b49128068d9dcc4be009cfea9def",
+  "reviewed_packaging_dependency": "722e26ce145f722887230295d61803d18fe8ab9f",
+  "unmerged_dependencies": [9, 14],
+  "revision": "exact implementation/build SHA recorded in draft PR",
+  "ui": "integrated Record Room directionA with actual application services",
+  "test_mode": "explicit smoke image only; deterministic models, real graphs/tools/DB",
+  "live_evaluation": "pending local coordinator on final revision",
+  "visual_accessibility_checks": "pending local coordinator; no rendered QA/conformance claim",
+  "known_reliability": "original14/16 retained;10/11 deferred until before demo",
+  "isolation": "distinct v1 images/process/port; immutable v0 source tag/package untouched"
+}

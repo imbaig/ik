@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 FROM python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b AS runtime
 ARG PACKAGE_REVISION
-LABEL org.opencontainers.image.title="Music Store v0 preview" \
-      org.opencontainers.image.version="v0.0.0-preview" \
+LABEL org.opencontainers.image.title="Record Room v1 preview" \
+      org.opencontainers.image.version="v1.0.0-preview" \
       org.opencontainers.image.revision="${PACKAGE_REVISION}" \
       app.input_source_revision="7d137081b579b49128068d9dcc4be009cfea9def"
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \

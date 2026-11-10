@@ -173,6 +173,7 @@ class AgentResult:
     status: str
     records: tuple
     trace: tuple
+    notices: tuple[str, ...] = ()
 
 
 class AgentRuntime:
@@ -286,6 +287,7 @@ class AgentRuntime:
                         "error",
                         tuple(records),
                         tuple(trace),
+                        ("No tool-backed answer was produced; please retry",),
                     )
                 if any(
                     item["result"]["status"] in {"error", "invalid_input"} for item in phase_records
@@ -303,5 +305,6 @@ class AgentRuntime:
                     "error",
                     tuple(records),
                     tuple(trace),
+                    ("Request could not complete; please retry",),
                 )
         return AgentResult(render_records(records), "complete", tuple(records), tuple(trace))
