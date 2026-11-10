@@ -109,9 +109,22 @@ STYLE = """
 #record-room :focus-visible {outline:3px solid #245b45;outline-offset:3px;}
 #record-room .message {overflow-wrap:anywhere;}
 #record-room .prose {overflow-wrap:anywhere;}
+#conversation-history {min-height:260px;}
+#record-room .result-disclosure {border:1px solid #8c958b;border-radius:4px;margin:12px 0;}
+#record-room .result-disclosure summary {cursor:pointer;padding:12px;font-weight:600;}
+#record-room .result-table {max-width:100%;overflow-x:auto;margin:8px 0;}
+#record-room .result-table table {width:100%;border-collapse:collapse;font-size:14px;}
+#record-room .result-table caption {text-align:left;font-weight:600;padding:8px;}
+#record-room .result-table th,#record-room .result-table td {text-align:left;padding:10px;
+ border-bottom:1px solid #cbd0c8;vertical-align:top;white-space:pre-wrap;min-width:85px;}
+#record-room .result-table th {background:#e8eee5;color:#202a25;}
+#record-room .result-table tbody tr:nth-child(even) {background:#f5f1e8;}
 @media(max-width:650px) {
  #record-room {padding:16px 10px;}
+ #record-room .app-header {flex-direction:column;gap:8px;}
+ #record-room .app-header > * {width:100%!important;min-width:0!important;flex:none!important;}
  #record-room .rail {display:none;}
+ #conversation-history {height:clamp(260px,calc(100dvh - 280px),900px)!important;}
  #record-room .main-column {min-width:0!important;width:100%;}
 }
 """
@@ -137,7 +150,7 @@ def build_ui(service, *, test_banner=None):
     ) as demo:
         token = gr.State(None, time_to_live=3600, delete_callback=controller.close)
         with gr.Column(elem_id="record-room"):
-            with gr.Row():
+            with gr.Row(elem_classes="app-header"):
                 gr.Markdown("## Music Store\nRecord Room · v1 preview")
                 identity = gr.Markdown("Not verified · public catalog available")
                 reset = gr.Button("New conversation")
@@ -164,7 +177,8 @@ def build_ui(service, *, test_banner=None):
                     with gr.Column(visible=False) as conversation_panel:
                         chat = gr.Chatbot(
                             type="messages",
-                            height=460,
+                            height="clamp(260px, calc(100dvh - 340px), 1400px)",
+                            elem_id="conversation-history",
                             render_markdown=True,
                             sanitize_html=True,
                             allow_tags=False,

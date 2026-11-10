@@ -85,12 +85,41 @@ def render_fact(section):
             )
         else:
             lines.append("Please retry. No additional account information is available here.")
-    for number, row in enumerate(envelope["data"], 1):
-        lines.append(f"\n**{number}.**")
-        # All fields, including nullable/unknown future fields, remain visible in source order.
-        for key, value in row.items():
-            label = LABELS.get(key, key)
-            lines.append(f"- **{safe_text(label)}:** {safe_text(value)}")
+    rows = envelope["data"]
+    if rows:
+        # Preserve every field, including sparse/future fields, without inferring values.
+        keys = list(dict.fromkeys(key for row in rows for key in row))
+
+        def cell(value):
+            # Raw HTML cells are data, never Markdown. Escaping once also preserves
+            # apostrophes that previously became visible entities after Markdown escaping.
+            return (
+                html.escape("Not provided" if value is None else str(value), quote=True)
+                .replace("\r", "&#13;")
+                .replace("\n", "&#10;")
+                .replace("\t", "&#9;")
+            )
+
+        table = (
+            '<div class="result-table" role="region" aria-label="' + cell(title) + '" tabindex="0">'
+        )
+        table += "<table><caption>" + cell(title) + "</caption><thead><tr>"
+        table += "".join('<th scope="col">' + cell(LABELS.get(key, key)) + "</th>" for key in keys)
+        table += "</tr></thead><tbody>"
+        for row in rows:
+            table += (
+                "<tr>" + "".join("<td>" + cell(row.get(key)) + "</td>" for key in keys) + "</tr>"
+            )
+        table += "</tbody></table></div>"
+        if len(rows) > 5:
+            table = (
+                '<details class="result-disclosure"><summary>Show/hide '
+                + str(envelope["returned_count"])
+                + " results</summary>"
+                + table
+                + "</details>"
+            )
+        lines.append(table)
     return "\n\n".join(lines)
 
 
