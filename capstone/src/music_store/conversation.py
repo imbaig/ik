@@ -14,6 +14,14 @@ from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from pydantic import BaseModel, ConfigDict
 
 from music_store.agents.runtime import AgentResult, AgentRuntime
+from music_store.application_contracts import (
+    Action,
+    ActionKind,
+    ApplicationResult,
+    FactSection,
+    SessionExpired,
+    SessionInfo,
+)
 from music_store.verification import VerificationResult, VerificationService
 
 
@@ -80,7 +88,7 @@ class ConversationService:
         with self._registry_lock:
             session = self._sessions.get(handle)
         if session is None:
-            raise ValueError("Unknown or expired conversation")
+            raise SessionExpired("Unknown or expired conversation")
         return session
 
     def _save(self, session, response):
@@ -270,7 +278,7 @@ class ConversationService:
         session = self._session(handle)
         with session.lock:
             if not session.active:
-                raise ValueError("Conversation expired")
+                raise SessionExpired("Conversation expired")
             if session.waiting:
                 result = self._verification.reply(handle, text, action=action)
                 # Raw identifier input must not flow into specialist/router conversation context.
@@ -344,11 +352,47 @@ class ConversationService:
                 )
             return self._verified_reply(handle, session, result)
 
+    def dispatch(self, handle: str, action: Action) -> ApplicationResult:
+        """Typed in-process seam; all eligibility comes from this server session."""
+        session = self._session(handle)
+        with session.lock:
+            if not session.active:
+                raise SessionExpired("Conversation expired")
+            if not isinstance(action.kind, ActionKind):
+                raise ValueError("Unsupported application action")
+            if action.kind != ActionKind.SEND and not session.waiting:
+                raise ValueError("Verification action requires a waiting conversation")
+            if action.kind == ActionKind.CATALOG_ONLY and session.pending_kind != "mixed":
+                raise ValueError("Catalog continuation requires a mixed pending request")
+            verification_action = {
+                ActionKind.SEND: "retry",
+                ActionKind.RESUME_VERIFICATION: "retry",
+                ActionKind.CANCEL_VERIFICATION: "cancel",
+                ActionKind.CATALOG_ONLY: "catalog_only",
+            }[action.kind]
+            text = action.text if verification_action == "retry" else ""
+            reply = self.send(handle, text, action=verification_action)
+            info = SessionInfo(
+                session.waiting,
+                self._verification.with_identity(handle, lambda cid, _: cid is not None),
+                session.waiting and session.pending_kind == "mixed",
+            )
+            return ApplicationResult(
+                reply.text,
+                reply.status,
+                info,
+                tuple(FactSection.from_record(record) for record in reply.records),
+                reply.branch,
+                reply.verification_outcome,
+                reply.memory_status,
+                request_id=session.request_id,
+            )
+
     def reset(self, handle):
         session = self._session(handle)
         with session.lock:
             if not session.active:
-                raise ValueError("Conversation expired")
+                raise SessionExpired("Conversation expired")
             session.active = False
             session.history.clear()
             session.memory_history.clear()

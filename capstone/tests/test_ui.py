@@ -2,6 +2,7 @@ from types import SimpleNamespace
 
 import pytest
 
+from music_store.application_contracts import ApplicationResult, SessionInfo
 from music_store.ui import UIController, build_ui
 
 
@@ -21,6 +22,18 @@ class Service:
             raise RuntimeError("secret-provider-detail")
         return SimpleNamespace(
             text="Response " + handle, waiting=text == "account", status="complete"
+        )
+
+    def dispatch(self, handle, action):
+        name = {
+            "send": "retry",
+            "resume_verification": "retry",
+            "cancel_verification": "cancel",
+            "catalog_only": "catalog_only",
+        }[action.kind]
+        reply = self.send(handle, action.text, action=name)
+        return ApplicationResult(
+            reply.text, reply.status, SessionInfo(reply.waiting, False, reply.waiting)
         )
 
     def reset(self, handle):
@@ -104,3 +117,10 @@ def test_gradio_blocks_constructs_without_provider(controller):
     demo = build_ui(controller.service)
     assert demo.enable_queue
     assert not demo.analytics_enabled
+
+
+def test_plain_text_adapter_preserves_sanitized_no_markup_sink(controller):
+    demo = build_ui(controller.service)
+    chat = next(c for c in demo.config["components"] if c["type"] == "chatbot")["props"]
+    assert chat["render_markdown"] is False and chat["sanitize_html"] is True
+    assert chat["allow_tags"] is False and chat["allow_file_downloads"] is False

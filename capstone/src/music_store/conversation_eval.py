@@ -14,8 +14,8 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from music_store.agents.runtime import render_records
 from music_store.db import DATASET_REVISION
+from music_store.record_formatting import render_records
 from music_store.verification import ACCOUNT_TOOLS
 
 
