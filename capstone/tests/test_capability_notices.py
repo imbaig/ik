@@ -56,7 +56,7 @@ def test_real_tools_return_unranked_doors_facts_and_notice_precedes_table(databa
     assert result.notices == (POPULARITY_NOTICE,)
     assert result.facts[0].envelope["total_count"] == 11
     text = render_result(result)
-    assert text.index("I don't have popularity rankings") < text.index("### Tracks by artist")
+    assert text.index("I don't have popularity rankings") < text.index("View tracks by artist")
     assert "Light My Fire" in text and "made-up ranking" not in text
     assert any("application will explain" in str(m.content).lower() for m in model.seen[0])
     service.close(handle)

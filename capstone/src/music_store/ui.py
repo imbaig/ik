@@ -130,7 +130,8 @@ STYLE = """
 #record-room .result-disclosure summary {cursor:pointer;padding:12px;font-weight:600;}
 #record-room .result-table {max-width:100%;overflow-x:auto;margin:8px 0;}
 #record-room .result-table table {width:100%;border-collapse:collapse;font-size:14px;}
-#record-room .result-table caption {text-align:left;font-weight:600;padding:8px;}
+#record-room .result-table caption {position:absolute;width:1px;height:1px;padding:0;
+ margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 #record-room .result-table th,#record-room .result-table td {text-align:left;padding:10px;
  border-bottom:1px solid #cbd0c8;vertical-align:top;white-space:pre-wrap;min-width:85px;}
 #record-room .result-table th {background:#e8eee5;color:#202a25;}
