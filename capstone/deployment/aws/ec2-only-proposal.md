@@ -1,6 +1,7 @@
 # Direct EC2 HTTPS proposal — issue 28
 
-Status: researched design proposal, not implemented or deployed. Prepared 2026-11-11
+Status: design authorized for implementation by Imran in chat; package implementation
+is under review, not deployed. Prepared 2026-11-11
 at Imran's request to explore EC2 hosting after the failed CloudFront stack.
 No additional AWS resources were created for this exploration. The previous deployment
 approval and failed attempt remain recorded separately; this document is not sign-off.

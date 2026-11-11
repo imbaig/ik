@@ -15,7 +15,7 @@ def sub(text):
 def template():
     return {
         "AWSTemplateFormatVersion": "2010-09-09",
-        "Description": "Music Store v1 sample: EC2, HTTPS CloudFront, quota, scheduled stop",
+        "Description": "Music Store v1 sample: EC2, direct HTTPS, quota, scheduled stop",
         "Parameters": {
             "SourceRevision": {"Type": "String", "AllowedPattern": "[0-9a-f]{40}"},
             "VpcId": {"Type": "AWS::EC2::VPC::Id"},
@@ -26,6 +26,12 @@ def template():
                 "AllowedPattern": "/music-store/v1/[a-z0-9-]+",
             },
             "StopAfterDays": {"Type": "Number", "Default": 7, "MinValue": 1, "MaxValue": 14},
+            "CertificateAgreement": {
+                "Type": "String",
+                "Default": "pending",
+                "AllowedValues": ["pending", "accepted-v1.8-2026-07-06"],
+                "Description": "Let's Encrypt v1.8 approval is required before issuance",
+            },
             "ImageId": {
                 "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
                 "Default": "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64",
@@ -92,15 +98,16 @@ def template():
             "ServerSecurityGroup": {
                 "Type": "AWS::EC2::SecurityGroup",
                 "Properties": {
-                    "GroupDescription": "HTTP from CloudFront only; no public SSH or Gradio",
+                    "GroupDescription": "Public HTTPS and ACME HTTP only; no SSH or Gradio",
                     "VpcId": ref("VpcId"),
                     "SecurityGroupIngress": [
                         {
                             "IpProtocol": "tcp",
-                            "FromPort": 80,
-                            "ToPort": 80,
-                            "SourcePrefixListId": "pl-3b927c52",
+                            "FromPort": port,
+                            "ToPort": port,
+                            "CidrIp": "0.0.0.0/0",
                         }
+                        for port in (80, 443)
                     ],
                     "SecurityGroupEgress": [{"IpProtocol": "-1", "CidrIp": "0.0.0.0/0"}],
                 },
@@ -142,61 +149,13 @@ def template():
                     ],
                 },
             },
-            "Site": {
-                "Type": "AWS::CloudFront::Distribution",
-                "Properties": {
-                    "DistributionConfig": {
-                        "Enabled": True,
-                        "IPV6Enabled": True,
-                        "HttpVersion": "http2",
-                        "PriceClass": "PriceClass_100",
-                        "Comment": "Public sample music store v1 grading; no cached conversations",
-                        "Origins": [
-                            {
-                                "Id": "v1",
-                                "DomainName": {"Fn::GetAtt": ["Server", "PublicDnsName"]},
-                                "CustomOriginConfig": {
-                                    "HTTPPort": 80,
-                                    "OriginProtocolPolicy": "http-only",
-                                    "OriginReadTimeout": 60,
-                                },
-                            }
-                        ],
-                        "DefaultCacheBehavior": {
-                            "TargetOriginId": "v1",
-                            "ViewerProtocolPolicy": "redirect-to-https",
-                            "AllowedMethods": [
-                                "GET",
-                                "HEAD",
-                                "OPTIONS",
-                                "PUT",
-                                "POST",
-                                "PATCH",
-                                "DELETE",
-                            ],
-                            "CachedMethods": ["GET", "HEAD"],
-                            "Compress": True,
-                            "MinTTL": 0,
-                            "DefaultTTL": 0,
-                            "MaxTTL": 0,
-                            "ForwardedValues": {
-                                "QueryString": True,
-                                "Cookies": {"Forward": "all"},
-                                "Headers": ["*"],
-                            },
-                        },
-                        "CustomErrorResponses": [
-                            {"ErrorCode": code, "ErrorCachingMinTTL": 0}
-                            for code in (400, 403, 404, 405, 414, 416, 500, 501, 502, 503, 504)
-                        ],
-                        "ViewerCertificate": {"CloudFrontDefaultCertificate": True},
-                    }
-                },
-            },
         },
         "Outputs": {
-            "GradingUrl": {"Value": sub("https://${Site.DomainName}/")},
+            "GradingUrl": {"Value": sub("https://${Server.PublicIp}/")},
             "InstanceId": {"Value": ref("Server")},
+            "Readiness": {
+                "Value": "Verify bootstrap, TLS trust and live chat before sharing this URL"
+            },
             "SourceRevision": {"Value": ref("SourceRevision")},
             "StopAfterDays": {"Value": ref("StopAfterDays")},
         },

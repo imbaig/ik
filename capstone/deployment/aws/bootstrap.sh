@@ -19,7 +19,7 @@ STOP
 systemctl daemon-reload
 systemctl enable --now music-store-stop.timer
 
-dnf install -y docker git nginx
+dnf install -y docker git nginx python3.11 python3.11-pip openssl
 systemctl enable --now docker
 mkdir -p /opt/music-store/state /run/music-store
 chown 10001:10001 /opt/music-store/state
@@ -63,43 +63,77 @@ ExecStop=/usr/bin/docker stop -t 30 music-store-v1
 WantedBy=multi-user.target
 SERVICE
 
-# The security group admits only CloudFront origin traffic. No public SSH or Gradio port.
-cat > /etc/nginx/conf.d/music-store.conf <<'NGINX'
-map $http_upgrade $music_upgrade { default upgrade; '' close; }
-limit_req_zone $binary_remote_addr zone=music_requests:10m rate=10r/s;
-server {
-    listen 80 default_server;
-    server_name _;
-    client_max_body_size 64k;
-    location / {
-        limit_req zone=music_requests burst=60 nodelay;
-        proxy_pass http://127.0.0.1:7860;
-        proxy_http_version 1.1;
-        proxy_set_header Host $host;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $music_upgrade;
-        proxy_set_header X-Forwarded-Proto https;
-        proxy_buffering off;
-        proxy_read_timeout 180s;
-    }
+# Host-only certificate tooling is separate from application dependencies/image.
+python3.11 -m venv /opt/music-store-certbot
+/opt/music-store-certbot/bin/python -m pip install --require-hashes --only-binary=:all: -r deployment/aws/certbot.lock
+install -d -m 755 /usr/local/lib/music-store /var/lib/music-store /var/lib/music-store/acme
+install -d -m 700 /etc/music-store
+install -m 644 deployment/aws/tls_host.py /usr/local/lib/music-store/tls_host.py
+printf '%s\n' '${CertificateAgreement}' > /etc/music-store/ca-agreement
+chmod 600 /etc/music-store/ca-agreement
+systemctl stop nginx || true
+cat > /etc/nginx/nginx.conf <<'NGINX'
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log warn;
+pid /run/nginx.pid;
+events { worker_connections 1024; }
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    server_tokens off;
+    access_log off;
+    map $http_upgrade $music_upgrade { default upgrade; '' close; }
+    limit_req_zone $binary_remote_addr zone=music_requests:10m rate=10r/s;
+    include /etc/nginx/conf.d/music-store.conf;
 }
 NGINX
-# Remove the distribution's example server to avoid a duplicate default listener.
-python3 - <<'PY'
-from pathlib import Path
-p = Path('/etc/nginx/nginx.conf')
-s = p.read_text()
-start = s.find('    server {')
-if start >= 0:
-    depth, end = 0, start
-    for end in range(start, len(s)):
-        depth += (s[end] == '{') - (s[end] == '}')
-        if end > start and depth == 0 and s[end] == '}':
-            break
-    s = s[:start] + s[end + 1:]
-p.write_text(s)
-PY
-nginx -t
+install -d /etc/systemd/system/nginx.service.d
+cat > /etc/systemd/system/nginx.service.d/music-store.conf <<'NGINXUNIT'
+[Service]
+ExecStartPre=
+ExecStartPre=/usr/bin/rm -f /run/nginx.pid
+ExecStartPre=/opt/music-store-certbot/bin/python /usr/local/lib/music-store/tls_host.py acme-only
+ExecStartPre=/usr/sbin/nginx -t
+NGINXUNIT
+cat > /etc/systemd/system/music-store-certificate.service <<'CERT'
+[Unit]
+Description=Obtain or renew trusted Music Store public IP certificate
+Wants=nginx.service
+After=nginx.service network-online.target
+[Service]
+Type=oneshot
+UMask=0077
+TimeoutStartSec=600
+ExecStart=/opt/music-store-certbot/bin/python /usr/local/lib/music-store/tls_host.py maintain
+CERT
+cat > /etc/systemd/system/music-store-certificate.timer <<'CERTTIMER'
+[Timer]
+OnBootSec=2min
+OnCalendar=*-*-* 00,12:00:00 UTC
+RandomizedDelaySec=300
+Persistent=true
+[Install]
+WantedBy=timers.target
+CERTTIMER
+cat > /etc/systemd/system/music-store-tls-guard.service <<'GUARD'
+[Unit]
+Description=Withdraw public chat on invalid, expiring or mismatched TLS certificate
+Wants=nginx.service
+After=nginx.service network-online.target
+[Service]
+Type=oneshot
+UMask=0077
+ExecStart=/opt/music-store-certbot/bin/python /usr/local/lib/music-store/tls_host.py guard
+GUARD
+cat > /etc/systemd/system/music-store-tls-guard.timer <<'GUARDTIMER'
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=5min
+[Install]
+WantedBy=timers.target
+GUARDTIMER
 systemctl daemon-reload
 systemctl enable --now music-store-v1 nginx
-
+systemctl enable --now music-store-certificate.timer music-store-tls-guard.timer
+systemctl start music-store-certificate.service
