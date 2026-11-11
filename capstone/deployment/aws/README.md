@@ -1,6 +1,7 @@
 # AWS v1 grading release — issue 28
 
 Status: deployment attempted and rolled back; no live site. See `attempt-2026-11-11.md`.
+The requested alternative is researched in [the direct EC2 HTTPS proposal](ec2-only-proposal.md).
 Preserve v0 tag `capstone-v0.0.0-preview`. This release builds v1 from an exact
 40-character commit; it does not merge any pending PRs or update the running Mac app.
 
