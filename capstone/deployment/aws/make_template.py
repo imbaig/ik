@@ -109,7 +109,7 @@ def template():
                 "Type": "AWS::EC2::Instance",
                 "Properties": {
                     "ImageId": ref("ImageId"),
-                    "InstanceType": "t3.small",
+                    "InstanceType": "t2.medium",
                     "CreditSpecification": {"CPUCredits": "standard"},
                     "IamInstanceProfile": ref("ServerProfile"),
                     "InstanceInitiatedShutdownBehavior": "stop",

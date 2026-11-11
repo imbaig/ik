@@ -1,6 +1,6 @@
 # AWS v1 grading release — issue 28
 
-Status: deployment preparation; no provisioned site is claimed by these files.
+Status: deployment attempted and rolled back; no live site. See `attempt-2026-11-11.md`.
 Preserve v0 tag `capstone-v0.0.0-preview`. This release builds v1 from an exact
 40-character commit; it does not merge any pending PRs or update the running Mac app.
 
@@ -48,9 +48,17 @@ User authorized public AWS deployment with a $30 spending limit, conservatively 
 as total, and use of the existing local provider key in encrypted AWS storage. OpenAI
 charges are separate. The proposed first run is **7 days**, adjustable before launch
 between 1 and 14. It is not a promise of uninterrupted hosting until March 30, 2027.
-Further availability needs a budget/credit decision. EC2 t3.small, 16 GiB gp3, public
+Further availability needs a budget/credit decision. EC2 t2.medium, 16 GiB gp3, public
 IPv4, CloudFront requests/transfer and applicable taxes are billable; credits/free tiers
 are not assumed. Standard CPU credits avoid unlimited CPU-credit charges.
+
+The course IAM policy was inspected after the first launch failed. It permits
+`t2.medium` but excludes the original `t3.small`. The corrected server has 4 GiB RAM.
+At the published us-east-1 Linux on-demand rate of $0.0464/hour, seven days of server
+time is $7.7952; disk, IPv4, requests/transfer and tax are additional. No allowance for
+CloudFront was found in the inspected policies and its `ListDistributions` call is
+explicitly denied. Do not launch this CloudFront-based stack until service permissions
+are resolved or a separately reviewed EC2-only HTTPS design replaces it.
 
 A calendar systemd timer is installed before downloads/build and stops the server at
 the initial deadline. It survives reboots. Stopping still incurs EBS costs; remove the

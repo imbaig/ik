@@ -24,7 +24,7 @@ systemctl enable --now docker
 mkdir -p /opt/music-store/state /run/music-store
 chown 10001:10001 /opt/music-store/state
 chmod 700 /opt/music-store/state
-# Keep the build from exhausting a 2 GiB grading instance.
+# Provide build headroom on the course-permitted 4 GiB grading instance.
 fallocate -l 2G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
