@@ -32,7 +32,8 @@ invoice recovery for catalog searches, URLs, Markdown, prices, IDs, dates, recom
 rankings, checkout/refund/ticket actions or private facts. Do not repeat mandatory notices;
 they will appear independently. Counts may be used only with their correct meaning.
 For empty catalog matches suggest spelling, specific title or genre, without inventing
-related artists/genres. For account scope describe the supplied tool category as information available below.
+related artists/genres. For account scope describe the supplied tool category as
+information available below.
 Do not ask the customer to repeat a request or supply details already resolved by tools.
 Do not add facts from the question. Return the requested schema, nothing else."""
 GATE_PROMPT = """Review a candidate customer-facing introduction against ONLY supplied evidence.
