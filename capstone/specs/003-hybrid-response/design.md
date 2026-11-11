@@ -29,3 +29,8 @@ Required code review and actual live evaluation results are recorded in PR conve
 ## Failure-path hardening from live evaluation
 
 A controlled partial-failure fixture exposed generated prose confusing a failed lookup with no matches despite judge approval. Author accepted the finding: any incomplete overall outcome or error/invalid_input section bypasses BOTH models and uses deterministic honest fallback (incomplete_result diagnostic). This is a mechanical guard, not another prompt-only repair. The initially misleading live candidate is preserved locally. Valid completed empty searches remain eligible for narration; partial/error coverage proves zero writer/gate calls and unchanged facts.
+
+
+## Binding human review: result composition
+
+Imran identified duplicate generated+fallback empty-search guidance and required ALL tables, including one/two-row results, behind a collapsed disclosure. Every nonempty fact table now uses native details/summary, default closed, keeping counts and truncation notice visible. When an approved generated introduction explains an entirely not_found, complete result, omit redundant empty-section headings/recovery. Never suppress mandatory notices, failed/incomplete sections or empty sections alongside successful nonempty sections. Missing/blank/unapproved introductions retain deterministic empty recovery. Verify small-result disclosure and no-match composition in actual desktop/mobile browser before reporting completion.

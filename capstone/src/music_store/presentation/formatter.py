@@ -128,14 +128,13 @@ def render_fact(section):
                 "<tr>" + "".join("<td>" + cell(row.get(key)) + "</td>" for key in keys) + "</tr>"
             )
         table += "</tbody></table></div>"
-        if len(rows) > 5:
-            table = (
-                '<details class="result-disclosure"><summary>Show/hide '
-                + str(envelope["returned_count"])
-                + " results</summary>"
-                + table
-                + "</details>"
-            )
+        table = (
+            '<details class="result-disclosure"><summary>Show/hide '
+            + str(envelope["returned_count"])
+            + " results</summary>"
+            + table
+            + "</details>"
+        )
         lines.append(table)
     return "\n\n".join(lines)
 
@@ -168,7 +167,19 @@ def render_result(result):
         and any(section.envelope["data"] for section in result.facts)
     ):
         sections.append("Here’s what I found.")
-    sections.extend(render_fact(section) for section in result.facts)
+    # An approved introduction already explains a wholly empty successful search.
+    # Never suppress errors, partial outcomes, mixed nonempty/empty sections or notices.
+    narrated_empty = (
+        bool(result.introduction.strip())
+        and result.narration_status == "generated"
+        and result.status == "complete"
+        and all(
+            not fact.envelope["data"] and fact.envelope["status"] == "not_found"
+            for fact in result.facts
+        )
+    )
+    if not narrated_empty:
+        sections.extend(render_fact(section) for section in result.facts)
     if result.status != "complete":
         sections.append(
             "**This request did not fully complete.** You can retry the unfinished part."

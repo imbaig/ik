@@ -259,3 +259,50 @@ def test_failed_or_partial_sections_never_get_model_authored_empty_claims(overal
     assert composed.narration_reason == "incomplete_result"
     assert not writer.seen and not gate.seen and composed.facts == raw.facts
     assert "couldn’t complete that lookup" in render_result(composed)
+
+
+def test_generated_all_empty_response_is_shown_once_without_empty_headings():
+    raw = result(status="not_found", rows=[])
+    raw = replace(
+        raw,
+        facts=(*raw.facts, *raw.facts),
+        introduction="I couldn’t find a match. Want to try a song title?",
+        narration_status="generated",
+        notices=("Required limitation notice",),
+    )
+    text = render_result(raw)
+    assert text.count("couldn’t find a match") == 1
+    assert "Required limitation notice" in text
+    assert "###" not in text and "<details" not in text
+
+
+def test_missing_or_unapproved_intro_keeps_empty_recovery():
+    for intro, status in [
+        ("", "fallback"),
+        ("", "generated"),
+        (" ", "generated"),
+        ("Unapproved intro", "fallback"),
+    ]:
+        raw = replace(
+            result(status="not_found", rows=[]), introduction=intro, narration_status=status
+        )
+        assert "another spelling" in render_result(raw)
+
+
+def test_partial_error_and_mixed_empty_sections_are_not_hidden_by_prose():
+    failed = replace(
+        result(status="error", rows=[]),
+        introduction="Some introduction",
+        narration_status="generated",
+        status="error",
+    )
+    assert "couldn’t complete that lookup" in render_result(failed)
+    assert "did not fully complete" in render_result(failed)
+    mixed = replace(
+        result(),
+        facts=(*result().facts, *result(status="not_found", rows=[]).facts),
+        introduction="Here is what I found",
+        narration_status="generated",
+    )
+    text = render_result(mixed)
+    assert "<table>" in text and "another spelling" in text

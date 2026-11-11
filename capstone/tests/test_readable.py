@@ -61,7 +61,8 @@ def test_all_nine_tools_preserve_every_field_order_exact_values_and_metadata(dat
         ["Not provided" if row.get(k) is None else str(row[k]) for k in keys]
         for row in envelope["data"]
     ]
-    assert ("<details " in text) == (len(envelope["data"]) > 5)
+    assert "<details " in text
+    assert "<details open" not in text
     assert ("This is a sample" in text) == envelope["truncated"]
     if "distinct_artist_count" in envelope:
         assert f"{envelope['distinct_artist_count']} artists" in text
