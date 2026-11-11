@@ -1,5 +1,7 @@
 """Pure next-question suggestions from observed facts; never actions or identity authority."""
 
+import unicodedata
+
 STARTERS = (
     "Show albums by AC/DC",
     "Show my latest invoice",
@@ -15,7 +17,7 @@ DISCOVERY = (
 def _label(value):
     if not isinstance(value, str) or not value.strip() or len(value) > 80:
         return None
-    if any(ch in value for ch in "<>\n\r\t"):
+    if any(ch in "<>" or unicodedata.category(ch).startswith("C") for ch in value):
         return None
     return value.strip()
 

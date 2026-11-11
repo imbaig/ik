@@ -3,6 +3,7 @@
 import json
 from dataclasses import replace
 
+import pytest
 from test_agents import app
 from test_ui import Service
 
@@ -163,3 +164,16 @@ def test_unverified_private_track_rows_and_huge_ids_are_not_suggested():
     )
     assert next_questions(state((fact("get_purchased_tracks", envelope),))) == STARTERS
     assert next_questions(state((fact("get_tracks_by_artist", envelope),))) == STARTERS
+
+
+@pytest.mark.parametrize("control", ["\x00", "\x1b", "\x7f", "\x85", "\u202e", "\u200b"])
+def test_control_characters_are_not_promoted_into_suggested_questions(control):
+    envelope = dict(
+        status="ok",
+        data=[{"Artist": "AC" + control + "/DC"}],
+        returned_count=1,
+        total_count=1,
+        truncated=False,
+        message="Results",
+    )
+    assert next_questions(state((fact("get_albums_by_artist", envelope),))) == STARTERS
