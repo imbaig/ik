@@ -69,6 +69,9 @@ python3.11 -m venv /opt/music-store-certbot
 install -d -m 755 /usr/local/lib/music-store /var/lib/music-store /var/lib/music-store/acme
 install -d -m 700 /etc/music-store
 install -m 644 deployment/aws/tls_host.py /usr/local/lib/music-store/tls_host.py
+# A GitHub runner outage must not bypass the real Linux/nginx release checks.
+# This suite uses only local test certificates, no AWS/CA/provider calls.
+/opt/music-store-certbot/bin/python -m unittest discover -s deployment/aws -p 'test_*.py' -v
 printf '%s\n' '${CertificateAgreement}' > /etc/music-store/ca-agreement
 chmod 600 /etc/music-store/ca-agreement
 systemctl stop nginx || true

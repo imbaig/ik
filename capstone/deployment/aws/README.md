@@ -156,6 +156,9 @@ python -m venv /tmp/music-store-host-tests
 Local nginx parser testing is skipped when nginx is absent. The separate Linux CI hosting
 job installs nginx and executes both challenge-only and HTTPS configuration parser checks,
 using synthetic certificates, without cloud credentials or public certificate issuance.
+Bootstrap also requires this complete suite to pass on the actual EC2 host before
+starting the application or requesting a public certificate. This provides real Linux
+nginx validation when external CI is delayed; it does not turn a queued CI run into a pass.
 
 ## Validation gate
 
