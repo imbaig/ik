@@ -81,7 +81,9 @@ are not assumed. Standard CPU credits avoid unlimited CPU-credit charges.
 The course IAM policy was inspected after the first launch failed. It permits
 `t2.medium` but excludes the original `t3.small`. The corrected server has 4 GiB RAM.
 At the published us-east-1 Linux on-demand rate of $0.0464/hour, seven days of server
-time is $7.7952; disk, IPv4, requests/transfer and tax are additional. The previous course restriction excludes CloudFront, which this replacement removes.
+time is $7.7952; disk, IPv4, requests/transfer and tax are additional. CloudFront listing
+was explicitly denied and no allow was found in inspected policies; distribution creation
+was not attempted. This replacement removes that dependency.
 At illustrative gp3 pricing the fixed seven-day subtotal is about $8.94; traffic,
 tax, other account usage and OpenAI charges are additional. No free credits assumed.
 
