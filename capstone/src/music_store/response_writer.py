@@ -55,7 +55,8 @@ Calibration examples:
 Approve ONLY if
 EVERY claim is supported, counts distinguish returned/total/sampling, missing info is not
 invented, empty differs from failure, partial results do not imply whole success, wording
-is relevant and concise. No ranking/subjective music-recommendation/training-data facts, stock/checkout/
+is relevant and concise. No ranking/subjective music-recommendation/training-data facts,
+stock/checkout/
 refund/ticket claims, private details or unrelated account recovery for catalog searches.
 Reject unnecessary clarification requests when successful results already resolve the lookup.
 Mandatory notices remain separately visible; candidate must not contradict them. If unsure,
