@@ -126,6 +126,13 @@ that routing and isolation need explicit tests and are not implemented by this p
 
 ## Sources checked 2026-11-11
 
+Independent read-only design review: `/root/aws_public_review`, exact proposal commit
+`792fcae` against `91866d4`, no actionable findings. Reviewer checked primary certificate
+guidance and cost arithmetic, and confirmed the distinction between a proposal and a
+tested deployment. No runtime tests apply to documentation-only changes; amended
+infrastructure, certificate renewal and browser trust remain release checks. Model
+metadata not captured. This is agent review, not human sign-off or launch approval.
+
 - [AWS T2 pricing/specifications](https://aws.amazon.com/ec2/instance-types/t2/)
 - [AWS public IPv4 pricing](https://aws.amazon.com/vpc/pricing/)
 - [AWS gp3 pricing method](https://aws.amazon.com/ebs/pricing/)
