@@ -273,7 +273,17 @@ def test_actual_gradio_callbacks_dispatch_real_services_and_reset(database, monk
         catalog = await send("Show Queen albums")
         assert "Greatest Hits II" in catalog[0][-1]["content"]
         assert catalog[8]["visible"] is False and catalog[9]["visible"] is True
+        before_history = len(next(iter(service._sessions.values())).history)
+        picked = await demo.process_api(
+            indices["choose_suggestion"], ["Show tracks by Queen", None], state=session
+        )
+        assert picked["data"][0]["value"] == "Show tracks by Queen"
+        assert len(next(iter(service._sessions.values())).history) == before_history
         waiting = await send("Show my invoices")
+        blocked = await demo.process_api(
+            indices["choose_suggestion"], ["Show tracks by Queen", None], state=session
+        )
+        assert "value" not in blocked["data"][0]
         assert waiting[5]["visible"] and "Not verified" in waiting[7]
         owned = await send("1")
         assert "Your invoices" in owned[0][-1]["content"]
