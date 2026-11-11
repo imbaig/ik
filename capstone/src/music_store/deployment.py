@@ -9,7 +9,7 @@ from typing import Mapping
 from music_store.config import ConfigurationError, load_settings
 from music_store.db import DATASET_REVISION, DATASET_SHA256, initialize_database
 
-SOURCE_REVISION = "7d137081b579b49128068d9dcc4be009cfea9def"
+SOURCE_REVISION = "eaaf902ed29f0978e1eb2f2902f5aedd1b03b786"
 VERSION = "v1.0.0-preview"
 
 
@@ -27,12 +27,16 @@ def secret_value(name: str, environ: Mapping[str, str]) -> str:
 
 def access_gate(environ: Mapping[str, str], host: str):
     mode = environ.get("APP_ACCESS_MODE", "required")
+    if mode == "public-demo":
+        if environ.get("PUBLIC_DEMO_ACK") != "PUBLIC_SAMPLE_DATA_ONLY":
+            raise ConfigurationError("public-demo requires explicit PUBLIC_DEMO_ACK")
+        return None
     if mode == "local-only":
         if host not in {"127.0.0.1", "localhost", "::1"}:
             raise ConfigurationError("local-only access requires a loopback HOST")
         return None
     if mode != "required":
-        raise ConfigurationError("APP_ACCESS_MODE must be required or local-only")
+        raise ConfigurationError("APP_ACCESS_MODE must be required, local-only or public-demo")
     username = secret_value("APP_LOGIN_USER", environ)
     password = secret_value("APP_LOGIN_PASSWORD", environ)
     if not username.strip() or len(password) < 12:
@@ -48,6 +52,18 @@ def access_gate(environ: Mapping[str, str], host: str):
         )
 
     return authenticate
+
+
+def deployment_settings(environ):
+    """Public deployments always constrain individual model completions."""
+    environ = dict(environ)
+    public = environ.get("APP_ACCESS_MODE") == "public-demo"
+    if public:
+        environ.setdefault("MODEL_MAX_TOKENS", "600")
+    settings = load_settings(env_file=None, environ=environ)
+    if public and settings.model_max_tokens > 600:
+        raise ConfigurationError("Public demo MODEL_MAX_TOKENS must not exceed 600")
+    return settings
 
 
 def metadata(environ, *, smoke_test=False):
@@ -78,7 +94,7 @@ def serve(*, service_factory=None, smoke_test=False):
     key = secret_value("OPENAI_API_KEY", environ)
     if key:
         environ["OPENAI_API_KEY"] = key
-    settings = load_settings(env_file=None, environ=environ)
+    settings = deployment_settings(environ)
     auth = access_gate(environ, settings.host)
     version = metadata(environ, smoke_test=smoke_test)
     if service_factory is None:
@@ -94,6 +110,15 @@ def serve(*, service_factory=None, smoke_test=False):
             if service_factory is None
             else service_factory(database)
         )
+        if environ.get("APP_ACCESS_MODE") == "public-demo":
+            from music_store.public_demo import DemoQuota, LimitedApplication
+
+            quota = DemoQuota(
+                environ.get("PUBLIC_DEMO_QUOTA_FILE", "/app/.cache/public-quota.sqlite"),
+                daily=int(environ.get("PUBLIC_DEMO_DAILY_ACTIONS", "60")),
+                total=int(environ.get("PUBLIC_DEMO_TOTAL_ACTIONS", "300")),
+            )
+            service = LimitedApplication(service, quota)
         demo = build_ui(
             service,
             test_banner="DETERMINISTIC CONTAINER TEST — NO PROVIDER" if smoke_test else None,

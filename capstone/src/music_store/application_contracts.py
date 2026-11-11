@@ -80,6 +80,10 @@ class ApplicationResult:
     narration_elapsed_ms: float = 0.0
 
 
+class DemoLimitReached(RuntimeError):
+    """Safe fixed public-demo admission message, never a provider exception."""
+
+
 class ApplicationPort(Protocol):
     def new_session(self) -> str: ...
 
