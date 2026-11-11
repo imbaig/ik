@@ -155,6 +155,16 @@ class HybridResponseWriter:
         state, text, reason = "fallback", "", "writer_failed"
         try:
             evidence = evidence_for(request, result)
+            if result.status != "complete" or any(
+                section["status"] in {"error", "invalid_input"} for section in evidence["sections"]
+            ):
+                return replace(
+                    result,
+                    introduction="",
+                    narration_status="fallback",
+                    narration_reason="incomplete_result",
+                    narration_elapsed_ms=(time.perf_counter() - started) * 1000,
+                )
             payload = json.dumps(evidence, ensure_ascii=False)
             draft = Draft.model_validate(
                 self.writer.invoke(

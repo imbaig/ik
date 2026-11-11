@@ -245,3 +245,17 @@ def test_mixed_catalog_only_continuation_keeps_private_scope_for_both_models(dat
         assert "private@example.com" not in serialized and "AC/DC" not in serialized
         assert "labels" not in serialized
     service.close(handle)
+
+
+@pytest.mark.parametrize("overall", ["error", "complete", "catalog_only"])
+def test_failed_or_partial_sections_never_get_model_authored_empty_claims(overall):
+    good = result()
+    bad = result(status="error", rows=[])
+    raw = replace(good, status=overall, facts=(*good.facts, *bad.facts))
+    writer = Model({"text": "I couldn't find a match."})
+    gate = Model({"approved": True})
+    composed = HybridResponseWriter(writer, gate).compose("Artist and song", raw)
+    assert composed.narration_status == "fallback"
+    assert composed.narration_reason == "incomplete_result"
+    assert not writer.seen and not gate.seen and composed.facts == raw.facts
+    assert "couldn’t complete that lookup" in render_result(composed)

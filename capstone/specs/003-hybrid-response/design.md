@@ -24,3 +24,8 @@ Model prose is untrusted. Maximum500chars, no HTML/links/multiline/unsupported n
 Independent spec reviewer /root/hybrid_spec_review, model metadata not captured, read003/002/governance before implementation: no fundamental blocker. Author ACCEPTED clarifications: pure formatter; both-model private evidence allowlist; distinguish unknown/error/empty; document SDK timeout overhead/retry0; probabilistic judge; include adversarial, disabled, privacy and table-equality tests. Reviewer did not edit/callprovider. User authorized hybrid approach; final UX acceptance and merge remain pending.
 
 Required code review and actual live evaluation results are recorded in PR conversation for exact revision. Targeted hybrid evaluation does not waive existing14/16 baseline/10/11 issues. Session expiry issue23 remains separate; never claim it fixed here. Current phone7876 preview preserved; hybrid preview uses7877. No deployment, provider change or framework migration.
+
+
+## Failure-path hardening from live evaluation
+
+A controlled partial-failure fixture exposed generated prose confusing a failed lookup with no matches despite judge approval. Author accepted the finding: any incomplete overall outcome or error/invalid_input section bypasses BOTH models and uses deterministic honest fallback (incomplete_result diagnostic). This is a mechanical guard, not another prompt-only repair. The initially misleading live candidate is preserved locally. Valid completed empty searches remain eligible for narration; partial/error coverage proves zero writer/gate calls and unchanged facts.
