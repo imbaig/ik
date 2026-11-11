@@ -73,6 +73,9 @@ class ApplicationResult:
     memory_status: str = "not_attempted"
     request_id: str = ""
     notices: tuple[str, ...] = ()
+    introduction: str = ""
+    narration_status: str = "not_attempted"
+    narration_elapsed_ms: float = 0.0
 
 
 class ApplicationPort(Protocol):

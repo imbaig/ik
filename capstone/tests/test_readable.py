@@ -112,8 +112,8 @@ def test_partial_empty_and_inaccessible_are_not_success_or_existence_claims(data
         notices=("Account request cancelled. Catalog results only.",),
     )
     text = render_result(result)
-    assert "0 of 0" in text and "did not fully complete" in text
-    assert "No accessible invoice information found" in text
+    assert "0 of 0" not in text and "did not fully complete" in text
+    assert "couldn’t find accessible information" in text
     assert safe_text(result.notices[0]) in text and "must never" not in text
 
 

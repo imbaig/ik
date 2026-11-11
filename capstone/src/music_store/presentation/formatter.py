@@ -68,6 +68,23 @@ def render_fact(section):
     envelope = section.envelope
     title = TITLES.get(section.tool, "Results")
     lines = ["### " + title]
+    if not envelope["data"]:
+        catalog = section.tool in {
+            "get_albums_by_artist",
+            "get_tracks_by_artist",
+            "get_songs_by_genre",
+            "search_songs_by_title",
+            "get_track_details",
+        }
+        if envelope["status"] == "not_found":
+            lines.append(
+                "I couldn’t find a match. Try another spelling, a song title, or a genre."
+                if catalog
+                else "I couldn’t find accessible information for that account request."
+            )
+        else:
+            lines.append("I couldn’t complete that lookup. Please try again.")
+        return "\n\n".join(lines)
     # Counts, ordering and genre sampling metadata are not recalculated from display rows.
     lines.append(f"Showing {envelope['returned_count']} of {envelope['total_count']} results.")
     if "distinct_artist_count" in envelope:
@@ -125,9 +142,27 @@ def render_fact(section):
 
 def render_result(result):
     if not result.facts:
+        if result.status == "error":
+            notices = [
+                notice
+                for notice in result.notices
+                if notice
+                not in {
+                    "No tool-backed answer was produced; please retry",
+                    "Request could not complete; please retry",
+                }
+            ]
+            return "\n\n".join(
+                [
+                    *(safe_text(n) for n in notices),
+                    "I couldn’t finish that request. Please try again.",
+                ]
+            )
         return safe_text(result.text)
     sections = [safe_text(notice) for notice in result.notices]
-    if (
+    if result.introduction:
+        sections.append(safe_text(result.introduction))
+    elif (
         not result.notices
         and result.status == "complete"
         and any(section.envelope["data"] for section in result.facts)

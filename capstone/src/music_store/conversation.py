@@ -93,10 +93,12 @@ class ConversationService:
         *,
         memory=None,
         telemetry=None,
+        response_writer=None,
     ):
         self._verification, self._router, self._agents = verification, router, agents
         self._memory = memory
         self._telemetry = telemetry
+        self._response_writer = response_writer
         self._sessions = {}
         self._registry_lock = threading.RLock()
 
@@ -426,13 +428,14 @@ class ConversationService:
                 ActionKind.CATALOG_ONLY: "catalog_only",
             }[action.kind]
             text = action.text if verification_action == "retry" else ""
+            original_request = session.pending_text if session.waiting else action.text
             reply = self.send(handle, text, action=verification_action)
             info = SessionInfo(
                 session.waiting,
                 self._verification.with_identity(handle, lambda cid, _: cid is not None),
                 session.waiting and session.pending_kind == "mixed",
             )
-            return ApplicationResult(
+            result = ApplicationResult(
                 reply.text,
                 reply.status,
                 info,
@@ -442,6 +445,11 @@ class ConversationService:
                 reply.memory_status,
                 request_id=session.request_id,
                 notices=reply.notices,
+            )
+            return (
+                self._response_writer.compose(original_request, result)
+                if self._response_writer
+                else result
             )
 
     def reset(self, handle):
