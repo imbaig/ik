@@ -85,6 +85,7 @@ def main():
                 dict(
                     case=name,
                     status=composed.narration_status,
+                    reason=composed.narration_reason,
                     elapsed_ms=round(composed.narration_elapsed_ms, 1),
                     introduction=composed.introduction,
                     displayed=render_result(composed),

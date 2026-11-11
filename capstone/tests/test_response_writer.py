@@ -226,3 +226,22 @@ def test_rejected_fabrication_cannot_replace_rows_or_mandatory_limitation():
         and composed.notices == raw.notices
         and composed.facts == raw.facts
     )
+
+
+def test_mixed_catalog_only_continuation_keeps_private_scope_for_both_models(database):
+    service = app(database, ["mixed"], phases=("catalog",))
+    writer, gate = Model({"text": "Here is the available information."}), Model({"approved": True})
+    service._response_writer = HybridResponseWriter(writer, gate)
+    handle = service.new_session()
+    waiting = service.dispatch(
+        handle, Action(ActionKind.SEND, "Show my invoices for private@example.com and AC/DC albums")
+    )
+    assert waiting.session.waiting and not writer.seen
+    reply = service.dispatch(handle, Action(ActionKind.CATALOG_ONLY))
+    assert reply.facts and reply.request_contains_account_context
+    assert writer.seen[0]["request"] == "Help with account information"
+    for payload in (writer.seen[0], gate.seen[0]["evidence"]):
+        serialized = json.dumps(payload)
+        assert "private@example.com" not in serialized and "AC/DC" not in serialized
+        assert "labels" not in serialized
+    service.close(handle)

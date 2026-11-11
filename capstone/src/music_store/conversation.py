@@ -428,6 +428,7 @@ class ConversationService:
                 ActionKind.CATALOG_ONLY: "catalog_only",
             }[action.kind]
             text = action.text if verification_action == "retry" else ""
+            original_scope = session.pending_kind if session.waiting else ""
             original_request = session.pending_text if session.waiting else action.text
             reply = self.send(handle, text, action=verification_action)
             info = SessionInfo(
@@ -445,6 +446,9 @@ class ConversationService:
                 reply.memory_status,
                 request_id=session.request_id,
                 notices=reply.notices,
+                request_contains_account_context=(
+                    original_scope in {"invoice", "mixed"} or reply.branch in {"invoice", "mixed"}
+                ),
             )
             return (
                 self._response_writer.compose(original_request, result)
