@@ -21,6 +21,7 @@ class ViewState:
     binding_id: str
     busy: bool = False
     waiting: bool = False
+    verified: bool = False
     can_catalog_only: bool = False
     draft: str = ""
     result: ApplicationResult | None = None

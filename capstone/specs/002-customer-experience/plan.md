@@ -66,3 +66,12 @@ Migration adds API session risk → preserve service authority, origin/CSRF/expi
 adoption. Deadline buffer small → select small N/S changes and explicit deferrals; do not
 weaken ownership/accessibility. Static artifacts unrendered → local inspection is a visible
 gate, not a cloud pass. Recommendations remain proposals and all decisions remain pending.
+
+## Authorized integrated implementation tracking — issue13
+
+Imran's later issue13 authorization selects directionA/Gradio and integrates queuedissue8
+on PR9's real presentation boundary, after issue12's verified package. Historical design
+proposal/closure language above is retained as review history, not a request to reapprove
+this scoped implementation. [Current implementation and acceptance handoff](../../docs/implementation/issue-13.md)
+records actual behavior versus pending screenshots/live/AT checks. No baseline001 snapshot,
+architecture framework, human findings closure or merge approval changes.
