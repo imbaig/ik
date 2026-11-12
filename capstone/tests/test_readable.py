@@ -29,16 +29,39 @@ def test_all_nine_tools_preserve_every_field_order_exact_values_and_metadata(dat
     text = render_fact(section)
     assert TITLES[name] in text
     assert f"Showing {envelope['returned_count']} of {envelope['total_count']}" in text
-    previous_row = -1
-    for number, row in enumerate(envelope["data"], 1):
-        start = text.index(f"**{number}.**", previous_row + 1)
-        end = text.find(f"**{number + 1}.**", start)
-        displayed = text[start:] if end < 0 else text[start:end]
-        cursor = 0
-        for key, value in row.items():
-            expected = f"- **{safe_text(LABELS.get(key, key))}:** {safe_text(value)}"
-            cursor = displayed.index(expected, cursor) + len(expected)
-        previous_row = start
+    from html.parser import HTMLParser
+
+    class Table(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.rows, self.current, self.value = [], None, None
+
+        def handle_starttag(self, tag, attrs):
+            if tag == "tr":
+                self.current = []
+            if tag in {"th", "td"}:
+                self.value = ""
+
+        def handle_data(self, data):
+            if self.value is not None:
+                self.value += data
+
+        def handle_endtag(self, tag):
+            if tag in {"th", "td"}:
+                self.current.append(self.value)
+                self.value = None
+            if tag == "tr":
+                self.rows.append(self.current)
+
+    table = Table()
+    table.feed(text)
+    keys = list(dict.fromkeys(k for row in envelope["data"] for k in row))
+    assert table.rows[0] == [LABELS.get(k, k) for k in keys]
+    assert table.rows[1:] == [
+        ["Not provided" if row.get(k) is None else str(row[k]) for k in keys]
+        for row in envelope["data"]
+    ]
+    assert ("<details " in text) == (len(envelope["data"]) > 5)
     assert ("This is a sample" in text) == envelope["truncated"]
     if "distinct_artist_count" in envelope:
         assert f"{envelope['distinct_artist_count']} artists" in text
@@ -59,10 +82,14 @@ def test_markup_urls_missing_and_long_fields_are_inert_data():
         message="Results returned",
     )
     text = render_fact(FactSection("get_track_details", json.dumps(envelope), 0))
-    assert "<script>" not in text and "[open](" not in text and "![img](" not in text
-    assert "javascript:" not in text and "https:" not in text and "**bold**" not in text
-    assert safe_text(malicious) in text and "Not provided" in text and "x" * 2000 in text
-    assert "0\\.99" in text and "1 of 12" in text
+    assert "<script>" not in text and "<img " not in text
+    assert "<a " not in text and "<img " not in text
+    import html
+
+    assert (
+        html.escape(malicious, quote=True) in text and "Not provided" in text and "x" * 2000 in text
+    )
+    assert "0.99" in text and "1 of 12" in text
 
 
 def test_partial_empty_and_inaccessible_are_not_success_or_existence_claims(database):
@@ -104,7 +131,7 @@ def test_actual_services_render_owned_facts_and_preserve_switch_reset_guards(dat
     owned = list(controller.send("1", one))[-1]
     assert "Verified for this conversation" in owned[7]
     assert "Your invoices" in owned[0][-1]["content"]
-    assert "8\\.91" in owned[0][-1]["content"]
+    assert "8.91" in owned[0][-1]["content"]
     assert owned[11]["value"] == "Show the items on invoice 382"
     assert safe_text("[verification response supplied]") == owned[0][-2]["content"]
     assert controller._view(two).history == []
@@ -157,7 +184,7 @@ def test_real_mixed_and_refund_notices_survive_without_json_parsing(database):
     text = final[0][-1]["content"]
     assert text.index("Your invoices") < text.index("### Albums")
     assert "cannot issue refunds or create support tickets" in text
-    assert "For Those About To Rock" in text and "8\\.91" in text
+    assert "For Those About To Rock" in text and "8.91" in text
     assert '{"InvoiceId"' not in text and "made-up" not in text
     controller.close(token)
 
@@ -202,7 +229,11 @@ def test_multiline_values_and_customer_messages_cannot_create_markdown_blocks(ne
         message="Results returned",
     )
     section = FactSection("get_track_details", json.dumps(envelope), 0)
-    assert escaped in render_fact(section)
+    fact_html = render_fact(section)
+    assert "&#10;" in fact_html or "&#13;" in fact_html
+    rendered_fact = MarkdownIt("commonmark", {"html": True}).render(fact_html)
+    for tag in ("<ul", "<hr", "<h1", "<h2", "<pre", "<code"):
+        assert tag not in rendered_fact
     assert section.envelope["data"][0]["Composer"] == original
     controller = UIController(Service())
     token = controller.open()
@@ -261,3 +292,27 @@ def test_actual_gradio_callbacks_dispatch_real_services_and_reset(database, monk
                 )
 
     asyncio.run(run())
+
+
+def test_sparse_rows_and_literal_entities_do_not_inject_markup():
+    envelope = dict(
+        status="ok",
+        data=[
+            {
+                "Name": "Mama, I'm Coming Home",
+                "Composer": "<details open><summary>x</summary></details>",
+            },
+            {"Name": "A & B", "Future": "[link](https://evil)\n\n# heading"},
+        ],
+        returned_count=2,
+        total_count=2,
+        truncated=False,
+        message="Results returned",
+    )
+    text = render_fact(FactSection("search_songs_by_title", json.dumps(envelope), 0))
+    from html import unescape
+
+    assert "Mama, I'm Coming Home" in unescape(text)
+    assert "<details open>" not in text and "<a " not in text
+    assert "Future" in text and "Not provided" in text
+    assert "&#10;" in text
