@@ -129,12 +129,15 @@ STYLE = """
 #record-room .result-disclosure {border:1px solid #8c958b;border-radius:4px;margin:12px 0;}
 #record-room .result-disclosure summary {cursor:pointer;padding:12px;font-weight:600;}
 #record-room .result-table {max-width:100%;overflow-x:auto;margin:8px 0;}
-#record-room .result-table table {width:100%;border-collapse:collapse;font-size:14px;}
+#record-room .result-table table {width:100%;border-collapse:collapse;font-size:14px;
+ color:#202a25;background:#fffdf8;}
 #record-room .result-table caption {position:absolute;width:1px;height:1px;padding:0;
  margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 #record-room .result-table th,#record-room .result-table td {text-align:left;padding:10px;
  border-bottom:1px solid #cbd0c8;vertical-align:top;white-space:pre-wrap;min-width:85px;}
 #record-room .result-table th {background:#e8eee5;color:#202a25;}
+#record-room .result-table td {color:#202a25;}
+#record-room .result-table tbody tr:nth-child(odd) {background:#fffdf8;}
 #record-room .result-table tbody tr:nth-child(even) {background:#f5f1e8;}
 @media(max-width:650px) {
  #record-room {padding:16px 10px;}
@@ -161,6 +164,17 @@ def build_ui(service, *, test_banner=None):
         border_color_primary="#8c958b",
         button_primary_background_fill="#245b45",
         button_primary_text_color="#ffffff",
+    )
+    # Record Room has one approved light palette. Gradio follows the device's dark
+    # preference by default; match every dark token to its light counterpart so
+    # the custom cream surfaces never inherit light-on-dark text or controls.
+    theme_values = theme.to_dict()["theme"]
+    theme.set(
+        **{
+            name: theme_values[name.removesuffix("_dark")]
+            for name in theme_values
+            if name.endswith("_dark") and name.removesuffix("_dark") in theme_values
+        }
     )
     with gr.Blocks(
         title="Record Room · Music Store v1", analytics_enabled=False, css=STYLE, theme=theme
