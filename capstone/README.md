@@ -195,3 +195,9 @@ merge gate and credential boundaries are in [issue-driven development](docs/issu
 Offline PR checks are defined at ../.github/workflows/capstone-ci.yml. Hosted issue
 implementation and automatic reviewer access require separate account/repository setup;
 no listener is implied by the workflow file. Live evaluations remain local for this trial.
+
+## Development narrative
+
+See the [illustrated development narrative](docs/development-narrative/README.md) for the
+AI-assisted development process, author and reviewer roles, application architecture,
+actual screenshots, challenges and lessons learned.
