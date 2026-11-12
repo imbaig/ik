@@ -67,7 +67,7 @@ def safe_text(value):
 def render_fact(section):
     envelope = section.envelope
     title = TITLES.get(section.tool, "Results")
-    lines = ["### " + title]
+    lines = []
     if not envelope["data"]:
         catalog = section.tool in {
             "get_albums_by_artist",
@@ -86,14 +86,16 @@ def render_fact(section):
             lines.append("I couldn’t complete that lookup. Please try again.")
         return "\n\n".join(lines)
     # Counts, ordering and genre sampling metadata are not recalculated from display rows.
-    lines.append(f"Showing {envelope['returned_count']} of {envelope['total_count']} results.")
     if "distinct_artist_count" in envelope:
         lines.append(
             f"{envelope['total_count']} matching tracks across "
             f"{envelope['distinct_artist_count']} artists; at most one track per artist is shown."
         )
     if envelope["truncated"]:
-        lines.append("This is a sample; more matching results exist. Try a narrower question.")
+        lines.append(
+            f"This is a sample of {envelope['returned_count']} from "
+            f"{envelope['total_count']} matches. Try a narrower search for more specific results."
+        )
     if envelope["status"] != "ok":
         lines.append(safe_text(envelope["message"]))
         if envelope["status"] == "not_found":
@@ -129,9 +131,9 @@ def render_fact(section):
             )
         table += "</tbody></table></div>"
         table = (
-            '<details class="result-disclosure"><summary>Show/hide '
-            + str(envelope["returned_count"])
-            + " results</summary>"
+            '<details class="result-disclosure"><summary>View '
+            + cell(title.lower())
+            + "</summary>"
             + table
             + "</details>"
         )

@@ -28,7 +28,9 @@ def test_all_nine_tools_preserve_every_field_order_exact_values_and_metadata(dat
     section = FactSection(name, json.dumps(envelope, ensure_ascii=False), 0)
     text = render_fact(section)
     assert TITLES[name] in text
-    assert f"Showing {envelope['returned_count']} of {envelope['total_count']}" in text
+    assert "Showing " not in text and "### " not in text
+    if envelope["truncated"]:
+        assert f"from {envelope['total_count']} matches" in text
     from html.parser import HTMLParser
 
     class Table(HTMLParser):
@@ -90,7 +92,7 @@ def test_markup_urls_missing_and_long_fields_are_inert_data():
     assert (
         html.escape(malicious, quote=True) in text and "Not provided" in text and "x" * 2000 in text
     )
-    assert "0.99" in text and "1 of 12" in text
+    assert "0.99" in text and "from 12 matches" in text
 
 
 def test_partial_empty_and_inaccessible_are_not_success_or_existence_claims(database):
@@ -183,7 +185,7 @@ def test_real_mixed_and_refund_notices_survive_without_json_parsing(database):
     list(controller.send("I need an invoice refund and music by AC/DC", token))
     final = list(controller.send("1", token))[-1]
     text = final[0][-1]["content"]
-    assert text.index("Your invoices") < text.index("### Albums")
+    assert text.index("Your invoices") < text.index("View albums")
     assert "cannot issue refunds or create support tickets" in text
     assert "For Those About To Rock" in text and "8.91" in text
     assert '{"InvoiceId"' not in text and "made-up" not in text
@@ -273,7 +275,17 @@ def test_actual_gradio_callbacks_dispatch_real_services_and_reset(database, monk
         catalog = await send("Show Queen albums")
         assert "Greatest Hits II" in catalog[0][-1]["content"]
         assert catalog[8]["visible"] is False and catalog[9]["visible"] is True
+        before_history = len(next(iter(service._sessions.values())).history)
+        picked = await demo.process_api(
+            indices["choose_suggestion"], ["Show tracks by Queen", None], state=session
+        )
+        assert picked["data"][0]["value"] == "Show tracks by Queen"
+        assert len(next(iter(service._sessions.values())).history) == before_history
         waiting = await send("Show my invoices")
+        blocked = await demo.process_api(
+            indices["choose_suggestion"], ["Show tracks by Queen", None], state=session
+        )
+        assert "value" not in blocked["data"][0]
         assert waiting[5]["visible"] and "Not verified" in waiting[7]
         owned = await send("1")
         assert "Your invoices" in owned[0][-1]["content"]

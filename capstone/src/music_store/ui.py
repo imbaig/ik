@@ -7,6 +7,9 @@ import gradio as gr
 from music_store.application_contracts import Action, ActionKind
 from music_store.presentation.controller import PresentationController
 from music_store.presentation.formatter import render_result, safe_text
+from music_store.presentation.suggestions import STARTERS, next_questions
+
+OUTPUT_COUNT = 15
 
 
 class UIController:
@@ -29,7 +32,14 @@ class UIController:
     @staticmethod
     def output(state):
         if state is None:
-            return (gr.skip(),) * 13
+            return (gr.skip(),) * OUTPUT_COUNT
+        questions = next_questions(state)
+
+        def question_update(index):
+            if state.busy:
+                return gr.update(interactive=False)
+            return gr.update(value=questions[index], interactive=not state.waiting)
+
         return (
             [
                 {"role": m.role, "content": safe_text(m.content) if m.role == "user" else m.content}
@@ -56,22 +66,24 @@ class UIController:
             gr.update(visible=not state.messages),
             gr.update(visible=bool(state.messages)),
             gr.update(visible=False),
-            gr.update(
-                visible=bool(UIController.followup(state)),
-                value=UIController.followup(state),
-                interactive=not state.busy,
-            ),
-            gr.update(visible=not state.messages),
+            question_update(0),
+            gr.update(visible=True),
+            question_update(1),
+            question_update(2),
         )
 
-    @staticmethod
-    def followup(state):
-        if state.result is not None and state.verified:
-            for fact in state.result.facts:
-                for row in fact.envelope["data"]:
-                    if "InvoiceId" in row:
-                        return "Show the items on invoice " + str(row["InvoiceId"])
-        return ""
+    def choose_suggestion(self, question, token):
+        try:
+            view = self.presentation._view(token)
+        except ValueError:
+            return gr.skip()
+        with view.lock:
+            if not view.active or view.busy or view.waiting:
+                return gr.skip()
+            # This only edits the draft; it never dispatches a tool/account action.
+            if not isinstance(question, str) or not 1 <= len(question) <= 2000:
+                return gr.skip()
+            return gr.update(value=question)
 
     def send(self, text, token, *, action="retry"):
         kind = {
@@ -94,7 +106,7 @@ class UIController:
         return (
             self.output(state)
             if state is None or self.presentation.is_current(token, state)
-            else (gr.skip(),) * 13
+            else (gr.skip(),) * OUTPUT_COUNT
         )
 
 
@@ -110,23 +122,16 @@ STYLE = """
 #record-room .message {overflow-wrap:anywhere;}
 #record-room .prose {overflow-wrap:anywhere;}
 #conversation-history {min-height:260px;}
-/* Gradio 5.50 renders each action toolbar immediately after its message row. */
-#conversation-history .message-wrap {display:grid!important;
- grid-template-columns:minmax(0,1fr) 36px;align-items:start;gap:8px;padding-top:20px;}
-#conversation-history .message-row {grid-column:1;min-width:0;margin:0!important;}
 #conversation-history .bot-row .flex-wrap {width:100%;max-width:100%;}
 #conversation-history .bot {width:100%;max-width:100%!important;}
-#conversation-history .message-buttons {grid-column:2;align-self:start!important;
- margin:0!important;width:36px;max-width:36px;}
-#conversation-history .message-buttons .icon-button-wrapper {margin:0!important;width:36px;}
-#conversation-history .message-buttons button {width:36px!important;height:36px!important;
- min-height:36px!important;min-width:36px!important;padding:8px!important;}
-#conversation-history .message-buttons button svg {width:18px;height:18px;}
+#record-room .suggestion-row {gap:8px;}
+#record-room .suggestion-row button {font-size:14px;padding:8px 10px;}
 #record-room .result-disclosure {border:1px solid #8c958b;border-radius:4px;margin:12px 0;}
 #record-room .result-disclosure summary {cursor:pointer;padding:12px;font-weight:600;}
 #record-room .result-table {max-width:100%;overflow-x:auto;margin:8px 0;}
 #record-room .result-table table {width:100%;border-collapse:collapse;font-size:14px;}
-#record-room .result-table caption {text-align:left;font-weight:600;padding:8px;}
+#record-room .result-table caption {position:absolute;width:1px;height:1px;padding:0;
+ margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 #record-room .result-table th,#record-room .result-table td {text-align:left;padding:10px;
  border-bottom:1px solid #cbd0c8;vertical-align:top;white-space:pre-wrap;min-width:85px;}
 #record-room .result-table th {background:#e8eee5;color:#202a25;}
@@ -182,10 +187,6 @@ def build_ui(service, *, test_banner=None):
                             "# What would you like to explore?\n"
                             "Find albums and tracks, or revisit a purchase."
                         )
-                    with gr.Row() as suggestions:
-                        discover = gr.Button("Show albums by AC/DC")
-                        purchases = gr.Button("Show my latest invoice")
-                        taste = gr.Button("What music preferences have I saved?")
                     with gr.Column(visible=False) as conversation_panel:
                         chat = gr.Chatbot(
                             type="messages",
@@ -196,13 +197,17 @@ def build_ui(service, *, test_banner=None):
                             allow_tags=False,
                             allow_file_downloads=False,
                             label="Conversation",
-                            show_copy_button=True,
+                            show_copy_button=False,
                         )
                     status = gr.HTML(
                         '<div role="status" aria-live="polite" aria-atomic="true">'
                         "Ready · ask a question to begin</div>",
                         elem_id="request-status",
                     )
+                    with gr.Row(elem_classes="suggestion-row") as suggestions:
+                        discover = gr.Button(STARTERS[0], size="sm", min_width=140)
+                        purchases = gr.Button(STARTERS[1], size="sm", min_width=140)
+                        taste = gr.Button(STARTERS[2], size="sm", min_width=140)
                     message = gr.Textbox(
                         label="Message", placeholder="Ask about music or a purchase", max_lines=5
                     )
@@ -210,7 +215,6 @@ def build_ui(service, *, test_banner=None):
                     with gr.Row():
                         cancel = gr.Button("Cancel verification", visible=False)
                         catalog = gr.Button("Continue with catalog only", visible=False)
-                    followup = gr.Button("Show invoice items", visible=False)
                     with gr.Column(visible=False) as confirmation:
                         gr.Markdown(
                             "### Start a new conversation?\n"
@@ -242,8 +246,10 @@ def build_ui(service, *, test_banner=None):
             welcome,
             conversation_panel,
             confirmation,
-            followup,
+            discover,
             suggestions,
+            purchases,
+            taste,
         ]
 
         def request_reset(binding):
@@ -272,10 +278,10 @@ def build_ui(service, *, test_banner=None):
             api_name=False,
             concurrency_limit=16,
         )
-        for button in (discover, purchases, taste, followup):
+        for button in (discover, purchases, taste):
             button.click(
-                lambda question: gr.update(value=question),
-                inputs=button,
+                controller.choose_suggestion,
+                inputs=[button, token],
                 outputs=message,
                 api_name=False,
             )

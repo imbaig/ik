@@ -63,9 +63,9 @@ def test_generated_intro_never_changes_tables_or_notices():
     assert (
         rendered.index("No popularity")
         < rendered.index("Here are matching")
-        < rendered.index("###")
+        < rendered.index("<details")
     )
-    assert rendered.split("###", 1)[1] == render_result(raw).split("###", 1)[1]
+    assert rendered.split("<details", 1)[1] == render_result(raw).split("<details", 1)[1]
     assert len(writer.seen) == len(gate.seen) == 1
 
 
