@@ -115,12 +115,17 @@ class TLSAdmission(unittest.TestCase):
                 path.write_text(
                     f"pid {self.root}/nginx.pid; error_log {self.root}/error.log;\n"
                     "events {}\nhttp { access_log off; "
+                    f"client_body_temp_path {self.root}/body; "
+                    f"proxy_temp_path {self.root}/proxy; "
+                    f"fastcgi_temp_path {self.root}/fastcgi; "
+                    f"uwsgi_temp_path {self.root}/uwsgi; "
+                    f"scgi_temp_path {self.root}/scgi; "
                     "map $http_upgrade $music_upgrade { default upgrade; '' close; } "
                     "limit_req_zone $binary_remote_addr zone=music_requests:1m rate=10r/s;\n"
                     + tls.nginx_config(ip)
                     + "\n}\n"
                 )
-                subprocess.run(
+                result = subprocess.run(
                     [
                         "nginx",
                         "-t",
@@ -131,9 +136,12 @@ class TLSAdmission(unittest.TestCase):
                         "-e",
                         str(self.root / "error.log"),
                     ],
-                    check=True,
                     capture_output=True,
+                    text=True,
                 )
+                log = self.root / "error.log"
+                diagnostics = result.stderr + (log.read_text() if log.exists() else "")
+                self.assertEqual(result.returncode, 0, diagnostics)
 
 
 class SafeTransitions(unittest.TestCase):
