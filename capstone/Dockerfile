@@ -4,7 +4,7 @@ ARG PACKAGE_REVISION
 LABEL org.opencontainers.image.title="Record Room v1 preview" \
       org.opencontainers.image.version="v1.0.0-preview" \
       org.opencontainers.image.revision="${PACKAGE_REVISION}" \
-      app.input_source_revision="7d137081b579b49128068d9dcc4be009cfea9def"
+      app.input_source_revision="eaaf902ed29f0978e1eb2f2902f5aedd1b03b786"
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
     PYTHONPATH=/app/src GRADIO_ANALYTICS_ENABLED=False \
     HOST=0.0.0.0 PORT=7860 APP_ACCESS_MODE=required \
