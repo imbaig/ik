@@ -24,6 +24,27 @@ from music_store.application_contracts import (
 )
 from music_store.verification import VerificationResult, VerificationService
 
+POPULARITY_REQUEST = re.compile(
+    r"\b(?:most\s+(?:popular|poular|famous|streamed|played)|best[ -]selling|"
+    r"top[ -]rated|chart[ -]topping|popularity|stream(?:ing)?\s+counts?|"
+    r"chart\s+rankings?|biggest\s+hits?|top\s+(?:hits?|\d+\s+(?:songs?|tracks?))|"
+    r"popular\s+(?:songs?|tracks?|albums?))\b",
+    re.IGNORECASE,
+)
+POPULARITY_NOTICE = (
+    "I don't have popularity rankings in this catalog, so I can't identify the most popular song. "
+    "I can show unranked catalog matches instead."
+)
+
+
+def catalog_limitation(kind, request):
+    """A bounded capability rule, not a general interpretation of every qualifier."""
+    return (
+        POPULARITY_NOTICE
+        if kind in {"catalog", "mixed"} and POPULARITY_REQUEST.search(request)
+        else ""
+    )
+
 
 class RouteDecision(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
@@ -72,10 +93,12 @@ class ConversationService:
         *,
         memory=None,
         telemetry=None,
+        response_writer=None,
     ):
         self._verification, self._router, self._agents = verification, router, agents
         self._memory = memory
         self._telemetry = telemetry
+        self._response_writer = response_writer
         self._sessions = {}
         self._registry_lock = threading.RLock()
 
@@ -128,6 +151,9 @@ class ConversationService:
         return response
 
     def _run(self, handle, session, kind, request, *, prefix=""):
+        limitation = catalog_limitation(kind, request)
+        if limitation:
+            prefix += limitation + "\n"
         if re.search(r"\brefund(?:s|ed|ing)?\b", request, flags=re.IGNORECASE):
             prefix += (
                 "I cannot issue refunds or create support tickets. I can help find the "
@@ -158,7 +184,29 @@ class ConversationService:
                         )
                     )
                 ]
-            messages = [*trusted_messages, *memory_messages, *session.history[-10:]]
+            capability_messages = (
+                [
+                    SystemMessage(
+                        content=(
+                            "This catalog has no popularity/chart/streaming rankings. "
+                            "For this request, "
+                            "use catalog tools to look up the requested artist or title "
+                            "as an unranked "
+                            "alternative. Do not choose or claim a most-popular song. "
+                            "The application "
+                            "will explain this limitation to the customer."
+                        )
+                    )
+                ]
+                if limitation
+                else []
+            )
+            messages = [
+                *trusted_messages,
+                *memory_messages,
+                *capability_messages,
+                *session.history[-10:],
+            ]
             if (
                 not messages
                 or not isinstance(messages[-1], HumanMessage)
@@ -380,13 +428,15 @@ class ConversationService:
                 ActionKind.CATALOG_ONLY: "catalog_only",
             }[action.kind]
             text = action.text if verification_action == "retry" else ""
+            original_scope = session.pending_kind if session.waiting else ""
+            original_request = session.pending_text if session.waiting else action.text
             reply = self.send(handle, text, action=verification_action)
             info = SessionInfo(
                 session.waiting,
                 self._verification.with_identity(handle, lambda cid, _: cid is not None),
                 session.waiting and session.pending_kind == "mixed",
             )
-            return ApplicationResult(
+            result = ApplicationResult(
                 reply.text,
                 reply.status,
                 info,
@@ -396,6 +446,14 @@ class ConversationService:
                 reply.memory_status,
                 request_id=session.request_id,
                 notices=reply.notices,
+                request_contains_account_context=(
+                    original_scope in {"invoice", "mixed"} or reply.branch in {"invoice", "mixed"}
+                ),
+            )
+            return (
+                self._response_writer.compose(original_request, result)
+                if self._response_writer
+                else result
             )
 
     def reset(self, handle):

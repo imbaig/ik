@@ -20,6 +20,8 @@ class Settings(BaseModel):
     model_name: str = Field(default="gpt-4o-mini", min_length=1, max_length=200)
     temperature: float = Field(default=0, ge=0, le=2, allow_inf_nan=False)
     openai_api_base: str = Field(default="https://api.openai.com/v1", repr=False)
+    response_writer_enabled: bool = True
+    model_max_tokens: int | None = Field(default=None, ge=128, le=4096)
     port: int = Field(default=7860, ge=1, le=65535)
     request_timeout_seconds: float = Field(default=30, gt=0, le=300, allow_inf_nan=False)
     max_attempts: int = Field(default=2, ge=1, le=5)
@@ -73,6 +75,8 @@ def load_settings(
     keys = {
         "OPENAI_API_KEY": "openai_api_key",
         "MODEL_NAME": "model_name",
+        "MODEL_MAX_TOKENS": "model_max_tokens",
+        "RESPONSE_WRITER_ENABLED": "response_writer_enabled",
         "TEMPERATURE": "temperature",
         "OPENAI_API_BASE": "openai_api_base",
         "PORT": "port",

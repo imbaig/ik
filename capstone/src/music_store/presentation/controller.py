@@ -5,7 +5,13 @@ import time
 from dataclasses import dataclass, field
 from uuid import uuid4
 
-from music_store.application_contracts import Action, ActionKind, ApplicationPort, SessionExpired
+from music_store.application_contracts import (
+    Action,
+    ActionKind,
+    ApplicationPort,
+    DemoLimitReached,
+    SessionExpired,
+)
 from music_store.presentation.contracts import ChatMessage, ViewState
 
 
@@ -122,6 +128,10 @@ class PresentationController:
                 )
                 status += f" · {time.perf_counter() - started:.1f}s"
                 message = self._formatter(reply)
+            except DemoLimitReached:
+                reply = None
+                message = "This public demo has reached its usage limit. Please try later."
+                status = "Demo limit reached"
             except SessionExpired:
                 reply = None
                 message = "Conversation expired; start a new conversation."

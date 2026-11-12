@@ -289,3 +289,7 @@ newly implemented or selected framework migrations.
 
 Human visual/framework/spec decisions and previous H5-01–03 closures remain separate. H5-04
 cannot be self-closed: exact-revision independent review and Imran's acceptance are required.
+
+## Approved implementation direction: hybrid conversational introduction
+
+User requested implementation of a model-authored introduction followed by deterministic factual tables. The pure formatter boundary remains; model orchestration is an application service with optional dependency. See ../003-hybrid-response/spec.md and design.md for evidence projection, privacy, model grounding gate, bounded timeout/fallback, acceptance and explicit limitations. No frontend framework or identity authority change.

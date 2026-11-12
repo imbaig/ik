@@ -53,7 +53,7 @@ def safe_text(value):
     text = "Not provided" if value is None else str(value)
     # Markdown parsers normalize both CRLF and bare CR before block parsing.
     text = text.replace("\r\n", "\n").replace("\r", "\n")
-    text = html.escape(text, quote=True)
+    text = html.escape(text, quote=False)
     text = re.sub(r"([\\`*_{}\[\]()#+.!|~:=\-])", r"\\\1", text)
     # Prevent indented code blocks without discarding the original whitespace.
     text = re.sub(
@@ -67,16 +67,35 @@ def safe_text(value):
 def render_fact(section):
     envelope = section.envelope
     title = TITLES.get(section.tool, "Results")
-    lines = ["### " + title]
+    lines = []
+    if not envelope["data"]:
+        catalog = section.tool in {
+            "get_albums_by_artist",
+            "get_tracks_by_artist",
+            "get_songs_by_genre",
+            "search_songs_by_title",
+            "get_track_details",
+        }
+        if envelope["status"] == "not_found":
+            lines.append(
+                "I couldn’t find a match. Try another spelling, a song title, or a genre."
+                if catalog
+                else "I couldn’t find accessible information for that account request."
+            )
+        else:
+            lines.append("I couldn’t complete that lookup. Please try again.")
+        return "\n\n".join(lines)
     # Counts, ordering and genre sampling metadata are not recalculated from display rows.
-    lines.append(f"Showing {envelope['returned_count']} of {envelope['total_count']} results.")
     if "distinct_artist_count" in envelope:
         lines.append(
             f"{envelope['total_count']} matching tracks across "
             f"{envelope['distinct_artist_count']} artists; at most one track per artist is shown."
         )
     if envelope["truncated"]:
-        lines.append("This is a sample; more matching results exist. Try a narrower question.")
+        lines.append(
+            f"This is a sample of {envelope['returned_count']} from "
+            f"{envelope['total_count']} matches. Try a narrower search for more specific results."
+        )
     if envelope["status"] != "ok":
         lines.append(safe_text(envelope["message"]))
         if envelope["status"] == "not_found":
@@ -85,20 +104,84 @@ def render_fact(section):
             )
         else:
             lines.append("Please retry. No additional account information is available here.")
-    for number, row in enumerate(envelope["data"], 1):
-        lines.append(f"\n**{number}.**")
-        # All fields, including nullable/unknown future fields, remain visible in source order.
-        for key, value in row.items():
-            label = LABELS.get(key, key)
-            lines.append(f"- **{safe_text(label)}:** {safe_text(value)}")
+    rows = envelope["data"]
+    if rows:
+        # Preserve every field, including sparse/future fields, without inferring values.
+        keys = list(dict.fromkeys(key for row in rows for key in row))
+
+        def cell(value):
+            # Raw HTML cells are data, never Markdown. Escaping once also preserves
+            # apostrophes that previously became visible entities after Markdown escaping.
+            return (
+                html.escape("Not provided" if value is None else str(value), quote=True)
+                .replace("\r", "&#13;")
+                .replace("\n", "&#10;")
+                .replace("\t", "&#9;")
+            )
+
+        table = (
+            '<div class="result-table" role="region" aria-label="' + cell(title) + '" tabindex="0">'
+        )
+        table += "<table><caption>" + cell(title) + "</caption><thead><tr>"
+        table += "".join('<th scope="col">' + cell(LABELS.get(key, key)) + "</th>" for key in keys)
+        table += "</tr></thead><tbody>"
+        for row in rows:
+            table += (
+                "<tr>" + "".join("<td>" + cell(row.get(key)) + "</td>" for key in keys) + "</tr>"
+            )
+        table += "</tbody></table></div>"
+        table = (
+            '<details class="result-disclosure"><summary>View '
+            + cell(title.lower())
+            + "</summary>"
+            + table
+            + "</details>"
+        )
+        lines.append(table)
     return "\n\n".join(lines)
 
 
 def render_result(result):
     if not result.facts:
+        if result.status == "error":
+            notices = [
+                notice
+                for notice in result.notices
+                if notice
+                not in {
+                    "No tool-backed answer was produced; please retry",
+                    "Request could not complete; please retry",
+                }
+            ]
+            return "\n\n".join(
+                [
+                    *(safe_text(n) for n in notices),
+                    "I couldn’t finish that request. Please try again.",
+                ]
+            )
         return safe_text(result.text)
-    sections = [render_fact(section) for section in result.facts]
-    sections.extend(safe_text(notice) for notice in result.notices)
+    sections = [safe_text(notice) for notice in result.notices]
+    if result.introduction:
+        sections.append(safe_text(result.introduction))
+    elif (
+        not result.notices
+        and result.status == "complete"
+        and any(section.envelope["data"] for section in result.facts)
+    ):
+        sections.append("Here’s what I found.")
+    # An approved introduction already explains a wholly empty successful search.
+    # Never suppress errors, partial outcomes, mixed nonempty/empty sections or notices.
+    narrated_empty = (
+        bool(result.introduction.strip())
+        and result.narration_status == "generated"
+        and result.status == "complete"
+        and all(
+            not fact.envelope["data"] and fact.envelope["status"] == "not_found"
+            for fact in result.facts
+        )
+    )
+    if not narrated_empty:
+        sections.extend(render_fact(section) for section in result.facts)
     if result.status != "complete":
         sections.append(
             "**This request did not fully complete.** You can retry the unfinished part."
