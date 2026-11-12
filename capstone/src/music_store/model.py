@@ -100,6 +100,9 @@ def build_conversation_service(database, settings: Settings, *, telemetry=None):
         ),
         memory=PreferenceMemory(PreferenceStore(), LLMPreferenceExtractor(settings)),
         telemetry=telemetry,
+        response_writer=build_response_writer(settings)
+        if settings.response_writer_enabled
+        else None,
     )
 
 
@@ -140,3 +143,15 @@ class LLMPreferenceExtractor:
                 ]
             )
         )
+
+
+def build_response_writer(settings):
+    from music_store.response_writer import Draft, HybridResponseWriter, Verdict
+
+    bounded = settings.model_copy(update={"request_timeout_seconds": 4, "max_attempts": 1})
+    chat = configured_chat_model(bounded)
+    chat.max_tokens = 350
+    return HybridResponseWriter(
+        chat.with_structured_output(Draft, method="function_calling"),
+        chat.with_structured_output(Verdict, method="function_calling"),
+    )

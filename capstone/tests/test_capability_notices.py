@@ -72,5 +72,5 @@ def test_no_tool_failure_keeps_limitation_without_promising_results(database):
     assert result.status == "error" and not result.facts
     text = render_result(result)
     assert "I don't have popularity rankings" in text
-    assert "No tool" in text and "number one" not in text
+    assert "couldn’t finish" in text and "number one" not in text
     service.close(handle)

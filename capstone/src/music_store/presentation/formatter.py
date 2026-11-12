@@ -68,6 +68,23 @@ def render_fact(section):
     envelope = section.envelope
     title = TITLES.get(section.tool, "Results")
     lines = ["### " + title]
+    if not envelope["data"]:
+        catalog = section.tool in {
+            "get_albums_by_artist",
+            "get_tracks_by_artist",
+            "get_songs_by_genre",
+            "search_songs_by_title",
+            "get_track_details",
+        }
+        if envelope["status"] == "not_found":
+            lines.append(
+                "I couldn’t find a match. Try another spelling, a song title, or a genre."
+                if catalog
+                else "I couldn’t find accessible information for that account request."
+            )
+        else:
+            lines.append("I couldn’t complete that lookup. Please try again.")
+        return "\n\n".join(lines)
     # Counts, ordering and genre sampling metadata are not recalculated from display rows.
     lines.append(f"Showing {envelope['returned_count']} of {envelope['total_count']} results.")
     if "distinct_artist_count" in envelope:
@@ -111,29 +128,58 @@ def render_fact(section):
                 "<tr>" + "".join("<td>" + cell(row.get(key)) + "</td>" for key in keys) + "</tr>"
             )
         table += "</tbody></table></div>"
-        if len(rows) > 5:
-            table = (
-                '<details class="result-disclosure"><summary>Show/hide '
-                + str(envelope["returned_count"])
-                + " results</summary>"
-                + table
-                + "</details>"
-            )
+        table = (
+            '<details class="result-disclosure"><summary>Show/hide '
+            + str(envelope["returned_count"])
+            + " results</summary>"
+            + table
+            + "</details>"
+        )
         lines.append(table)
     return "\n\n".join(lines)
 
 
 def render_result(result):
     if not result.facts:
+        if result.status == "error":
+            notices = [
+                notice
+                for notice in result.notices
+                if notice
+                not in {
+                    "No tool-backed answer was produced; please retry",
+                    "Request could not complete; please retry",
+                }
+            ]
+            return "\n\n".join(
+                [
+                    *(safe_text(n) for n in notices),
+                    "I couldn’t finish that request. Please try again.",
+                ]
+            )
         return safe_text(result.text)
     sections = [safe_text(notice) for notice in result.notices]
-    if (
+    if result.introduction:
+        sections.append(safe_text(result.introduction))
+    elif (
         not result.notices
         and result.status == "complete"
         and any(section.envelope["data"] for section in result.facts)
     ):
         sections.append("Here’s what I found.")
-    sections.extend(render_fact(section) for section in result.facts)
+    # An approved introduction already explains a wholly empty successful search.
+    # Never suppress errors, partial outcomes, mixed nonempty/empty sections or notices.
+    narrated_empty = (
+        bool(result.introduction.strip())
+        and result.narration_status == "generated"
+        and result.status == "complete"
+        and all(
+            not fact.envelope["data"] and fact.envelope["status"] == "not_found"
+            for fact in result.facts
+        )
+    )
+    if not narrated_empty:
+        sections.extend(render_fact(section) for section in result.facts)
     if result.status != "complete":
         sections.append(
             "**This request did not fully complete.** You can retry the unfinished part."

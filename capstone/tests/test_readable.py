@@ -61,7 +61,8 @@ def test_all_nine_tools_preserve_every_field_order_exact_values_and_metadata(dat
         ["Not provided" if row.get(k) is None else str(row[k]) for k in keys]
         for row in envelope["data"]
     ]
-    assert ("<details " in text) == (len(envelope["data"]) > 5)
+    assert "<details " in text
+    assert "<details open" not in text
     assert ("This is a sample" in text) == envelope["truncated"]
     if "distinct_artist_count" in envelope:
         assert f"{envelope['distinct_artist_count']} artists" in text
@@ -112,8 +113,8 @@ def test_partial_empty_and_inaccessible_are_not_success_or_existence_claims(data
         notices=("Account request cancelled. Catalog results only.",),
     )
     text = render_result(result)
-    assert "0 of 0" in text and "did not fully complete" in text
-    assert "No accessible invoice information found" in text
+    assert "0 of 0" not in text and "did not fully complete" in text
+    assert "couldn’t find accessible information" in text
     assert safe_text(result.notices[0]) in text and "must never" not in text
 
 
