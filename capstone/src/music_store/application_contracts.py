@@ -73,6 +73,15 @@ class ApplicationResult:
     memory_status: str = "not_attempted"
     request_id: str = ""
     notices: tuple[str, ...] = ()
+    request_contains_account_context: bool = False
+    introduction: str = ""
+    narration_status: str = "not_attempted"
+    narration_reason: str = "not_attempted"
+    narration_elapsed_ms: float = 0.0
+
+
+class DemoLimitReached(RuntimeError):
+    """Safe fixed public-demo admission message, never a provider exception."""
 
 
 class ApplicationPort(Protocol):
