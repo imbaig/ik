@@ -75,4 +75,5 @@ jobs:
       - name: Run certificate and fail-closed ingress regressions
         run: |
           bash -n deployment/aws/bootstrap.sh
-          python -m unittest discover -s deployment/aws -p 'test_*.py' -v
+          # nginx -t binds privileged ports on this runner; match the root host gate.
+          sudo "$(command -v python)" -m unittest discover -s deployment/aws -p 'test_*.py' -v
