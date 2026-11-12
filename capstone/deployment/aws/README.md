@@ -2,7 +2,9 @@
 
 Status: direct EC2 v1 deployed and smoke-tested on 2026-11-12 UTC.
 Public grading URL: https://18.208.205.193/ (auto-assigned IP; may change on stop/start).
-See [the launch record](launch-2026-11-12.md) for exact revisions, checks and stop time.
+See [the launch record](launch-2026-11-12.md) for initial revisions, checks and stop time.
+Current runtime: `e71bb641f0fe354279cd049762a3a0c13db96471` (device dark-mode contrast fix);
+see [the repair review](../../docs/reviews/v1-dark-mode-contrast.md).
 The earlier CloudFront attempt rolled back: see `attempt-2026-11-11.md`.
 The requested alternative is researched in [the direct EC2 HTTPS proposal](ec2-only-proposal.md).
 Preserve v0 tag `capstone-v0.0.0-preview`. This release builds v1 from an exact
