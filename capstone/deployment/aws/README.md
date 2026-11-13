@@ -1,7 +1,8 @@
 # AWS v1 grading release — issue 28
 
 Status: direct EC2 v1 deployed and smoke-tested on 2026-11-12 UTC.
-Public grading URL: https://18.208.205.193/ (auto-assigned IP; may change on stop/start).
+Public grading URL: **https://3.222.110.76/** (Elastic IP, retained across stop/start).
+See [the static-address record](static-address-2026-11-12.md). The initial launch and recovery addresses are historical.
 See [the launch record](launch-2026-11-12.md) for initial revisions, checks and stop time.
 Current runtime: `e71bb641f0fe354279cd049762a3a0c13db96471` (device dark-mode contrast fix);
 see [the repair review](../../docs/reviews/v1-dark-mode-contrast.md).
@@ -15,8 +16,11 @@ Preserve v0 tag `capstone-v0.0.0-preview`. This release builds v1 from an exact
 Internet → nginx HTTPS on the EC2 instance → loopback Docker port 7860 → existing
 Gradio/application. The security group exposes only public TCP 80 (ACME challenge and
 HTTPS redirect) and TCP 443 (chat). SSH and Gradio port 7860 are closed externally.
-CloudFront is removed; no custom domain, paid static IP, load balancer or NAT gateway.
-An auto-assigned public IP is used. Stop/start may change the address and grading link;
+CloudFront is removed; no custom domain, load balancer or NAT gateway. The running
+instance now uses the separately managed Elastic IP documented below.
+The template originally used an auto-assigned public IP. The running grading instance
+now uses a separately allocated Elastic IP; retain that allocation to preserve the link.
+For fresh template deployments, auto-assigned IPs can still change on stop/start;
 readiness requires a valid certificate for the current address before sharing the link.
 
 Certbot 5.10.0 and transitive dependencies are hash-locked in `certbot.lock`, installed
@@ -110,8 +114,8 @@ sudo systemctl restart music-store-stop.timer
 Keep the new `OnCalendar` UTC date and budget decision in the release record. A past
 stop timer may stop a restarted instance promptly. To resume safely, arrange to update
 the timer during a controlled boot/maintenance window before restoring public service;
-do not assume an offline instance can be edited through Session Manager. No static
-Elastic IP is reserved. The TLS guard revalidates the current IP and can obtain a new
+do not assume an offline instance can be edited through Session Manager. A separately managed Elastic IP is now reserved; see the static-address record. It
+continues billing while stopped and must be explicitly released after grading approval. The TLS guard revalidates the current IP and can obtain a new
 certificate, but does not update previously distributed grading links automatically.
 Sessions/preferences are process-local; persistent quota is separate.
 
